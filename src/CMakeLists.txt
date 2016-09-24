@@ -8,8 +8,9 @@ set(SOURCE_FILES
         GNScalarVariable.cpp GNScalarVariable.h GNScalarConst.cpp GNScalarConst.h GNScalarSum.cpp GNScalarSum.h GNScalarMult.cpp GNScalarMult.h GNVectorVariable.cpp GNVectorVariable.h
         GNDotProduct.cpp GNDotProduct.h GNMatrixSum.cpp GNMatrixSum.h GNVectorElementWiseProduct.cpp GNVectorElementWiseProduct.h GNMatrixVariable.cpp GNMatrixVariable.h
         GNMatrixProduct.cpp GNMatrixProduct.h GNMatrixElementsSum.cpp GNMatrixElementsSum.h GNMatrixTranspose.cpp GNMatrixTranspose.h GNMatrixMapUnaryFunction.h
-        GNMatrixConstant.cpp GNMatrixConstant.h GNMatrixSub.cpp GNMatrixSub.h)
+        GNMatrixConstant.cpp GNMatrixConstant.h GNMatrixSub.cpp GNMatrixSub.h GNVectorScalarSum.cpp GNVectorScalarSum.h
+        GradientDescentSolver.cpp GradientDescentSolver.h)
 
-add_library(core ${SOURCE_FILES} GradientDescentSolver.cpp GradientDescentSolver.h)
+add_library(core ${SOURCE_FILES}  )
 add_executable(NumGrindTest01 ${SOURCE_FILES})
 target_link_libraries(NumGrindTest01 core)
