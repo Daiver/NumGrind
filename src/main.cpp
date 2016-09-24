@@ -8,12 +8,12 @@
 
 float sigmoid(float z)
 {
-    return 1.0/(1.0 + exp(-z));
+    return (float)(1.0f/(1.0f + exp(-z)));
 }
 
 float sigmoidDer(float z)
 {
-    return sigmoid(z) * sigmoid(1.0 - z);
+    return sigmoid(z) * sigmoid(1.0f - z);
 }
 
 void logisticRegressionExample()
@@ -43,7 +43,7 @@ void logisticRegressionExample()
     std::cout << "Err " << f.value() << std::endl;
     solvers::gradientDescent(10, 0.2, f, vars);
     std::cout << vars << std::endl;
-    
+
 }
 
 int main() {
