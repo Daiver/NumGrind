@@ -10,6 +10,8 @@ Not for production
  - Add NumGrin namespace
  - Add nice interface for GraphNodes
  - Switch from raw pointers to smart pointers
+ - Implement toString() for all nodes
+ - Improve string formating
 
 ##Performance
  - Sdd pre-allocated arrays for intermediate results

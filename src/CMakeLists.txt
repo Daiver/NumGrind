@@ -11,6 +11,6 @@ set(SOURCE_FILES
         GNMatrixConstant.cpp GNMatrixConstant.h GNMatrixSub.cpp GNMatrixSub.h GNMatrixScalarSum.cpp GNMatrixScalarSum.h
         GradientDescentSolver.cpp GradientDescentSolver.h)
 
-add_library(core ${SOURCE_FILES}  )
+add_library(core ${SOURCE_FILES})
 add_executable(NumGrindTest01 ${SOURCE_FILES})
 target_link_libraries(NumGrindTest01 core)
