@@ -1,7 +1,9 @@
 # NumGrind
-Simple computational graph with reverse mode autodiff framework
+Simple computational graph with reverse mode autodiff framework. Inspired by TensorFlow/Theano and other computational graph tools
 
 Not for production
+
+Pull-requests are welcomed
 
 #TODO
 
@@ -12,10 +14,13 @@ Not for production
  - Switch from raw pointers to smart pointers
  - Implement toString() for all nodes
  - Improve string formating
+ - Refactor all nodes
+ - Remove copy-paste from nodes. Add intermediate classes for binary operators
 
 ##Performance
  - Sdd pre-allocated arrays for intermediate results
  - (long term issue) Do not compute backwardPass for Constants
+ - (long term issue) Split mutable part of the graph (caches) into separate structure
 
 ##Tests
  - Split tests into several files
