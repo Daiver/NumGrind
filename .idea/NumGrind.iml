@@ -46,8 +46,6 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/gtest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/3rdparty/DownloadProject/DownloadProject.cmake" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/3rdparty/DownloadProject/DownloadProject.CMakeLists.cmake.in" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -57,12 +55,14 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/3rdparty" />
         </CLASSES>
         <SOURCES>
           <root url="file:///usr/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/3rdparty" />
         </SOURCES>
       </library>
     </orderEntry>

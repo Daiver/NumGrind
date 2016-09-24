@@ -13,7 +13,7 @@
 
 #include "GNVectorVariable.h"
 #include "GNDotProduct.h"
-#include "GNVectorElementWiseSum.h"
+#include "GNMatrixSum.h"
 #include "GNVectorElementWiseProduct.h"
 
 #include "GNMatrixConstant.h"

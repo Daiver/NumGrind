@@ -3,10 +3,10 @@
 
 #include "GNTensorOutput.h"
 
-class GNVectorElementWiseSum : public GNTensorOutput
+class GNMatrixSum : public GNTensorOutput
 {
 public:
-    GNVectorElementWiseSum(GNTensorOutput *arg1, GNTensorOutput *arg2): arg1(arg1), arg2(arg2)
+    GNMatrixSum(GNTensorOutput *arg1, GNTensorOutput *arg2): arg1(arg1), arg2(arg2)
     {
 
     }

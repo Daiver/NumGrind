@@ -3,7 +3,14 @@
 #include "utils.h"
 
 #include "numgrind.h"
+#include "GradientDescentSolver.h"
 #include "Eigen/Core"
+
+void linearRegressionExample()
+{
+//    auto w = GNMatrixVariable(2, 1, {0, 1});
+    assert(false);//TODO: implement it
+}
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
