@@ -28,4 +28,4 @@
 *.out
 *.app
 
-Eigen/*
+3rdparty/Eigen/*

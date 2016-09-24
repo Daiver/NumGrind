@@ -9,7 +9,7 @@ include(CTest)
 enable_testing()
 
 #set(gtest_disable_pthreads on) #needed in MinGW
-include(${REPO}/DownloadProject/DownloadProject.cmake)
+include(${REPO}/3rdparty/DownloadProject/DownloadProject.cmake)
 download_project(
         PROJ                googletest
         GIT_REPOSITORY      https://github.com/google/googletest.git
@@ -18,6 +18,7 @@ download_project(
         )
 
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
+include_directories("../3rdparty")
 include_directories("../src/")
 #set(test_SRCS ADD ALL TEST SOURCE FILES HERE)
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
