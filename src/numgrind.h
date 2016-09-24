@@ -22,5 +22,7 @@
 #include "GNMatrixProduct.h"
 #include "GNMatrixTranspose.h"
 #include "GNMatrixMapUnaryFunction.h"
+#include "GNMatrixSub.h"
+#include "GNMatrixScalarSum.h"
 
 #endif //NUMGRINDTEST01_NUMGRIND_H

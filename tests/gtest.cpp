@@ -245,6 +245,25 @@ TEST(NumGrindMatrixSuit, test08) {
 
 }
 
+
+TEST(NumGrindMatrixSuit, test09) {
+    auto A = GNMatrixVariable(3, 1, {0, 1, 2});
+    auto b = GNScalarVariable(3);
+    auto c = GNMatrixScalarSum(&A, &b);
+    auto expr = GNDotProduct(&c, &c);
+
+    Eigen::VectorXf vars(4);
+    vars << 1, 2, 3, 4;
+    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
+    expr.forwardPass(vars);
+    expr.backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 2*(1 + 4));
+    ASSERT_FLOAT_EQ(grad[1], 2*(2 + 4));
+    ASSERT_FLOAT_EQ(grad[2], 2*(3 + 4));
+    ASSERT_FLOAT_EQ(grad[3], 2*(1 + 4) + 2*(2 + 4) + 2*(3 + 4));
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
