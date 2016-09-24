@@ -46,9 +46,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-    </list>
+    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="" />
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -782,7 +780,7 @@
       <workItem from="1474174406867" duration="6943000" />
       <workItem from="1474690356336" duration="19317000" />
       <workItem from="1474729477219" duration="62000" />
-      <workItem from="1474729725753" duration="5009000" />
+      <workItem from="1474729725753" duration="5436000" />
     </task>
     <servers />
   </component>
@@ -819,7 +817,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52587000" />
+    <option name="totallyTimeSpent" value="53014000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

@@ -6,13 +6,18 @@ Not for production
 #TODO
 
 #Common
+ - Split NumGrind and utility code (main.cpp/utils.h/etc)
+ - Add NumGrin namespace
  - Add nice interface for GraphNodes
  - Switch from raw pointers to smart pointers
 
 ##Performance
- - add pre-allocated arrays for intermediate results
- - (long term issue) do not compute backwardPass for Constants
+ - Sdd pre-allocated arrays for intermediate results
+ - (long term issue) Do not compute backwardPass for Constants
 
 ##Tests
- - split tests into several files
- - change tests names
+ - Split tests into several files
+ - Change tests names
+
+##Solved
+- Nothing
