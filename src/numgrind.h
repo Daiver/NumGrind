@@ -25,4 +25,8 @@
 #include "GNMatrixSub.h"
 #include "GNMatrixScalarSum.h"
 
+#include "GraphManager.h"
+#include "SymbolicScalarNode.h"
+#include "SymbolicScalarNodeOperators.h"
+
 #endif //NUMGRINDTEST01_NUMGRIND_H
