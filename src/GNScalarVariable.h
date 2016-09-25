@@ -24,13 +24,17 @@ public:
 
     float value() const { return this->mValue; }
 
+    void setValue(const float value) { this->mValue = value; }
+
+    void setIndex(const int index) { this->index = index; }
+
     virtual std::string toString() const
     {
         return "[X" + std::to_string(index) + ":" + std::to_string(mValue) + "]";
     }
 
 private:
-    const int index;
+    int index;
     float mValue;
 };
 

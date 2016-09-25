@@ -264,6 +264,28 @@ TEST(NumGrindMatrixSuit, test09) {
     ASSERT_FLOAT_EQ(grad[3], 2*(1 + 4) + 2*(2 + 4) + 2*(3 + 4));
 }
 
+
+TEST(NumGrindGraphManagerSuit, testInitializeVars01) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
+    auto a = manager.variable(1);
+    auto b = manager.variable(2);
+    auto c = a + b;
+
+    auto vars = manager.initializeVariables();
+    auto grad = manager.initializeGradient(vars);
+
+    ASSERT_FLOAT_EQ(vars[0], 1.0);
+    ASSERT_FLOAT_EQ(vars[1], 2.0);
+
+    c.node()->forwardPass(vars);
+    c.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 1.0);
+    ASSERT_FLOAT_EQ(grad[1], 1.0);
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
