@@ -333,6 +333,48 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
     ASSERT_FLOAT_EQ(grad[2], 0.0);
 }
 
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad04) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
+    auto a = 2.0f*manager.variable(3);
+    auto b = a + manager.variable(10);
+
+    auto vars = manager.initializeVariables();
+    auto grad = manager.initializeGradient(vars);
+
+    ASSERT_FLOAT_EQ(vars[0], 3.0);
+    ASSERT_FLOAT_EQ(vars[1], 10.0);
+
+    b.node()->forwardPass(vars);
+    b.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 2.0);
+    ASSERT_FLOAT_EQ(grad[1], 1.0);
+}
+
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
+    auto f = 2*manager.variable(13) * manager.variable(16) - 10 + manager.variable(2)/3.0;
+
+    auto vars = manager.initializeVariables();
+    auto grad = manager.initializeGradient(vars);
+
+    ASSERT_FLOAT_EQ(vars[2], 13.0);
+    ASSERT_FLOAT_EQ(vars[1], 16.0);
+    ASSERT_FLOAT_EQ(vars[0], 2.0);
+
+    f.node()->forwardPass(vars);
+    f.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[2], 2*16.0);
+    ASSERT_FLOAT_EQ(grad[1], 2*13.0);
+    ASSERT_FLOAT_EQ(grad[0], 1.0/3.0);
+}
+
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
