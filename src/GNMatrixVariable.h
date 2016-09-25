@@ -6,8 +6,13 @@
 
 class GNMatrixVariable : public GNTensorOutput{
 public:
+
+    GNMatrixVariable(const int nRows, const int nCols):
+            mNRows(nRows), mNCols(nCols), mValue(Eigen::MatrixXf::Zero(nRows, nCols))
+    {}
+
     GNMatrixVariable(const int nRows, const int nCols, const std::vector<int> &indices):
-            nRows(nRows), nCols(nCols), indices(indices), mValue(Eigen::MatrixXf::Zero(nRows, nCols))
+            mNRows(nRows), mNCols(nCols), indices(indices), mValue(Eigen::MatrixXf::Zero(nRows, nCols))
     {
         assert(nRows * nCols == indices.size());
     }
@@ -22,13 +27,20 @@ public:
 
     virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override
     {
-        assert(sensitivity.rows() == nRows);
-        assert(sensitivity.cols() == nCols);
+        assert(sensitivity.rows() == mNRows);
+        assert(sensitivity.cols() == mNCols);
         for(int i = 0; i < indices.size(); ++i) {
             auto inds2D = flatIndTo2DInd(i);
             grad[indices[i]] += sensitivity(inds2D.first, inds2D.second);
         }
     }
+
+    void setIndices(const std::vector<int> &indices) { this->indices = indices; }
+
+    void setValue(const Eigen::MatrixXf &value);
+
+    int nRows() const { return mNRows; }
+    int nCols() const { return mNCols; }
 
     const Eigen::MatrixXf &value() const { return this->mValue; }
 
@@ -40,17 +52,18 @@ public:
 protected:
     std::pair<int, int> flatIndTo2DInd(const int flatInd)
     {
-        const int row = flatInd / nCols;
-        const int col = flatInd % nCols;
+        const int row = flatInd / mNCols;
+        const int col = flatInd % mNCols;
         return std::make_pair(row, col);
     }
 
 private:
-    const int nRows;
-    const int nCols;
-    const std::vector<int> indices;
+    int mNRows;
+    int mNCols;
+    std::vector<int> indices;
     Eigen::MatrixXf mValue;
 };
 
 
 #endif //NUMGRINDTEST01_GNMATRIXVARIABLE_H
+

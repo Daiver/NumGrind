@@ -6,8 +6,7 @@
 
 class SymbolicScalarPlaceholder : public SymbolicScalarNode {
 public:
-    SymbolicScalarPlaceholder(GraphManagerAbstract *manager, GNScalarVariable *variable,
-                                  const bool isVariable);
+    SymbolicScalarPlaceholder(GraphManagerAbstract *manager, GNScalarVariable *variable, const bool isVariable);
 
     bool isVariable() const { return mIsVariable; }
 

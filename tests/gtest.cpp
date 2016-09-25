@@ -374,6 +374,38 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
     ASSERT_FLOAT_EQ(grad[0], 1.0/3.0);
 }
 
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
+    Eigen::VectorXf val1(3);
+    val1 << 4, 6, 1;
+    Eigen::MatrixXf val2(2, 3);
+    val2 << 2, 4, 6,
+            8, 10, 12;
+    auto a = manager.variable(val1);
+    auto b = manager.variable(val2);
+    auto c = manager.variable(1, 4, 13);
+
+    auto vars = manager.initializeVariables();
+
+    ASSERT_EQ(vars.size(), 3 + 6 + 4);
+
+    ASSERT_FLOAT_EQ(vars[0], 4.0);
+    ASSERT_FLOAT_EQ(vars[1], 6.0);
+    ASSERT_FLOAT_EQ(vars[2], 1.0);
+
+    ASSERT_FLOAT_EQ(vars[3], 2.0);
+    ASSERT_FLOAT_EQ(vars[4], 4.0);
+    ASSERT_FLOAT_EQ(vars[5], 6.0);
+    ASSERT_FLOAT_EQ(vars[6], 8.0);
+    ASSERT_FLOAT_EQ(vars[7], 10.0);
+    ASSERT_FLOAT_EQ(vars[8], 12.0);
+
+    ASSERT_FLOAT_EQ(vars[9],  13.0);
+    ASSERT_FLOAT_EQ(vars[10], 13.0);
+    ASSERT_FLOAT_EQ(vars[11], 13.0);
+}
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

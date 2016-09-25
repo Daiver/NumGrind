@@ -5,6 +5,7 @@
 #include "Eigen/Core"
 #include "GraphManagerAbstract.h"
 #include "SymbolicScalarPlaceholder.h"
+#include "SymbolicTensorPlaceholder.h"
 
 class GraphManager : public GraphManagerAbstract{
 public:
@@ -17,9 +18,15 @@ public:
     static Eigen::VectorXf initializeGradient(const Eigen::VectorXf &vars);
 
     SymbolicScalarPlaceholder variable(const float val = 0.0);
+    SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
+    SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
+
+protected:
+    int nVarsForMatrices() const;
 
 private:
     std::vector<GNScalarVariable *> mScalarVariables;
+    std::vector<GNMatrixVariable *> mMatrixVariables;
     std::vector<GraphNode *> mGraphNodes;
 };
 
