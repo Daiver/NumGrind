@@ -12,7 +12,7 @@
 namespace SymbolicScalarNodeOperators {
 
     SymbolicScalarNode operator+(SymbolicScalarNode &a, SymbolicScalarNode &b);
-
+    SymbolicScalarNode operator*(SymbolicScalarNode &a, SymbolicScalarNode &b);
 };
 
 

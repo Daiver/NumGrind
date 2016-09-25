@@ -265,7 +265,7 @@ TEST(NumGrindMatrixSuit, test09) {
 }
 
 
-TEST(NumGrindGraphManagerSuit, testInitializeVars01) {
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad01) {
 
     using namespace SymbolicScalarNodeOperators;
     GraphManager manager;
@@ -284,6 +284,28 @@ TEST(NumGrindGraphManagerSuit, testInitializeVars01) {
 
     ASSERT_FLOAT_EQ(grad[0], 1.0);
     ASSERT_FLOAT_EQ(grad[1], 1.0);
+}
+
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
+    auto a = manager.variable(3);
+    auto b = manager.variable(2);
+    auto c = a + b;
+    auto d = a * b;
+
+    auto vars = manager.initializeVariables();
+    auto grad = manager.initializeGradient(vars);
+
+    ASSERT_FLOAT_EQ(vars[0], 3.0);
+    ASSERT_FLOAT_EQ(vars[1], 2.0);
+
+    d.node()->forwardPass(vars);
+    d.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 2.0);
+    ASSERT_FLOAT_EQ(grad[1], 3.0);
 }
 
 int main(int argc, char **argv) {
