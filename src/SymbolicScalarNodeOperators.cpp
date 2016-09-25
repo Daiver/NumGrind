@@ -8,6 +8,14 @@ SymbolicScalarNode  SymbolicScalarNodeOperators::operator+(SymbolicScalarNode &a
     return SymbolicScalarNode(manager, node);
 }
 
+SymbolicScalarNode  SymbolicScalarNodeOperators::operator-(SymbolicScalarNode &a, SymbolicScalarNode &b) {
+    GraphManagerAbstract *manager = a.manager();
+    assert(manager == b.manager());
+    GNScalarOutput *node = new GNScalarSub(a.node(), b.node());
+    manager->addGraphNode(node);
+    return SymbolicScalarNode(manager, node);
+}
+
 SymbolicScalarNode  SymbolicScalarNodeOperators::operator*(SymbolicScalarNode &a, SymbolicScalarNode &b) {
     GraphManagerAbstract *manager = a.manager();
     assert(manager == b.manager());

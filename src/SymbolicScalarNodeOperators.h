@@ -8,10 +8,12 @@
 #include "GNScalarConst.h"
 #include "GNScalarSum.h"
 #include "GNScalarMult.h"
+#include "GNScalarSub.h"
 
 namespace SymbolicScalarNodeOperators {
 
     SymbolicScalarNode operator+(SymbolicScalarNode &a, SymbolicScalarNode &b);
+    SymbolicScalarNode operator-(SymbolicScalarNode &a, SymbolicScalarNode &b);
     SymbolicScalarNode operator*(SymbolicScalarNode &a, SymbolicScalarNode &b);
 };
 

@@ -9,6 +9,7 @@
 #include "GNScalarVariable.h"
 #include "GNScalarConst.h"
 #include "GNScalarSum.h"
+#include "GNScalarSub.h"
 #include "GNScalarMult.h"
 
 #include "GNVectorVariable.h"

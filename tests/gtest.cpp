@@ -24,7 +24,6 @@ TEST(NumGrindScalarSuit, test01) {
 
     ASSERT_FLOAT_EQ(grad[0], 16.0f);
     ASSERT_FLOAT_EQ(grad[1], 3.0f);
-//    ASSERT_FLOAT_EQ(0, 1);
 }
 
 
@@ -290,22 +289,48 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
 
     using namespace SymbolicScalarNodeOperators;
     GraphManager manager;
+    auto a = manager.variable(7);
+    auto b = manager.variable(12);
+    auto c = a - b;
+    auto d = a*c;
+
+    auto vars = manager.initializeVariables();
+    auto grad = manager.initializeGradient(vars);
+
+    ASSERT_FLOAT_EQ(vars[0], 7.0);
+    ASSERT_FLOAT_EQ(vars[1], 12.0);
+
+    d.node()->forwardPass(vars);
+    d.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 2.0);
+    ASSERT_FLOAT_EQ(grad[1], -7.0);
+}
+
+
+TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
+
+    using namespace SymbolicScalarNodeOperators;
+    GraphManager manager;
     auto a = manager.variable(3);
     auto b = manager.variable(2);
-    auto c = a + b;
-    auto d = a * b;
+    auto c = manager.variable(12);
+    auto d = a + b;
+    auto e = a * b;
 
     auto vars = manager.initializeVariables();
     auto grad = manager.initializeGradient(vars);
 
     ASSERT_FLOAT_EQ(vars[0], 3.0);
     ASSERT_FLOAT_EQ(vars[1], 2.0);
+    ASSERT_FLOAT_EQ(vars[2], 12.0);
 
-    d.node()->forwardPass(vars);
-    d.node()->backwardPass(1.0, grad);
+    e.node()->forwardPass(vars);
+    e.node()->backwardPass(1.0, grad);
 
     ASSERT_FLOAT_EQ(grad[0], 2.0);
     ASSERT_FLOAT_EQ(grad[1], 3.0);
+    ASSERT_FLOAT_EQ(grad[2], 0.0);
 }
 
 int main(int argc, char **argv) {

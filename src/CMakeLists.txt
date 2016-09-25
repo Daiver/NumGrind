@@ -15,7 +15,7 @@ set(CORE_FILES
         GraphManagerAbstract.cpp GraphManagerAbstract.h
         SymbolicGraphNode.cpp SymbolicGraphNode.h
         SymbolicScalarNode.cpp SymbolicScalarNode.h
-        SymbolicScalarNodeOperators.cpp SymbolicScalarNodeOperators.h SymbolicScalarPlaceholder.cpp SymbolicScalarPlaceholder.h)
+        SymbolicScalarNodeOperators.cpp SymbolicScalarNodeOperators.h SymbolicScalarPlaceholder.cpp SymbolicScalarPlaceholder.h GNScalarSub.cpp GNScalarSub.h)
 
 add_library(core ${CORE_FILES})
 add_executable(NumGrindTest01 main.cpp )
