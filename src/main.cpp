@@ -41,7 +41,7 @@ void logisticRegressionExample()
 
     f.forwardPass(vars);
     std::cout << "Err " << f.value() << std::endl;
-    solvers::gradientDescent(10, 0.25, f, vars);
+    solvers::gradientDescent(1000, 0.01, f, vars);
     std::cout << vars << std::endl;
 
 }

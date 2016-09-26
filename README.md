@@ -32,5 +32,11 @@ Pull-requests are welcomed
  - Split tests into several files
  - Change tests names
 
+##3rdparty
+ - Find a way to automaticly include Eigen without adding it inside repository
+
+##CI
+ - Make travis happy #1
+
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
