@@ -1,6 +1,6 @@
 #include "SymbolicTensorNodeOperators.h"
 
-SymbolicScalarNode SymbolicTensorNodeOperators::dot(SymbolicTensorNode a, SymbolicTensorNode b) {
+SymbolicScalarNode SymbolicNodeOps::dot(SymbolicTensorNode a, SymbolicTensorNode b) {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
 
@@ -10,7 +10,7 @@ SymbolicScalarNode SymbolicTensorNodeOperators::dot(SymbolicTensorNode a, Symbol
     return SymbolicScalarNode(m, node);
 }
 
-SymbolicTensorNode SymbolicTensorNodeOperators::matmult(SymbolicTensorNode a, SymbolicTensorNode b) {
+SymbolicTensorNode SymbolicNodeOps::matmult(SymbolicTensorNode a, SymbolicTensorNode b) {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
 
@@ -20,7 +20,7 @@ SymbolicTensorNode SymbolicTensorNodeOperators::matmult(SymbolicTensorNode a, Sy
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicTensorNodeOperators::operator+(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -31,7 +31,7 @@ SymbolicTensorNode SymbolicTensorNodeOperators::operator+(SymbolicTensorNode a, 
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicTensorNodeOperators::operator-(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicNodeOps::operator-(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -42,7 +42,7 @@ SymbolicTensorNode SymbolicTensorNodeOperators::operator-(SymbolicTensorNode a, 
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicTensorNodeOperators::operator*(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicNodeOps::operator*(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -53,7 +53,7 @@ SymbolicTensorNode SymbolicTensorNodeOperators::operator*(SymbolicTensorNode a, 
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicTensorNodeOperators::operator+(SymbolicTensorNode a, SymbolicScalarNode b)
+SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicScalarNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);

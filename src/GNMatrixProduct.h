@@ -14,8 +14,10 @@ public:
     {
         arg1->forwardPass(vars);
         arg2->forwardPass(vars);
-        assert(arg1->value().cols() == arg2->value().rows());
-        this->mValue = arg1->value() * arg2->value();
+        auto res1 = arg1->value();
+        auto res2 = arg2->value();
+        assert(res1.cols() == res2.rows());
+        this->mValue = res1 * res2;
     }
 
     virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override

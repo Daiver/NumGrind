@@ -12,8 +12,8 @@ Pull-requests are welcomed
 
 ```cpp
 
-    using namespace SymbolicScalarNodeOperators;
-    using namespace SymbolicTensorNodeOperators;
+    using namespace SymbolicNodeOps;
+    using namespace SymbolicNodeOps;
 
     GraphManager man; 
 

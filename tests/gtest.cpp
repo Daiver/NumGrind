@@ -266,7 +266,7 @@ TEST(NumGrindMatrixSuit, test09) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad01) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     auto a = manager.variable(1);
     auto b = manager.variable(2);
@@ -287,7 +287,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad01) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     auto a = manager.variable(7);
     auto b = manager.variable(12);
@@ -310,7 +310,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     auto a = manager.variable(3);
     auto b = manager.variable(2);
@@ -335,7 +335,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad04) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     auto a = 2.0f*manager.variable(3);
     auto b = a + manager.variable(10);
@@ -355,7 +355,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad04) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     auto f = 2*manager.variable(13) * manager.variable(16) - 10 + manager.variable(2)/3.0;
 
@@ -376,7 +376,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
 
-    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicNodeOps;
     GraphManager manager;
     Eigen::VectorXf val1(3);
     val1 << 4, 6, 1;

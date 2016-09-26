@@ -11,7 +11,7 @@
 #include "GNScalarSub.h"
 #include "GNScalarConst.h"
 
-namespace SymbolicScalarNodeOperators {
+namespace SymbolicNodeOps {
 
     SymbolicScalarNode operator+(SymbolicScalarNode a, SymbolicScalarNode b);
     SymbolicScalarNode operator-(SymbolicScalarNode a, SymbolicScalarNode b);

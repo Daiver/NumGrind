@@ -48,9 +48,9 @@ void logisticRegressionOperatorAndExample01()
 
 void logisticRegressionOperatorAndExample02()
 {
-    using namespace SymbolicScalarNodeOperators;
-    using namespace SymbolicTensorNodeOperators;
-    GraphManager man;
+    using namespace SymbolicNodeOps;
+
+    GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
@@ -60,16 +60,16 @@ void logisticRegressionOperatorAndExample02()
             1, 1;
     targets << 0, 0, 0, 1;
 
-    auto X = man.constant(data);
-    auto y = man.constant(targets);
-    auto w = man.variable(2, 1, 0);
-    auto b = man.variable(0);
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+    auto w = gm.variable(2, 1, 0);
+    auto b = gm.variable(0);
     auto f = apply<sigmoid, sigmoidDer>(matmult(X, w) + b);
     auto residual = f - y;
     auto err = dot(residual, residual);
 
-    auto vars = man.initializeVariables();
-    auto grad = man.initializeGradient(vars);
+    auto vars = gm.initializeVariables();
+    auto grad = gm.initializeGradient(vars);
 
     solvers::gradientDescent(20, 0.1, *err.node(), vars);
     f.node()->forwardPass(vars);
@@ -81,28 +81,63 @@ void logisticRegressionOperatorAndExample02()
     std::cout << b.value() << std::endl;
 }
 
+void mlpOperatorOrExample01()
+{
+    using namespace SymbolicNodeOps;
+
+    GraphManager gm;
+
+    Eigen::MatrixXf data(4, 3);
+    Eigen::VectorXf targets(4);
+    data << 0, 0, 1,
+            0, 1, 1,
+            1, 0, 1,
+            1, 1, 1;
+    targets << 0, 1, 1, 0;
+
+    //NumGrind currently have no random initializators
+    Eigen::MatrixXf w1Init(3, 2);
+    w1Init << 0.01, 0.02, -0.01,
+              0.03, 0.04, -0.02;
+    Eigen::MatrixXf b1Init(2, 1);
+    b1Init << -0.03, -0.01;
+
+    Eigen::MatrixXf w2Init(2, 1);
+    w2Init << -0.01, 0.08;
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+    auto W1 = gm.variable(w1Init);
+    auto b1 = gm.variable(b1Init);
+    auto W2 = gm.variable(w2Init);
+    auto b2 = gm.variable(0.002);
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
+    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto residual = f2 - y;
+    auto err = dot(residual, residual);
+
+    auto vars = gm.initializeVariables();
+    auto grad = gm.initializeGradient(vars);
+
+    solvers::gradientDescent(50, 0.01, *err.node(), vars);
+    f2.node()->forwardPass(vars);
+    std::cout << "Function result" << std::endl;
+    std::cout << f2.value() << std::endl;
+    std::cout << "W1:" << std::endl;
+    std::cout << W1.value() << std::endl;
+    std::cout << "b1:" << std::endl;
+    std::cout << b1.value() << std::endl;
+
+    std::cout << "W2:" << std::endl;
+    std::cout << W2.value() << std::endl;
+    std::cout << "b2:" << std::endl;
+    std::cout << b2.value() << std::endl;
+}
+
 int main() {
 //    logisticRegressionOperatorAndExample01();
-    logisticRegressionOperatorAndExample02();
-//    std::cout << "Hello, World!" << std::endl;
-//
-//    auto n1 = GNVectorVariable({0, 1});
-//    auto n2 = GNVectorVariable({2, 3});
-//
-//    auto n3 = GNMatrixElementWiseProduct(&n1, &n2);
-//    auto n4 = GNDotProduct(&n3, &n1);
-//
-//    auto graph = n4;
-//
-//    Eigen::VectorXf vars = utils::vec2EVecf({1, 2, 3, 4});
-//    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
-//    graph.forwardPass(vars);
-//    graph.backwardPass(1, grad);
-//
-//    std::cout << graph.toString() << std::endl;
-//    for(int i = 0; i < grad.size(); ++i)
-//        std::cout << i << ":" << grad[i] << " ";
-//    std::cout << std::endl;
+//    logisticRegressionOperatorAndExample02();
+    mlpOperatorOrExample01();
 
     return 0;
 }
