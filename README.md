@@ -7,6 +7,39 @@ Not for production
 
 Pull-requests are welcomed
 
+#Examples
+##Logistic regression
+
+```
+    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicTensorNodeOperators;
+    GraphManager man;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 0, 0, 1;
+
+    auto X = man.constant(data);
+    auto y = man.constant(targets);
+    auto w = man.variable(2, 1, 0);
+    auto b = man.variable(0);
+    auto f = apply<sigmoid, sigmoidDer>(matmult(X, w) + b);
+    auto residual = f - y;
+    auto err = dot(residual, residual);
+
+    auto vars = man.initializeVariables();
+    auto grad = man.initializeGradient(vars);
+
+    solvers::gradientDescent(10, 0.2, *err.node(), vars);
+    std::cout << w.value() << std::endl;
+    std::cout << b.value() << std::endl;
+
+
+```
 
 #Dependencies
  - cmake - build tool

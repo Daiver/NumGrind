@@ -47,11 +47,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixSub.h" afterPath="$PROJECT_DIR$/src/GNMatrixSub.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GradientDescentSolver.cpp" afterPath="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
@@ -95,8 +91,18 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+            <state relative-caret-position="316">
+              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GradientDescentSolver.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GradientDescentSolver.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -158,16 +164,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GNMatrixElementWiseProduct.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GNMatrixElementWiseProduct.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GraphManager.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -201,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/GNVectorScalarSum.cpp" />
         <option value="$PROJECT_DIR$/src/GNVectorScalarSum.h" />
         <option value="$PROJECT_DIR$/src/GNMatrixScalarSum.h" />
-        <option value="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
         <option value="$PROJECT_DIR$/src/ScalarVariable.h" />
         <option value="$PROJECT_DIR$/src/ScalarNode.cpp" />
         <option value="$PROJECT_DIR$/src/ScalarNode.h" />
@@ -238,6 +233,7 @@
         <option value="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
         <option value="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" />
         <option value="$PROJECT_DIR$/src/GNMatrixSub.h" />
+        <option value="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
@@ -582,7 +578,7 @@
       <workItem from="1474729725753" duration="9336000" />
       <workItem from="1474782899409" duration="8063000" />
       <workItem from="1474829772984" duration="5929000" />
-      <workItem from="1474902121808" duration="3187000" />
+      <workItem from="1474902121808" duration="3346000" />
     </task>
     <servers />
   </component>
@@ -619,7 +615,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74093000" />
+    <option name="totallyTimeSpent" value="74252000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,13 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GradientDescentSolver.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1081,10 +1070,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GradientDescentSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+        <state relative-caret-position="316">
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
           <folding />
         </state>
       </provider>

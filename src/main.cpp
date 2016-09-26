@@ -72,7 +72,9 @@ void logisticRegressionOperatorAndExample02()
     auto grad = man.initializeGradient(vars);
 
     solvers::gradientDescent(10, 0.2, *err.node(), vars);
-    std::cout << vars << std::endl;
+//    std::cout << vars << std::endl;
+    std::cout << w.value() << std::endl;
+    std::cout << b.value() << std::endl;
 }
 
 int main() {
