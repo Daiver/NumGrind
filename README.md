@@ -10,7 +10,7 @@ Pull-requests are welcomed
 #Examples
 ##Logistic regression
 
-```
+```cpp
     using namespace SymbolicScalarNodeOperators;
     using namespace SymbolicTensorNodeOperators;
     GraphManager man;
