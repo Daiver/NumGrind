@@ -11,8 +11,6 @@ Pull-requests are welcomed
 ##Logistic regression
 
 ```cpp
-
-    using namespace SymbolicNodeOps;
     using namespace SymbolicNodeOps;
 
     GraphManager man; 
@@ -45,6 +43,54 @@ Pull-requests are welcomed
     std::cout << w.value() << std::endl;
     std::cout << "b:" << std::endl;
     std::cout << b.value() << std::endl;
+
+```
+
+##Multilayer perceptron
+```cpp
+
+    using namespace SymbolicNodeOps;
+	GraphManager gm;
+
+    //Data for "OR" operator
+    Eigen::MatrixXf data(4, 3);
+    Eigen::VectorXf targets(4);
+    data << 0, 0, 1,
+            0, 1, 1,
+            1, 0, 1,
+            1, 1, 1;
+    targets << 0, 1, 1, 0;
+
+    srand(16);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+    auto w1Init = 1.0 * Eigen::MatrixXf::Random(3, 2);
+    auto w2Init = 0.01 * Eigen::MatrixXf::Random(2, 1);
+    std::cout << w1Init << std::endl;
+    std::cout << w2Init << std::endl;
+    auto W1 = gm.variable(w1Init);
+    auto W2 = gm.variable(w2Init);
+    auto b2 = gm.variable((float)rand() / RAND_MAX * 0.01);
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
+    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto residual = f2 - y;
+    auto err = dot(residual, residual);
+
+    auto vars = gm.initializeVariables();
+    auto grad = gm.initializeGradient(vars);
+
+    solvers::gradientDescent(50, 1.3, *err.node(), vars);
+    f2.node()->forwardPass(vars);
+    std::cout << "Function result" << std::endl;
+    std::cout << f2.value() << std::endl;
+    std::cout << "W1:" << std::endl;
+    std::cout << W1.value() << std::endl;
+
+    std::cout << "W2:" << std::endl;
+    std::cout << W2.value() << std::endl;
+    std::cout << "b2:" << std::endl;
+    std::cout << b2.value() << std::endl;
 
 ```
 
