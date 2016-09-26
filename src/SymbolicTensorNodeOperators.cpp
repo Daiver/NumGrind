@@ -52,3 +52,12 @@ SymbolicTensorNode SymbolicTensorNodeOperators::operator*(SymbolicTensorNode a, 
 
     return SymbolicTensorNode(m, node);
 }
+
+SymbolicTensorNode SymbolicTensorNodeOperators::operator+(SymbolicTensorNode a, SymbolicScalarNode b)
+{
+    GraphManagerAbstract *m = a.manager();
+    assert(b.manager() == m);
+    auto node = new GNMatrixScalarSum(a.node(), b.node());
+    m->addGraphNode(node);
+    return SymbolicTensorNode(m, node);
+}

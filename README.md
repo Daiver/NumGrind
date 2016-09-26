@@ -9,12 +9,14 @@ Pull-requests are welcomed
 
 
 #Dependencies
- - Eigen3 for basic linear algebra
+ - cmake - build tool
+ - Eigen3 - basic linear algebra
 
 #Installation
-1. Download Eigen from official site. Copy Eigen dir into 3rdparty dir
-2. mkdir build ; cd build ; cmake .. && make
-3. Profit?
+1. Install CMake
+2. Download Eigen from official site. Copy Eigen dir into 3rdparty dir
+3. mkdir build ; cd build ; cmake .. && make
+4. Profit?
 
 #TODO
 
@@ -38,6 +40,7 @@ Pull-requests are welcomed
  - Add pre-allocated arrays for intermediate results
  - (long term issue) Do not compute backwardPass for Constants
  - (long term issue) Split mutable part of the graph (caches) into separate structure
+ - (long term issue) Add GPU/OpenCL support
 
 ##Tests
  - Split tests into several files

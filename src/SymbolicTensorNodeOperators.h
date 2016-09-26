@@ -27,6 +27,7 @@ namespace SymbolicTensorNodeOperators {
     SymbolicTensorNode operator-(SymbolicTensorNode a, SymbolicTensorNode b);
     SymbolicTensorNode operator*(SymbolicTensorNode a, SymbolicTensorNode b);
 
+    SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicScalarNode b);
 };
 
 

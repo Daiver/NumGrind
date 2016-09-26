@@ -13,7 +13,9 @@ public:
     virtual void forwardPass(const Eigen::VectorXf &vars) override {
         arg1->forwardPass(vars);
         arg2->forwardPass(vars);
-        mValue = arg1->value() - arg2->value();
+        auto res1 = arg1->value();
+        auto res2 = arg2->value();
+        mValue = res1 - res2;
     }
 
     virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override {

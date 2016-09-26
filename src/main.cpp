@@ -16,7 +16,7 @@ float sigmoidDer(float z)
     return sigmoid(z) * sigmoid(1.0f - z);
 }
 
-void logisticRegressionExample()
+void logisticRegressionOperatorAndExample01()
 {
     Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
@@ -46,8 +46,38 @@ void logisticRegressionExample()
 
 }
 
+void logisticRegressionOperatorAndExample02()
+{
+    using namespace SymbolicScalarNodeOperators;
+    using namespace SymbolicTensorNodeOperators;
+    GraphManager man;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 0, 0, 1;
+
+    auto X = man.constant(data);
+    auto y = man.constant(targets);
+    auto w = man.variable(2, 1, 0);
+    auto b = man.variable(0);
+    auto f = apply<sigmoid, sigmoidDer>(matmult(X, w) + b);
+    auto residual = f - y;
+    auto err = dot(residual, residual);
+
+    auto vars = man.initializeVariables();
+    auto grad = man.initializeGradient(vars);
+
+    solvers::gradientDescent(10, 0.2, *err.node(), vars);
+    std::cout << vars << std::endl;
+}
+
 int main() {
-    logisticRegressionExample();
+//    logisticRegressionOperatorAndExample01();
+    logisticRegressionOperatorAndExample02();
 //    std::cout << "Hello, World!" << std::endl;
 //
 //    auto n1 = GNVectorVariable({0, 1});
