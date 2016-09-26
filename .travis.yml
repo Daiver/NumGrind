@@ -19,3 +19,5 @@ script:
 after_script:
   - cmake --build . --target test
 
+notifications:
+  email: false
