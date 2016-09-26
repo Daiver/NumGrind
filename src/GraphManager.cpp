@@ -1,6 +1,6 @@
-
 #include "GraphManager.h"
 
+#include "GNMatrixConstant.h"
 
 GraphManager::GraphManager() {
 
@@ -80,5 +80,11 @@ Eigen::VectorXf GraphManager::initializeVariables() {
     }
 
     return res;
+}
+
+SymbolicTensorNode GraphManager::constant(const Eigen::MatrixXf &value) {
+    auto node = new GNMatrixConstant(value);
+    this->addGraphNode(node);
+    return SymbolicTensorNode(this, node);
 }
 

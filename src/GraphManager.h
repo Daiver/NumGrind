@@ -7,6 +7,7 @@
 #include "SymbolicScalarPlaceholder.h"
 #include "SymbolicTensorPlaceholder.h"
 
+
 class GraphManager : public GraphManagerAbstract{
 public:
     GraphManager();
@@ -20,6 +21,8 @@ public:
     SymbolicScalarPlaceholder variable(const float val = 0.0);
     SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
     SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
+
+    SymbolicTensorNode constant(const Eigen::MatrixXf &value);
 
 protected:
     int nVarsForMatrices() const;
