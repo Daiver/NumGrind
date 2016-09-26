@@ -28,7 +28,10 @@
 
 #include "GraphManager.h"
 #include "SymbolicScalarNode.h"
-#include "SymbolicScalarNodeOperators.h"
 #include "SymbolicScalarPlaceholder.h"
+#include "SymbolicScalarNodeOperators.h"
+#include "SymbolicTensorNode.h"
+#include "SymbolicTensorPlaceholder.h"
+#include "SymbolicTensorNodeOperators.h"
 
 #endif //NUMGRINDTEST01_NUMGRIND_H

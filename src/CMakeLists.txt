@@ -25,7 +25,7 @@ set(CORE_FILES
         SymbolicScalarNode.cpp SymbolicScalarNode.h
         SymbolicScalarNodeOperators.cpp SymbolicScalarNodeOperators.h
         SymbolicScalarPlaceholder.cpp SymbolicScalarPlaceholder.h
-        SymbolicTensorNode.cpp SymbolicTensorNode.h SymbolicTensorPlaceholder.cpp SymbolicTensorPlaceholder.h)
+        SymbolicTensorNode.cpp SymbolicTensorNode.h SymbolicTensorPlaceholder.cpp SymbolicTensorPlaceholder.h SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h)
 
 add_library(core ${CORE_FILES})
 add_executable(NumGrindTest01 main.cpp )
