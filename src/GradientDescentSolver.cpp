@@ -13,6 +13,8 @@ void solvers::gradientDescent(const int nIters, const float stepSize, GNScalarOu
         function.forwardPass(vars);
         const float err = function.value();
         std::cout << iter << " : " << err << std::endl;
+//        std::cout << "grad" << std::endl;
+//        std::cout << grad << std::endl;
     }
     function.forwardPass(vars);
 }
