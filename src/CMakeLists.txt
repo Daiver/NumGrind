@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-include_directories("../3rdparty")
+#include_directories("../3rdparty")
+include_directories(${EIGEN3_INCLUDE_DIR})
+
 
 set(CORE_FILES
         utils.h numgrind.h
