@@ -53,7 +53,7 @@ int main() {
 //    auto n1 = GNVectorVariable({0, 1});
 //    auto n2 = GNVectorVariable({2, 3});
 //
-//    auto n3 = GNVectorElementWiseProduct(&n1, &n2);
+//    auto n3 = GNMatrixElementWiseProduct(&n1, &n2);
 //    auto n4 = GNDotProduct(&n3, &n1);
 //
 //    auto graph = n4;

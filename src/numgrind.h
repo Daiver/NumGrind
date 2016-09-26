@@ -15,11 +15,11 @@
 #include "GNVectorVariable.h"
 #include "GNDotProduct.h"
 #include "GNMatrixSum.h"
-#include "GNVectorElementWiseProduct.h"
+#include "GNMatrixElementWiseProduct.h"
 
 #include "GNMatrixConstant.h"
 #include "GNMatrixVariable.h"
-#include "GNMatrixElementsSum.h"
+#include "GNMatrixReduceSum.h"
 #include "GNMatrixProduct.h"
 #include "GNMatrixTranspose.h"
 #include "GNMatrixMapUnaryFunction.h"

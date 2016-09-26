@@ -41,3 +41,14 @@ SymbolicTensorNode SymbolicTensorNodeOperators::operator-(SymbolicTensorNode a, 
 
     return SymbolicTensorNode(m, node);
 }
+
+SymbolicTensorNode SymbolicTensorNodeOperators::operator*(SymbolicTensorNode a, SymbolicTensorNode b)
+{
+    GraphManagerAbstract *m = a.manager();
+    assert(b.manager() == m);
+
+    GNMatrixElementWiseProduct *node = new GNMatrixElementWiseProduct(a.node(), b.node());
+    m->addGraphNode(node);
+
+    return SymbolicTensorNode(m, node);
+}

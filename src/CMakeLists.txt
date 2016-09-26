@@ -11,10 +11,10 @@ set(CORE_FILES
         GNScalarSub.cpp GNScalarSub.h
         GNVectorVariable.cpp GNVectorVariable.h
         GNDotProduct.cpp GNDotProduct.h
-        GNMatrixSum.cpp GNMatrixSum.h GNVectorElementWiseProduct.cpp GNVectorElementWiseProduct.h
+        GNMatrixSum.cpp GNMatrixSum.h GNMatrixElementWiseProduct.cpp GNMatrixElementWiseProduct.h
         GNMatrixVariable.cpp GNMatrixVariable.h
         GNMatrixProduct.cpp GNMatrixProduct.h
-        GNMatrixElementsSum.cpp GNMatrixElementsSum.h
+        GNMatrixReduceSum.cpp GNMatrixReduceSum.h
         GNMatrixTranspose.cpp GNMatrixTranspose.h
         GNMatrixMapUnaryFunction.h
         GNMatrixConstant.cpp GNMatrixConstant.h GNMatrixSub.cpp GNMatrixSub.h GNMatrixScalarSum.cpp GNMatrixScalarSum.h

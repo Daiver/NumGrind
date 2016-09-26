@@ -14,7 +14,6 @@ Pull-requests are welcomed
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add NumGrin namespace
  - Add nice interface for GraphNodes
- - Switch from raw pointers to smart pointers
  - Implement toString() for all nodes
  - Improve string formating
  - Refactor all nodes
@@ -34,4 +33,4 @@ Pull-requests are welcomed
  - Change tests names
 
 ##Solved
-- Nothing
+ - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later

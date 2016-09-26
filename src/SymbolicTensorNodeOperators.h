@@ -4,6 +4,7 @@
 #include "SymbolicScalarNode.h"
 #include "SymbolicTensorNode.h"
 
+#include "GNMatrixElementWiseProduct.h"
 #include "GNDotProduct.h"
 #include "GNMatrixConstant.h"
 #include "GNMatrixProduct.h"
@@ -11,7 +12,7 @@
 #include "GNMatrixSub.h"
 #include "GNMatrixScalarSum.h"
 #include "GNMatrixMapUnaryFunction.h"
-#include "GNMatrixElementsSum.h"
+#include "GNMatrixReduceSum.h"
 
 
 namespace SymbolicTensorNodeOperators {
@@ -21,6 +22,7 @@ namespace SymbolicTensorNodeOperators {
 
     SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicTensorNode b);
     SymbolicTensorNode operator-(SymbolicTensorNode a, SymbolicTensorNode b);
+    SymbolicTensorNode operator*(SymbolicTensorNode a, SymbolicTensorNode b);
 
 };
 

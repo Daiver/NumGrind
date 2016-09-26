@@ -31,7 +31,7 @@ TEST(NumGrindVectorSuit, testDotProduct01) {
     auto n1 = GNVectorVariable({0, 1});
     auto n2 = GNVectorVariable({2, 3});
 
-    auto n3 = GNVectorElementWiseProduct(&n1, &n2);
+    auto n3 = GNMatrixElementWiseProduct(&n1, &n2);
     auto n4 = GNDotProduct(&n3, &n1);
 
     auto graph = n4;
@@ -78,7 +78,7 @@ TEST(NumGrindMatrixSuit, test01) {
 
 TEST(NumGrindMatrixSuit, test02) {
     auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
-    auto n2 = GNMatrixElementsSum(&n1);
+    auto n2 = GNMatrixReduceSum(&n1);
     Eigen::VectorXf vars(4);
     vars << 1, 2, 3, 4;
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
@@ -111,7 +111,7 @@ TEST(NumGrindMatrixSuit, test04) {
     auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
     auto n2 = GNMatrixVariable(2, 2, {4, 5, 6, 7});
     auto n3 = GNMatrixProduct(&n1, &n2);
-    auto n4 = GNMatrixElementsSum(&n3);
+    auto n4 = GNMatrixReduceSum(&n3);
     Eigen::VectorXf vars(8);
     vars << 1, 2, 3, 4,
             5, 6, 7, 8;
@@ -134,7 +134,7 @@ TEST(NumGrindMatrixSuit, test05) {
     auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
     auto B = GNMatrixVariable(3, 1, {6, 7, 8});
     auto C = GNMatrixProduct(&A, &B);
-    auto expr = GNMatrixElementsSum(&C);
+    auto expr = GNMatrixReduceSum(&C);
     Eigen::VectorXf vars(9);
     vars << 1, 2, 3, 4, 5, 6,
             7, 8, 9;
@@ -222,7 +222,7 @@ TEST(NumGrindMatrixSuit, test08) {
     auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
 
     auto sA = GNMatrixMapUnaryFunction<float, sigmoid, sigmoidDer>(&A);
-    auto expr = GNMatrixElementsSum(&sA);
+    auto expr = GNMatrixReduceSum(&sA);
 
     Eigen::VectorXf vars(6);
     vars << -0.2, -0.1, 0.0, 0.1, 0.2, 0.3;

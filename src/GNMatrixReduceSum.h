@@ -4,9 +4,9 @@
 #include "GNTensorOutput.h"
 #include "GNScalarOutput.h"
 
-class GNMatrixElementsSum : public GNScalarOutput{
+class GNMatrixReduceSum : public GNScalarOutput{
 public:
-    GNMatrixElementsSum(GNTensorOutput *arg): arg(arg)
+    GNMatrixReduceSum(GNTensorOutput *arg): arg(arg)
     {
 
     }

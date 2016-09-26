@@ -3,10 +3,10 @@
 
 #include "GNTensorOutput.h"
 
-class GNVectorElementWiseProduct : public GNTensorOutput
+class GNMatrixElementWiseProduct : public GNTensorOutput
 {
 public:
-    GNVectorElementWiseProduct(GNTensorOutput *arg1, GNTensorOutput *arg2): arg1(arg1), arg2(arg2)
+    GNMatrixElementWiseProduct(GNTensorOutput *arg1, GNTensorOutput *arg2): arg1(arg1), arg2(arg2)
     {
 
     }
