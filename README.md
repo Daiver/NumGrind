@@ -7,6 +7,15 @@ Not for production
 
 Pull-requests are welcomed
 
+
+#Dependencies
+ - Eigen3 for basic linear algebra
+
+#Installation
+1. Download Eigen from official site. Copy Eigen dir into 3rdparty dir
+2. mkdir build ; cd build ; cmake .. && make
+3. Profit?
+
 #TODO
 
 #Common
