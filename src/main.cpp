@@ -69,7 +69,6 @@ void logisticRegressionOperatorAndExample02()
     auto err = dot(residual, residual);
 
     auto vars = gm.initializeVariables();
-    auto grad = gm.initializeGradient(vars);
 
     solvers::gradientDescent(20, 0.1, *err.node(), vars);
     f.node()->forwardPass(vars);
@@ -110,7 +109,7 @@ void mlpOperatorOrExample01()
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(50, 1.3, *err.node(), vars);
+    solvers::gradientDescent(30, 1.3, *err.node(), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;
