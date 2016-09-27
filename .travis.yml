@@ -18,7 +18,7 @@ script:
   - cmake --build .
 
 after_script:
-  - cmake --build . --target test
+  - ./tests/runUnitTests
 
 notifications:
   email: false
