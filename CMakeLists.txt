@@ -10,6 +10,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 #include_directories("./3rdparty")
-add_subdirectory(src)
+add_subdirectory(NumGrind)
+add_subdirectory(examples)
 add_subdirectory(tests)
 

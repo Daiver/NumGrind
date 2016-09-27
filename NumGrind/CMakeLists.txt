@@ -19,5 +19,5 @@ set(CORE_FILES
 
 add_library(core ${CORE_FILES})
 target_link_libraries(core NumGrindCompGraph)
-add_executable(NumGrindTest01 main.cpp )
-target_link_libraries(NumGrindTest01 core)
+#add_executable(NumGrindTest01 main.cpp )
+#target_link_libraries(NumGrindTest01 core)

@@ -19,8 +19,8 @@ download_project(
 
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
 include_directories("../3rdparty")
-include_directories("../src/")
-include_directories("../src/CompGraph/")
+include_directories("../NumGrind/")
+#include_directories("../src/CompGraph/")
 #set(test_SRCS ADD ALL TEST SOURCE FILES HERE)
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
 target_link_libraries(runUnitTests gtest gmock core)

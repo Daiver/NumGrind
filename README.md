@@ -71,6 +71,7 @@ Pull-requests are welcomed
 #TODO
 
 ##Common
+ - Add MNIST test
  - Switch to session model
  - Avoid copy-paste in Symbolic nodes operators
  - Make work with variables values more explicit
