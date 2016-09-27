@@ -85,12 +85,12 @@ void mlpOperatorOrExample01()
     using namespace SymbolicNodeOps;
     GraphManager gm;
 
-    Eigen::MatrixXf data(4, 3);
+    Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
-    data << 0, 0, 1,
-            0, 1, 1,
-            1, 0, 1,
-            1, 1, 1;
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
     targets << 0, 1, 1, 0;
 
     std::default_random_engine generator;
@@ -98,10 +98,11 @@ void mlpOperatorOrExample01()
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(utils::gaussf(3, 2, 0.0, 1.0, generator));
+    auto W1 = gm.variable(utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(utils::gaussf(1, 2, 0.0, 0.5, generator));
     auto W2 = gm.variable(utils::gaussf(2, 1, 0.0, 0.01, generator));
     auto b2 = gm.variable(utils::gaussf(0.0f, 0.01f, generator));
-    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
     auto err = dot(residual, residual);
@@ -109,7 +110,7 @@ void mlpOperatorOrExample01()
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(30, 1.3, *err.node(), vars);
+    solvers::gradientDescent(40, 2.0, *err.node(), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;

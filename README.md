@@ -8,43 +8,6 @@ Not for production
 Pull-requests are welcomed
 
 #Examples
-##Logistic regression
-
-```cpp
-    using namespace SymbolicNodeOps;
-
-    GraphManager man; 
-
-    //Data for "AND" operator
-    Eigen::MatrixXf data(4, 2);
-    Eigen::VectorXf targets(4);
-    data << 0, 0,
-            0, 1,
-            1, 0,
-            1, 1;
-    targets << 0, 0, 0, 1;
-
-    auto X = man.constant(data);   
-    auto y = man.constant(targets);
-    auto w = man.variable(2, 1, 0);
-    auto b = man.variable(0);
-    auto f = apply<sigmoid, sigmoidDer>(matmult(X, w) + b);//sigmoid and sigmoidDer are simple float (float) functions
-    auto residual = f - y;
-    auto err = dot(residual, residual);
-
-    auto vars = man.initializeVariables();
-    auto grad = man.initializeGradient(vars);
-
-	solvers::gradientDescent(20, 0.1, *err.node(), vars);
-    f.node()->forwardPass(vars);
-    std::cout << "Function result" << std::endl;
-    std::cout << f.value() << std::endl;
-    std::cout << "W:" << std::endl;
-    std::cout << w.value() << std::endl;
-    std::cout << "b:" << std::endl;
-    std::cout << b.value() << std::endl;
-
-```
 
 ##Multilayer perceptron
 ```cpp
@@ -52,12 +15,13 @@ Pull-requests are welcomed
 	using namespace SymbolicNodeOps;
     GraphManager gm;
 
-    Eigen::MatrixXf data(4, 3);
+    //Just "XOR" operator
+	Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
-    data << 0, 0, 1,
-            0, 1, 1,
-            1, 0, 1,
-            1, 1, 1;
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
     targets << 0, 1, 1, 0;
 
     std::default_random_engine generator;
@@ -65,10 +29,11 @@ Pull-requests are welcomed
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(utils::gaussf(3, 2, 0.0, 1.0, generator));
+    auto W1 = gm.variable(utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(utils::gaussf(1, 2, 0.0, 0.5, generator));
     auto W2 = gm.variable(utils::gaussf(2, 1, 0.0, 0.01, generator));
     auto b2 = gm.variable(utils::gaussf(0.0f, 0.01f, generator));
-    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
     auto err = dot(residual, residual);
@@ -76,7 +41,7 @@ Pull-requests are welcomed
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(50, 1.3, *err.node(), vars);
+    solvers::gradientDescent(40, 2.0, *err.node(), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;
@@ -87,6 +52,7 @@ Pull-requests are welcomed
     std::cout << W2.value() << std::endl;
     std::cout << "b2:" << std::endl;
     std::cout << b2.value() << std::endl;
+
 
 ```
 

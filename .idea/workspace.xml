@@ -47,11 +47,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixSum.h" afterPath="$PROJECT_DIR$/src/GNMatrixSum.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/gtest.cpp" afterPath="$PROJECT_DIR$/tests/gtest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +67,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gtest.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gtest.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/gtest.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
@@ -101,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="556">
-              <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+              <caret line="112" column="30" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -236,11 +232,11 @@
         <option value="$PROJECT_DIR$/src/GNMatrixProduct.h" />
         <option value="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
         <option value="$PROJECT_DIR$/src/utils.h" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/GNMatrixSum.h" />
         <option value="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
         <option value="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" />
         <option value="$PROJECT_DIR$/tests/gtest.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
   </component>
@@ -339,7 +335,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Google Test.runUnitTests">
+  <component name="RunManager" selected="Application.NumGrindTest01">
     <configuration default="false" name="All in gtest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NumGrind" TARGET_NAME="runUnitTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NumGrind" RUN_TARGET_NAME="runUnitTests" TEST_PATTERN="Suite01.*:Suite01/*.*:*/Suite01.*/*:*/Suite01/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
@@ -585,7 +581,7 @@
       <workItem from="1474782899409" duration="8063000" />
       <workItem from="1474829772984" duration="5929000" />
       <workItem from="1474902121808" duration="11318000" />
-      <workItem from="1474993883519" duration="3817000" />
+      <workItem from="1474993883519" duration="4154000" />
     </task>
     <servers />
   </component>
@@ -622,7 +618,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86041000" />
+    <option name="totallyTimeSpent" value="86378000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1040,16 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GNTensorOutput.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1087,6 +1073,16 @@
         <state relative-caret-position="406">
           <caret line="451" column="47" selection-start-line="451" selection-start-column="47" selection-end-line="451" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="112" column="30" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
