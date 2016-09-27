@@ -26,10 +26,6 @@ namespace NumGrind {
 
             void setIndex(const int index) { this->index = index; }
 
-            virtual std::string toString() const {
-                return "[X" + std::to_string(index) + ":" + std::to_string(mValue) + "]";
-            }
-
         private:
             int index;
             float mValue;

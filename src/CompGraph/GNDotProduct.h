@@ -33,10 +33,6 @@ namespace NumGrind {
                 return mValue;
             }
 
-            virtual std::string toString() const override {
-                return "";
-            }
-
         private:
             GNTensorOutput *arg1;
             GNTensorOutput *arg2;

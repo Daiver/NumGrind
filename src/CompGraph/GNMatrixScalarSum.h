@@ -28,10 +28,6 @@ namespace NumGrind {
                 return mValue;
             }
 
-            virtual std::string toString() const override {
-                return "";
-            }
-
         private:
             Eigen::MatrixXf mValue;
             GNTensorOutput *arg1;

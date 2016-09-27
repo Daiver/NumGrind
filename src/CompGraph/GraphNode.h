@@ -11,8 +11,6 @@ namespace NumGrind {
         class GraphNode {
         public:
             virtual void forwardPass(const Eigen::VectorXf &vars) = 0;
-
-            virtual std::string toString() const = 0;
         };
     }
 }

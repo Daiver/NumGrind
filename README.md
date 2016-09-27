@@ -73,11 +73,8 @@ Pull-requests are welcomed
 ##Common
  - Switch to session model
  - Avoid copy-paste in Symbolic nodes operators
- - Split symbolic graph from reverse autodiff graph
  - Make work with variables values more explicit
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
- - Add NumGrin namespace
- - Implement toString() for all nodes
  - Improve string formating
  - Refactor all nodes
  - Remove copy-paste from nodes. Add intermediate classes for binary operators
@@ -109,3 +106,6 @@ Pull-requests are welcomed
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
  - Make travis happy #1
  - Add nice interface for GraphNodes - done by symbolic graph
+ - Split symbolic graph from reverse autodiff graph
+ - Add NumGrind namespace
+ - Implement toString() for all nodes - i just remove toString

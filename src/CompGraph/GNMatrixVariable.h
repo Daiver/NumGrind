@@ -43,10 +43,6 @@ namespace NumGrind {
 
             const Eigen::MatrixXf &value() const { return this->mValue; }
 
-            virtual std::string toString() const {
-                return "";
-            }
-
         protected:
             std::pair<int, int> flatIndTo2DInd(const int flatInd) {
                 const int row = flatInd / mNCols;

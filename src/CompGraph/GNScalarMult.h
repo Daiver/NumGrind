@@ -27,13 +27,6 @@ namespace NumGrind {
                 arguments[1]->backwardPass(sensitivity * arguments[0]->value(), grad);
             }
 
-            virtual std::string toString() const {
-                std::string res = "";
-                for (int i = 0; i < arguments.size() - 1; ++i)
-                    res += arguments[i]->toString() + " * ";
-                res += arguments[arguments.size() - 1]->toString();
-                return "[" + res + ", " + std::to_string(this->value()) + "]";
-            }
         };
 
     }

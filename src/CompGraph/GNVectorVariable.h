@@ -26,14 +26,6 @@ namespace NumGrind {
 
             const Eigen::MatrixXf &value() const { return this->mValue; }
 
-            virtual std::string toString() const {
-                std::string res = "[ ";
-                for (int i = 0; i < mValue.rows(); ++i)
-                    res += std::to_string(mValue(i, 0)) + " ";
-                res += "]";
-                return "[Vec:" + res + "]";
-            }
-
         private:
             const std::vector<int> indices;
             Eigen::MatrixXf mValue;

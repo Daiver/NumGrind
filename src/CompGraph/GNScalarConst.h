@@ -17,10 +17,6 @@ namespace NumGrind {
 
             virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override {}
 
-            virtual std::string toString() const {
-                return "[" + std::to_string(mValue) + "]";
-            }
-
         private:
             float mValue;
         };

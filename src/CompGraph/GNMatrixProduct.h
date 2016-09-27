@@ -39,10 +39,6 @@ namespace NumGrind {
 
             const Eigen::MatrixXf &value() const { return this->mValue; }
 
-            virtual std::string toString() const {
-                return "";
-            }
-
         private:
             Eigen::MatrixXf mValue;
             GNTensorOutput *arg1;
