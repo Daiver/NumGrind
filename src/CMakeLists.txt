@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
-
 #include_directories("../3rdparty")
 include_directories(${EIGEN3_INCLUDE_DIR})
 
+add_subdirectory(CompGraph)
 
 set(CORE_FILES
-        utils.h numgrind.h
         GraphNode.cpp GraphNode.h GNScalarFunction.cpp GNScalarFunction.h
         GNScalarOutput.cpp GNScalarOutput.h GNTensorOutput.cpp GNTensorOutput.h
         GNScalarVariable.cpp GNScalarVariable.h GNScalarConst.cpp GNScalarConst.h
@@ -19,7 +18,9 @@ set(CORE_FILES
         GNMatrixReduceSum.cpp GNMatrixReduceSum.h
         GNMatrixTranspose.cpp GNMatrixTranspose.h
         GNMatrixMapUnaryFunction.h
-        GNMatrixConstant.cpp GNMatrixConstant.h GNMatrixSub.cpp GNMatrixSub.h GNMatrixScalarSum.cpp GNMatrixScalarSum.h
+        GNMatrixConstant.cpp GNMatrixConstant.h
+        GNMatrixSub.cpp GNMatrixSub.h
+        GNMatrixScalarSum.cpp GNMatrixScalarSum.h
         GradientDescentSolver.cpp GradientDescentSolver.h
         GraphManager.cpp GraphManager.h
         GraphManagerAbstract.cpp GraphManagerAbstract.h
@@ -27,8 +28,11 @@ set(CORE_FILES
         SymbolicScalarNode.cpp SymbolicScalarNode.h
         SymbolicScalarNodeOperators.cpp SymbolicScalarNodeOperators.h
         SymbolicScalarPlaceholder.cpp SymbolicScalarPlaceholder.h
-        SymbolicTensorNode.cpp SymbolicTensorNode.h SymbolicTensorPlaceholder.cpp SymbolicTensorPlaceholder.h SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h)
+        SymbolicTensorNode.cpp SymbolicTensorNode.h
+        SymbolicTensorPlaceholder.cpp SymbolicTensorPlaceholder.h
+        SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h
+        utils.h numgrind.h)
 
 add_library(core ${CORE_FILES})
 add_executable(NumGrindTest01 main.cpp )
-target_link_libraries(NumGrindTest01 core)
+target_link_libraries(NumGrindTest01 core NumGrindCompGraph)
