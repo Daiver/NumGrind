@@ -11,20 +11,30 @@
 #include "GNScalarSub.h"
 #include "GNScalarConst.h"
 
-namespace SymbolicNodeOps {
+namespace NumGrind {
+    namespace SymbolicNodeOps {
 
-    SymbolicScalarNode operator+(SymbolicScalarNode a, SymbolicScalarNode b);
-    SymbolicScalarNode operator-(SymbolicScalarNode a, SymbolicScalarNode b);
-    SymbolicScalarNode operator*(SymbolicScalarNode a, SymbolicScalarNode b);
-    SymbolicScalarNode operator+(const float a, SymbolicScalarNode b);
-    SymbolicScalarNode operator-(const float a, SymbolicScalarNode b);
-    SymbolicScalarNode operator*(const float a, SymbolicScalarNode b);
-    SymbolicScalarNode operator+(SymbolicScalarNode a, const float b);
-    SymbolicScalarNode operator-(SymbolicScalarNode a, const float b);
-    SymbolicScalarNode operator*(SymbolicScalarNode a, const float b);
-    SymbolicScalarNode operator/(SymbolicScalarNode a, const float b);
-};
+        SymbolicScalarNode operator+(SymbolicScalarNode a, SymbolicScalarNode b);
 
+        SymbolicScalarNode operator-(SymbolicScalarNode a, SymbolicScalarNode b);
+
+        SymbolicScalarNode operator*(SymbolicScalarNode a, SymbolicScalarNode b);
+
+        SymbolicScalarNode operator+(const float a, SymbolicScalarNode b);
+
+        SymbolicScalarNode operator-(const float a, SymbolicScalarNode b);
+
+        SymbolicScalarNode operator*(const float a, SymbolicScalarNode b);
+
+        SymbolicScalarNode operator+(SymbolicScalarNode a, const float b);
+
+        SymbolicScalarNode operator-(SymbolicScalarNode a, const float b);
+
+        SymbolicScalarNode operator*(SymbolicScalarNode a, const float b);
+
+        SymbolicScalarNode operator/(SymbolicScalarNode a, const float b);
+    }
+}
 
 #endif //NUMGRIND_SCALARNODEOPERATORS_H
 

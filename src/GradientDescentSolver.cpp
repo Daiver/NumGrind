@@ -2,7 +2,9 @@
 
 #include <iostream>
 
-void solvers::gradientDescent(const int nIters, const float stepSize, GNScalarOutput &function, Eigen::VectorXf &vars) {
+using namespace NumGrind;
+
+void solvers::gradientDescent(const int nIters, const float stepSize, CompGraph::GNScalarOutput &function, Eigen::VectorXf &vars) {
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
     function.forwardPass(vars);
     const float err = function.value();

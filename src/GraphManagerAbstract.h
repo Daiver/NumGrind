@@ -3,11 +3,12 @@
 
 #include "GraphNode.h"
 
-class GraphManagerAbstract {
-public:
-    virtual void addGraphNode(GraphNode *node) = 0;
+namespace NumGrind {
+    class GraphManagerAbstract {
+    public:
+        virtual void addGraphNode(CompGraph::GraphNode *node) = 0;
 
-};
-
+    };
+}
 
 #endif //NUMGRIND_GRAPHMANAGERABSTRACT_H

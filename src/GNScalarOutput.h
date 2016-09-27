@@ -4,11 +4,15 @@
 #include "Eigen/Core"
 #include "GraphNode.h"
 
-class GNScalarOutput : public GraphNode {
-public:
-    virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) = 0;
-    virtual float value() const = 0;
-};
+namespace NumGrind {
+    namespace CompGraph {
+        class GNScalarOutput : public GraphNode {
+        public:
+            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) = 0;
 
+            virtual float value() const = 0;
+        };
+    }
+}
 
 #endif //NUMGRINDTEST01_GRAPHNODESCALAROUTPUT_H

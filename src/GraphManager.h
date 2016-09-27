@@ -7,31 +7,35 @@
 #include "SymbolicScalarPlaceholder.h"
 #include "SymbolicTensorPlaceholder.h"
 
+namespace NumGrind {
+    class GraphManager : public GraphManagerAbstract {
+    public:
+        GraphManager();
 
-class GraphManager : public GraphManagerAbstract{
-public:
-    GraphManager();
-    ~GraphManager();
+        ~GraphManager();
 
-    virtual void addGraphNode(GraphNode *node) override;
+        virtual void addGraphNode(CompGraph::GraphNode *node) override;
 
-    Eigen::VectorXf initializeVariables();
-    static Eigen::VectorXf initializeGradient(const Eigen::VectorXf &vars);
+        Eigen::VectorXf initializeVariables();
 
-    SymbolicScalarPlaceholder variable(const float val = 0.0);
-    SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
-    SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
+        static Eigen::VectorXf initializeGradient(const Eigen::VectorXf &vars);
 
-    SymbolicTensorNode constant(const Eigen::MatrixXf &value);
+        SymbolicScalarPlaceholder variable(const float val = 0.0);
 
-protected:
-    int nVarsForMatrices() const;
+        SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
 
-private:
-    std::vector<GNScalarVariable *> mScalarVariables;
-    std::vector<GNMatrixVariable *> mMatrixVariables;
-    std::vector<GraphNode *> mGraphNodes;
-};
+        SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
 
+        SymbolicTensorNode constant(const Eigen::MatrixXf &value);
 
+    protected:
+        int nVarsForMatrices() const;
+
+    private:
+        std::vector<CompGraph::GNScalarVariable *> mScalarVariables;
+        std::vector<CompGraph::GNMatrixVariable *> mMatrixVariables;
+        std::vector<CompGraph::GraphNode *> mGraphNodes;
+    };
+
+}
 #endif //NUMGRIND_GRAPHMANAGER_H

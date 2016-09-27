@@ -4,6 +4,8 @@
 
 #include "SymbolicGraphNode.h"
 
+using namespace NumGrind;
+
 SymbolicGraphNode::SymbolicGraphNode(GraphManagerAbstract *manager): mManager(manager)
 {
 

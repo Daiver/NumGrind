@@ -4,6 +4,8 @@
 #include "numgrind.h"
 #include "utils.h"
 
+using namespace NumGrind;
+using namespace NumGrind::CompGraph;
 
 TEST(NumGrindScalarSuit, test01) {
 

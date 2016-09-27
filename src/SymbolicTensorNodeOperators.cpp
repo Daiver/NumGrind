@@ -1,5 +1,8 @@
 #include "SymbolicTensorNodeOperators.h"
 
+using namespace NumGrind;
+using namespace NumGrind::CompGraph;
+
 SymbolicScalarNode SymbolicNodeOps::dot(SymbolicTensorNode a, SymbolicTensorNode b) {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);

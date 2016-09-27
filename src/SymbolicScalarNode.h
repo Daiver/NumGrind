@@ -4,17 +4,18 @@
 #include "SymbolicGraphNode.h"
 #include "GNScalarOutput.h"
 
-class SymbolicScalarNode : public SymbolicGraphNode {
-public:
-    SymbolicScalarNode(GraphManagerAbstract *manager, GNScalarOutput *graphNode);
+namespace NumGrind {
+    class SymbolicScalarNode : public SymbolicGraphNode {
+    public:
+        SymbolicScalarNode(GraphManagerAbstract *manager, CompGraph::GNScalarOutput *graphNode);
 
-    float value() const { return mGraphNode->value(); }
+        float value() const { return mGraphNode->value(); }
 
-    GNScalarOutput *node();
+        CompGraph::GNScalarOutput *node();
 
-protected:
-    GNScalarOutput *mGraphNode;
-};
-
+    protected:
+        CompGraph::GNScalarOutput *mGraphNode;
+    };
+}
 
 #endif //NUMGRIND_SCALARVARIABLE_H

@@ -14,24 +14,29 @@
 #include "GNMatrixMapUnaryFunction.h"
 #include "GNMatrixReduceSum.h"
 
+namespace NumGrind {
 
-namespace SymbolicNodeOps {
+    namespace SymbolicNodeOps {
 
-    SymbolicScalarNode dot(SymbolicTensorNode a, SymbolicTensorNode b);
-    SymbolicScalarNode reduceSum(SymbolicTensorNode a);
-    SymbolicTensorNode matmult(SymbolicTensorNode a, SymbolicTensorNode b);
+        SymbolicScalarNode dot(SymbolicTensorNode a, SymbolicTensorNode b);
 
-    template <float Func(float), float Der(float)>
-    SymbolicTensorNode apply(SymbolicTensorNode a);
+        SymbolicScalarNode reduceSum(SymbolicTensorNode a);
 
-    SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicTensorNode b);
-    SymbolicTensorNode operator-(SymbolicTensorNode a, SymbolicTensorNode b);
-    SymbolicTensorNode operator*(SymbolicTensorNode a, SymbolicTensorNode b);
+        SymbolicTensorNode matmult(SymbolicTensorNode a, SymbolicTensorNode b);
 
-    SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicScalarNode b);
-};
+        template<float Func(float), float Der(float)>
+        SymbolicTensorNode apply(SymbolicTensorNode a);
 
+        SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicTensorNode b);
 
+        SymbolicTensorNode operator-(SymbolicTensorNode a, SymbolicTensorNode b);
+
+        SymbolicTensorNode operator*(SymbolicTensorNode a, SymbolicTensorNode b);
+
+        SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicScalarNode b);
+    };
+
+}
 
 
 
@@ -51,12 +56,12 @@ namespace SymbolicNodeOps {
 
 //IMPLEMENTATIONS
 template <float Func(float), float Der(float)>
-SymbolicTensorNode SymbolicNodeOps::apply(SymbolicTensorNode a)
+NumGrind::SymbolicTensorNode NumGrind::SymbolicNodeOps::apply(NumGrind::SymbolicTensorNode a)
 {
-    GraphManagerAbstract *m = a.manager();
-    auto node = new GNMatrixMapUnaryFunction<float, Func, Der>(a.node());
+    NumGrind::GraphManagerAbstract *m = a.manager();
+    auto node = new NumGrind::CompGraph::GNMatrixMapUnaryFunction<float, Func, Der>(a.node());
     m->addGraphNode(node);
-    return SymbolicTensorNode(m, node);
+    return NumGrind::SymbolicTensorNode(m, node);
 };
 
 

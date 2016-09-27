@@ -18,6 +18,8 @@ float sigmoidDer(float z)
 
 void logisticRegressionOperatorAndExample01()
 {
+    using namespace NumGrind;
+    using namespace NumGrind::CompGraph;
     Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
     data << 0, 0,
@@ -48,7 +50,8 @@ void logisticRegressionOperatorAndExample01()
 
 void logisticRegressionOperatorAndExample02()
 {
-    using namespace SymbolicNodeOps;
+    using namespace NumGrind;
+    using namespace NumGrind::SymbolicNodeOps;
 
     GraphManager gm;
 
@@ -82,7 +85,8 @@ void logisticRegressionOperatorAndExample02()
 
 void mlpOperatorOrExample01()
 {
-    using namespace SymbolicNodeOps;
+    using namespace NumGrind;
+    using namespace NumGrind::SymbolicNodeOps;
     GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);
@@ -94,6 +98,7 @@ void mlpOperatorOrExample01()
     targets << 0, 1, 1, 0;
 
     std::default_random_engine generator;
+    generator.seed(42);
 
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
@@ -129,3 +134,4 @@ int main() {
     mlpOperatorOrExample01();
     return 0;
 }
+

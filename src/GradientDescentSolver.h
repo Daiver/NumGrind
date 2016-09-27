@@ -4,9 +4,10 @@
 #include "GNScalarOutput.h"
 #include "Eigen/Core"
 
-namespace solvers{
-    void gradientDescent(const int nIters, const float stepSize, GNScalarOutput &function, Eigen::VectorXf &vars);
+namespace NumGrind {
+    namespace solvers {
+        void gradientDescent(const int nIters, const float stepSize, CompGraph::GNScalarOutput &function, Eigen::VectorXf &vars);
 
+    }
 }
-
 #endif //NUMGRIND_GRADIENTDESCENTSOLVER_H

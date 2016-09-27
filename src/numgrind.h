@@ -34,4 +34,8 @@
 #include "SymbolicTensorPlaceholder.h"
 #include "SymbolicTensorNodeOperators.h"
 
+namespace NumGrind {
+
+}
+
 #endif //NUMGRINDTEST01_NUMGRIND_H

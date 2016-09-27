@@ -4,11 +4,13 @@
 
 #include "SymbolicScalarNode.h"
 
-SymbolicScalarNode::SymbolicScalarNode(GraphManagerAbstract *manager, GNScalarOutput *graphNode) : SymbolicGraphNode(manager), mGraphNode(graphNode)
+using namespace NumGrind;
+
+SymbolicScalarNode::SymbolicScalarNode(GraphManagerAbstract *manager, CompGraph::GNScalarOutput *graphNode) : SymbolicGraphNode(manager), mGraphNode(graphNode)
 {
 
 }
 
-GNScalarOutput *SymbolicScalarNode::node() {
+CompGraph::GNScalarOutput *SymbolicScalarNode::node() {
     return mGraphNode;
 }

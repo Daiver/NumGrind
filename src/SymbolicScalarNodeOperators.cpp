@@ -1,5 +1,8 @@
 #include "SymbolicScalarNodeOperators.h"
 
+using namespace NumGrind;
+using namespace NumGrind::CompGraph;
+
 SymbolicScalarNode  SymbolicNodeOps::operator+(SymbolicScalarNode a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = a.manager();
     assert(manager == b.manager());

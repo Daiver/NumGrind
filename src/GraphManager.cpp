@@ -2,6 +2,9 @@
 
 #include "GNMatrixConstant.h"
 
+using namespace NumGrind;
+using namespace NumGrind::CompGraph;
+
 GraphManager::GraphManager() {
 
 }
