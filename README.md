@@ -137,7 +137,8 @@ Pull-requests are welcomed
  - Find a way to automaticly include Eigen without adding it inside repository
 
 ##CI
- - Make travis happy #1
+ - Nothing
 
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
+ - Make travis happy #1

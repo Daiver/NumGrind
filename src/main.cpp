@@ -5,6 +5,7 @@
 #include "GradientDescentSolver.h"
 #include "Eigen/Core"
 
+
 float sigmoid(float z)
 {
     return (float)(1.0f/(1.0f + exp(-z)));
