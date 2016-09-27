@@ -4,15 +4,15 @@
 #include "SymbolicScalarNode.h"
 #include "SymbolicTensorNode.h"
 
-#include "GNMatrixElementWiseProduct.h"
-#include "GNDotProduct.h"
-#include "GNMatrixConstant.h"
-#include "GNMatrixProduct.h"
-#include "GNMatrixSum.h"
-#include "GNMatrixSub.h"
-#include "GNMatrixScalarSum.h"
-#include "GNMatrixMapUnaryFunction.h"
-#include "GNMatrixReduceSum.h"
+#include "CompGraph/GNMatrixElementWiseProduct.h"
+#include "CompGraph/GNDotProduct.h"
+#include "CompGraph/GNMatrixConstant.h"
+#include "CompGraph/GNMatrixProduct.h"
+#include "CompGraph/GNMatrixSum.h"
+#include "CompGraph/GNMatrixSub.h"
+#include "CompGraph/GNMatrixScalarSum.h"
+#include "CompGraph/GNMatrixMapUnaryFunction.h"
+#include "CompGraph/GNMatrixReduceSum.h"
 
 namespace NumGrind {
 

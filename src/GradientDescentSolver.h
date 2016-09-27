@@ -1,7 +1,7 @@
 #ifndef NUMGRIND_GRADIENTDESCENTSOLVER_H
 #define NUMGRIND_GRADIENTDESCENTSOLVER_H
 
-#include "GNScalarOutput.h"
+#include "CompGraph/GNScalarOutput.h"
 #include "Eigen/Core"
 
 namespace NumGrind {

@@ -1,7 +1,7 @@
 #ifndef NUMGRIND_GRAPHMANAGERABSTRACT_H
 #define NUMGRIND_GRAPHMANAGERABSTRACT_H
 
-#include "GraphNode.h"
+#include "CompGraph/GraphNode.h"
 
 namespace NumGrind {
     class GraphManagerAbstract {

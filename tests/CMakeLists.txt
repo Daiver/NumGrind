@@ -17,18 +17,10 @@ download_project(
         UPDATE_DISCONNECTED 1
         )
 
-#download_project(
-        #PROJ                eigen
-        #GIT_REPOSITORY      https://github.com/RLovelett/eigen
-        #GIT_TAG             master
-        #UPDATE_DISCONNECTED 1
-        #)
-
-
-
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
 include_directories("../3rdparty")
 include_directories("../src/")
+include_directories("../src/CompGraph/")
 #set(test_SRCS ADD ALL TEST SOURCE FILES HERE)
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
 target_link_libraries(runUnitTests gtest gmock core)

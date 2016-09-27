@@ -2,7 +2,7 @@
 #define NUMGRIND_SCALARVARIABLE_H
 
 #include "SymbolicGraphNode.h"
-#include "GNScalarOutput.h"
+#include "CompGraph/GNScalarOutput.h"
 
 namespace NumGrind {
     class SymbolicScalarNode : public SymbolicGraphNode {

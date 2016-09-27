@@ -2,7 +2,7 @@
 #define NUMGRIND_SYMBOLICSCALARPLACEHOLDER_H
 
 #include "SymbolicScalarNode.h"
-#include "GNScalarVariable.h"
+#include "CompGraph/GNScalarVariable.h"
 
 namespace NumGrind {
     class SymbolicScalarPlaceholder : public SymbolicScalarNode {

@@ -1,6 +1,6 @@
 #include "GraphManager.h"
 
-#include "GNMatrixConstant.h"
+#include "CompGraph/GNMatrixConstant.h"
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;

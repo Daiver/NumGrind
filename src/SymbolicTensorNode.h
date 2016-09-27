@@ -2,7 +2,7 @@
 #define NUMGRIND_SYMBOLICTENSORNODE_H
 
 #include "SymbolicGraphNode.h"
-#include "GNTensorOutput.h"
+#include "CompGraph/GNTensorOutput.h"
 
 namespace NumGrind {
     class SymbolicTensorNode : public SymbolicGraphNode {

@@ -3,7 +3,7 @@
 
 #include "SymbolicTensorNode.h"
 
-#include "GNMatrixVariable.h"
+#include "CompGraph/GNMatrixVariable.h"
 
 namespace NumGrind {
     class SymbolicTensorPlaceholder : public SymbolicTensorNode {
