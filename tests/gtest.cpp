@@ -407,6 +407,52 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
     ASSERT_FLOAT_EQ(vars[11], 13.0);
 }
 
+float square(float x) { return x*x; }
+float squareDer(float x) { return 2*x; }
+
+TEST(NumGrindGraphMatrixSuit, testMatSum01) {
+
+    using namespace SymbolicNodeOps;
+    GraphManager gm;
+
+    Eigen::MatrixXf aMat(3, 2);
+    aMat << 1, 2,
+            3, 4,
+            5, 6;
+    Eigen::MatrixXf bMat(1, 2);
+    bMat << 10, 20;
+    auto a = gm.variable(aMat);
+    auto b = gm.variable(bMat);
+    auto c = a + b;
+    auto d = apply<square, squareDer>(c);
+    auto e = reduceSum(d);
+    auto vars = gm.initializeVariables();
+    auto grad = gm.initializeGradient(vars);
+    c.node()->forwardPass(vars);
+    auto res1 = c.value();
+
+    ASSERT_FLOAT_EQ(res1(0, 0), 11);
+    ASSERT_FLOAT_EQ(res1(0, 1), 22);
+    ASSERT_FLOAT_EQ(res1(1, 0), 13);
+    ASSERT_FLOAT_EQ(res1(1, 1), 24);
+    ASSERT_FLOAT_EQ(res1(2, 0), 15);
+    ASSERT_FLOAT_EQ(res1(2, 1), 26);
+
+    e.node()->forwardPass(vars);
+    e.node()->backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], 2*11);
+    ASSERT_FLOAT_EQ(grad[1], 2*22);
+    ASSERT_FLOAT_EQ(grad[2], 2*13);
+    ASSERT_FLOAT_EQ(grad[3], 2*24);
+    ASSERT_FLOAT_EQ(grad[4], 2*15);
+    ASSERT_FLOAT_EQ(grad[5], 2*26);
+
+    ASSERT_FLOAT_EQ(grad[6], 2*11 + 2*13 + 2*15);
+    ASSERT_FLOAT_EQ(grad[7], 2*22 + 2*24 + 2*26);
+
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

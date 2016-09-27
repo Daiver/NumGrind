@@ -105,12 +105,12 @@ Pull-requests are welcomed
 #TODO
 
 ##Common
+ - Switch to session model
  - Avoid copy-paste in Symbolic nodes operators
  - Split symbolic graph from reverse autodiff graph
  - Make work with variables values more explicit
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add NumGrin namespace
- - Add nice interface for GraphNodes
  - Implement toString() for all nodes
  - Improve string formating
  - Refactor all nodes
@@ -142,3 +142,4 @@ Pull-requests are welcomed
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
  - Make travis happy #1
+ - Add nice interface for GraphNodes - done by symbolic graph

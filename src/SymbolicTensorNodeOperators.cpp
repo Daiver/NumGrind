@@ -61,3 +61,11 @@ SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicScal
     m->addGraphNode(node);
     return SymbolicTensorNode(m, node);
 }
+
+SymbolicScalarNode SymbolicNodeOps::reduceSum(SymbolicTensorNode a)
+{
+    GraphManagerAbstract *m = a.manager();
+    auto node = new GNMatrixReduceSum(a.node());
+    m->addGraphNode(node);
+    return SymbolicScalarNode(m, node);
+}

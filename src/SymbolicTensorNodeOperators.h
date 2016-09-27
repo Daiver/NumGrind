@@ -18,6 +18,7 @@
 namespace SymbolicNodeOps {
 
     SymbolicScalarNode dot(SymbolicTensorNode a, SymbolicTensorNode b);
+    SymbolicScalarNode reduceSum(SymbolicTensorNode a);
     SymbolicTensorNode matmult(SymbolicTensorNode a, SymbolicTensorNode b);
 
     template <float Func(float), float Der(float)>
