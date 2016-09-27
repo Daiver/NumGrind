@@ -17,7 +17,7 @@ set(CORE_FILES
         SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h
         utils.h numgrind.h)
 
-add_library(core ${CORE_FILES})
-target_link_libraries(core NumGrindCompGraph)
+add_library(numgrind ${CORE_FILES})
+target_link_libraries(numgrind NumGrindCompGraph)
 #add_executable(NumGrindTest01 main.cpp )
 #target_link_libraries(NumGrindTest01 core)

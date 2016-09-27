@@ -56,6 +56,8 @@ Pull-requests are welcomed
 
 ```
 
+See examples/main.cpp for more examples
+
 #Dependencies
  - cmake - build tool
  - Eigen3 - basic linear algebra
