@@ -49,10 +49,9 @@ Pull-requests are welcomed
 ##Multilayer perceptron
 ```cpp
 
-    using namespace SymbolicNodeOps;
-	GraphManager gm;
+	using namespace SymbolicNodeOps;
+    GraphManager gm;
 
-    //Data for "OR" operator
     Eigen::MatrixXf data(4, 3);
     Eigen::VectorXf targets(4);
     data << 0, 0, 1,
@@ -61,17 +60,14 @@ Pull-requests are welcomed
             1, 1, 1;
     targets << 0, 1, 1, 0;
 
-    srand(16);
+    std::default_random_engine generator;
 
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
-    auto w1Init = 1.0 * Eigen::MatrixXf::Random(3, 2);
-    auto w2Init = 0.01 * Eigen::MatrixXf::Random(2, 1);
-    std::cout << w1Init << std::endl;
-    std::cout << w2Init << std::endl;
-    auto W1 = gm.variable(w1Init);
-    auto W2 = gm.variable(w2Init);
-    auto b2 = gm.variable((float)rand() / RAND_MAX * 0.01);
+
+    auto W1 = gm.variable(utils::gaussf(3, 2, 0.0, 1.0, generator));
+    auto W2 = gm.variable(utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
@@ -97,6 +93,8 @@ Pull-requests are welcomed
 #Dependencies
  - cmake - build tool
  - Eigen3 - basic linear algebra
+ - Download Project - download google test in compile time
+ - Google Test - for testing
 
 #Installation
 1. Install CMake
@@ -106,7 +104,7 @@ Pull-requests are welcomed
 
 #TODO
 
-#Common
+##Common
  - Avoid copy-paste in Symbolic nodes operators
  - Split symbolic graph from reverse autodiff graph
  - Make work with variables values more explicit
@@ -120,6 +118,9 @@ Pull-requests are welcomed
 
 ##Optimization (Numerical)
  - Add gradient check test for complex case
+ - Add and test basic SGD with momentum
+ - Add and test complex SGD solvers as Adam/AdaGrad
+ - Add common interface for solvers
 
 ##Performance
  - Create big problem for performance tests

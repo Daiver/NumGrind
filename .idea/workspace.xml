@@ -47,7 +47,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils.h" afterPath="$PROJECT_DIR$/src/utils.h" />
     </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,29 +72,30 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="85" column="32" selection-start-line="85" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="271">
+              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Random.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/Random.h">
+      <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DenseBase.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseBase.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="511" column="35" selection-start-line="511" selection-start-column="35" selection-end-line="511" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="315">
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+              <folding>
+                <element signature="e#63#80#0" expanded="true" />
+                <element signature="e#369#381#0" expanded="true" />
+                <element signature="e#567#579#0" expanded="true" />
+                <element signature="e#899#911#0" expanded="true" />
+                <element signature="e#1310#1322#0" expanded="true" />
+                <marker date="1474952659074" expanded="true" signature="213:354" ph="{...}" />
+                <marker date="1474952659074" expanded="true" signature="1199:1299" ph="{...}" />
+                <marker date="1474952659074" expanded="true" signature="1855:2093" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,34 +140,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CwiseBinaryOp.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/CwiseBinaryOp.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GNMatrixSum.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GNMatrixSum.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphManager.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GraphManager.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -177,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GNMatrixTranspose.h" />
         <option value="$PROJECT_DIR$/src/GNMatrixMapFunction.h" />
         <option value="$PROJECT_DIR$/src/GNMatrixMapUnaryFunction.h" />
         <option value="$PROJECT_DIR$/src/GNVectorConstant.h" />
@@ -227,6 +207,7 @@
         <option value="$PROJECT_DIR$/src/GNMatrixSub.h" />
         <option value="$PROJECT_DIR$/src/GNMatrixProduct.h" />
         <option value="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
+        <option value="$PROJECT_DIR$/src/utils.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
@@ -571,7 +552,7 @@
       <workItem from="1474729725753" duration="9336000" />
       <workItem from="1474782899409" duration="8063000" />
       <workItem from="1474829772984" duration="5929000" />
-      <workItem from="1474902121808" duration="7310000" />
+      <workItem from="1474902121808" duration="9826000" />
     </task>
     <servers />
   </component>
@@ -608,7 +589,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78216000" />
+    <option name="totallyTimeSpent" value="80732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,7 +611,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12664908" sideWeight="0.12093023" order="2" side_tool="true" content_ui="tabs" />
@@ -661,7 +642,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Eigen/src/Core/PlainObjectBase.h" />
     <entry file="file://$PROJECT_DIR$/src/GNMatrixConstant.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -962,7 +942,7 @@
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#65#82#0" expanded="true" />
+            <element signature="e#65#82#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -972,9 +952,9 @@
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#95#126#0" expanded="true" />
-            <element signature="e#628#665#0" expanded="true" />
-            <element signature="e#1081#1118#0" expanded="true" />
+            <element signature="e#95#126#0" expanded="false" />
+            <element signature="e#628#665#0" expanded="false" />
+            <element signature="e#1081#1118#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1008,7 +988,7 @@
         <state relative-caret-position="397">
           <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1077,11 +1057,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="e#63#80#0" expanded="true" />
+            <element signature="e#369#381#0" expanded="true" />
+            <element signature="e#567#579#0" expanded="true" />
+            <element signature="e#899#911#0" expanded="true" />
+            <element signature="e#1310#1322#0" expanded="true" />
+            <marker date="1474952659074" expanded="true" signature="213:354" ph="{...}" />
+            <marker date="1474952659074" expanded="true" signature="1199:1299" ph="{...}" />
+            <marker date="1474952659074" expanded="true" signature="1855:2093" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="271">
+          <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "utils.h"
-
 #include "numgrind.h"
 #include "GradientDescentSolver.h"
 #include "Eigen/Core"
@@ -84,7 +83,6 @@ void logisticRegressionOperatorAndExample02()
 void mlpOperatorOrExample01()
 {
     using namespace SymbolicNodeOps;
-
     GraphManager gm;
 
     Eigen::MatrixXf data(4, 3);
@@ -95,17 +93,14 @@ void mlpOperatorOrExample01()
             1, 1, 1;
     targets << 0, 1, 1, 0;
 
-    srand(16);
+    std::default_random_engine generator;
 
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
-    auto w1Init = 1.0 * Eigen::MatrixXf::Random(3, 2);
-    auto w2Init = 0.01 * Eigen::MatrixXf::Random(2, 1);
-    std::cout << w1Init << std::endl;
-    std::cout << w2Init << std::endl;
-    auto W1 = gm.variable(w1Init);
-    auto W2 = gm.variable(w2Init);
-    auto b2 = gm.variable((float)rand() / RAND_MAX * 0.01);
+
+    auto W1 = gm.variable(utils::gaussf(3, 2, 0.0, 1.0, generator));
+    auto W2 = gm.variable(utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1));
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
@@ -131,6 +126,5 @@ int main() {
 //    logisticRegressionOperatorAndExample01();
 //    logisticRegressionOperatorAndExample02();
     mlpOperatorOrExample01();
-
     return 0;
 }
