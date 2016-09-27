@@ -47,50 +47,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNDotProduct.h" afterPath="$PROJECT_DIR$/src/GNDotProduct.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixConstant.h" afterPath="$PROJECT_DIR$/src/GNMatrixConstant.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixElementWiseProduct.h" afterPath="$PROJECT_DIR$/src/GNMatrixElementWiseProduct.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixMapUnaryFunction.h" afterPath="$PROJECT_DIR$/src/GNMatrixMapUnaryFunction.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixProduct.h" afterPath="$PROJECT_DIR$/src/GNMatrixProduct.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixReduceSum.h" afterPath="$PROJECT_DIR$/src/GNMatrixReduceSum.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixScalarSum.h" afterPath="$PROJECT_DIR$/src/GNMatrixScalarSum.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixSub.h" afterPath="$PROJECT_DIR$/src/GNMatrixSub.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixSum.h" afterPath="$PROJECT_DIR$/src/GNMatrixSum.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixTranspose.h" afterPath="$PROJECT_DIR$/src/GNMatrixTranspose.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixVariable.cpp" afterPath="$PROJECT_DIR$/src/GNMatrixVariable.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNMatrixVariable.h" afterPath="$PROJECT_DIR$/src/GNMatrixVariable.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarConst.h" afterPath="$PROJECT_DIR$/src/GNScalarConst.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarFunction.h" afterPath="$PROJECT_DIR$/src/GNScalarFunction.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarMult.h" afterPath="$PROJECT_DIR$/src/GNScalarMult.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarOutput.h" afterPath="$PROJECT_DIR$/src/GNScalarOutput.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarSub.h" afterPath="$PROJECT_DIR$/src/GNScalarSub.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarSum.h" afterPath="$PROJECT_DIR$/src/GNScalarSum.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNScalarVariable.h" afterPath="$PROJECT_DIR$/src/GNScalarVariable.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNTensorOutput.h" afterPath="$PROJECT_DIR$/src/GNTensorOutput.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GNVectorVariable.h" afterPath="$PROJECT_DIR$/src/GNVectorVariable.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GradientDescentSolver.cpp" afterPath="$PROJECT_DIR$/src/GradientDescentSolver.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GradientDescentSolver.h" afterPath="$PROJECT_DIR$/src/GradientDescentSolver.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphManager.cpp" afterPath="$PROJECT_DIR$/src/GraphManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphManager.h" afterPath="$PROJECT_DIR$/src/GraphManager.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphManagerAbstract.h" afterPath="$PROJECT_DIR$/src/GraphManagerAbstract.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphNode.h" afterPath="$PROJECT_DIR$/src/GraphNode.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicGraphNode.cpp" afterPath="$PROJECT_DIR$/src/SymbolicGraphNode.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicGraphNode.h" afterPath="$PROJECT_DIR$/src/SymbolicGraphNode.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarNode.cpp" afterPath="$PROJECT_DIR$/src/SymbolicScalarNode.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarNode.h" afterPath="$PROJECT_DIR$/src/SymbolicScalarNode.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarNodeOperators.cpp" afterPath="$PROJECT_DIR$/src/SymbolicScalarNodeOperators.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarNodeOperators.h" afterPath="$PROJECT_DIR$/src/SymbolicScalarNodeOperators.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarPlaceholder.cpp" afterPath="$PROJECT_DIR$/src/SymbolicScalarPlaceholder.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicScalarPlaceholder.h" afterPath="$PROJECT_DIR$/src/SymbolicScalarPlaceholder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNode.cpp" afterPath="$PROJECT_DIR$/src/SymbolicTensorNode.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNode.h" afterPath="$PROJECT_DIR$/src/SymbolicTensorNode.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" afterPath="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorPlaceholder.cpp" afterPath="$PROJECT_DIR$/src/SymbolicTensorPlaceholder.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SymbolicTensorPlaceholder.h" afterPath="$PROJECT_DIR$/src/SymbolicTensorPlaceholder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/numgrind.h" afterPath="$PROJECT_DIR$/src/numgrind.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/gtest.cpp" afterPath="$PROJECT_DIR$/tests/gtest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils.h" afterPath="$PROJECT_DIR$/src/utils.h" />
     </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,7 +67,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gtest.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gtest.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/gtest.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -127,6 +84,22 @@
               <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/utils.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#63#80#0" expanded="true" />
+                <element signature="e#418#430#0" expanded="true" />
+                <element signature="e#628#640#0" expanded="true" />
+                <element signature="e#1013#1025#0" expanded="true" />
+                <element signature="e#1444#1456#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,18 +175,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphManager.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GraphManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-              <folding>
-                <element signature="e#65#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -228,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/GNVectorElementWiseProduct.h" />
         <option value="$PROJECT_DIR$/src/GNTensorElementWiseProduct.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/utils.h" />
         <option value="$PROJECT_DIR$/src/numgrind.h" />
         <option value="$PROJECT_DIR$/src/GNDotProduct.h" />
         <option value="$PROJECT_DIR$/src/GNMatrixConstant.h" />
@@ -273,6 +233,7 @@
         <option value="$PROJECT_DIR$/src/SymbolicTensorNodeOperators.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/tests/gtest.cpp" />
+        <option value="$PROJECT_DIR$/src/utils.h" />
       </list>
     </option>
   </component>
@@ -371,7 +332,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Google Test.runUnitTests">
+  <component name="RunManager" selected="Application.NumGrindTest01">
     <configuration default="false" name="All in gtest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NumGrind" TARGET_NAME="runUnitTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NumGrind" RUN_TARGET_NAME="runUnitTests" TEST_PATTERN="Suite01.*:Suite01/*.*:*/Suite01.*/*:*/Suite01/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
@@ -617,7 +578,7 @@
       <workItem from="1474782899409" duration="8063000" />
       <workItem from="1474829772984" duration="5929000" />
       <workItem from="1474902121808" duration="11318000" />
-      <workItem from="1474993883519" duration="6327000" />
+      <workItem from="1474993883519" duration="6561000" />
     </task>
     <servers />
   </component>
@@ -654,7 +615,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88551000" />
+    <option name="totallyTimeSpent" value="88785000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -726,23 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="e#63#80#0" expanded="true" />
-            <element signature="e#369#381#0" expanded="true" />
-            <element signature="e#567#579#0" expanded="true" />
-            <element signature="e#899#911#0" expanded="true" />
-            <element signature="e#1310#1322#0" expanded="true" />
-            <marker date="1474952659074" expanded="true" signature="213:354" ph="{...}" />
-            <marker date="1474952659074" expanded="true" signature="1199:1299" ph="{...}" />
-            <marker date="1474952659074" expanded="true" signature="1855:2093" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1127,6 +1071,20 @@
         <state relative-caret-position="45">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#63#80#0" expanded="true" />
+            <element signature="e#418#430#0" expanded="true" />
+            <element signature="e#628#640#0" expanded="true" />
+            <element signature="e#1013#1025#0" expanded="true" />
+            <element signature="e#1444#1456#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
