@@ -69,8 +69,16 @@ See examples/main.cpp for more examples
  - Google Test - for testing
 
 #Installation
-1. Install CMake
-2. Download Eigen from official site. Copy Eigen dir into 3rdparty dir
+Current version tested only under Ubuntu 16.04. But it should be ok on any platform with modern C++11 compiler, Eigen, cmake and DownloadProject
+
+1. Install CMake. In case of Ubuntu
+```
+sudo apt-get install cmake
+```
+2. Download Eigen from official site. Copy Eigen dir into 3rdparty dir. Ubuntu:
+```
+sudo apt-get install libeigen3-dev
+```
 3. 
 ```
 mkdir build 
