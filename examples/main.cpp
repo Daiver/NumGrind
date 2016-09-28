@@ -16,41 +16,6 @@ float sigmoidDer(float z)
     return sigmoid(z) * sigmoid(1.0f - z);
 }
 
-void logisticRegressionOperatorAndExample01()
-{
-    using namespace NumGrind;
-    using namespace NumGrind::CompGraph;
-    Eigen::MatrixXf data(4, 2);
-    Eigen::VectorXf targets(4);
-    data << 0, 0,
-            0, 1,
-            1, 0,
-            1, 1;
-    targets << 0, 0, 0, 1;
-
-    auto X = GNMatrixConstant(data);
-    auto y = GNMatrixConstant(targets);
-
-    auto w = GNMatrixVariable(2, 1, {0, 1});
-    auto b = GNScalarVariable(2);
-    auto f1 = GNMatrixProduct(&X, &w);
-    auto f2 = GNMatrixScalarSum(&f1, &b);
-    auto f3 = GNMatrixMapUnaryFunction<float, sigmoid, sigmoidDer>(&f2);
-    auto f4 = GNMatrixSub(&f3, &y);
-    auto f  = GNDotProduct(&f4, &f4);
-
-    Eigen::VectorXf vars = Eigen::VectorXf::Zero(3);
-
-    f.forwardPass(vars);
-    std::cout << "Err " << f.value() << std::endl;
-    solvers::gradientDescent(10, 0.2,
-                             [&](const Eigen::VectorXf &vars){f.forwardPass(vars); return f.value();},
-                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){f.forwardPass(vars); f.backwardPass(1.0, grad);},
-                             vars);
-    std::cout << vars << std::endl;
-
-}
-
 void logisticRegressionOperatorAndExample02()
 {
     using namespace NumGrind;
@@ -76,10 +41,16 @@ void logisticRegressionOperatorAndExample02()
 
     auto vars = gm.initializeVariables();
 
-    solvers::gradientDescent(20, 0.1,
-                             [&](const Eigen::VectorXf &vars){err.node()->forwardPass(vars); return err.node()->value();},
-                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){err.node()->forwardPass(vars); err.node()->backwardPass(1.0, grad);},
-                             vars);
+    SolverSettings settings;
+    settings.nMaxIterations = 20;
+    solvers::gradientDescent(settings, 0.1, [&](const Eigen::VectorXf &vars) {
+                                 err.node()->forwardPass(vars);
+                                 return err.node()->value();
+                             },
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
+                                 err.node()->forwardPass(vars);
+                                 err.node()->backwardPass(1.0, grad);
+                             }, vars);
     f.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f.value() << std::endl;
@@ -121,9 +92,17 @@ void mlpOperatorOrExample01()
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(40, 2.0,
-                             [&](const Eigen::VectorXf &vars){err.node()->forwardPass(vars); return err.node()->value();},
-                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){err.node()->forwardPass(vars); err.node()->backwardPass(1.0, grad);}, vars);
+    SolverSettings settings;
+    settings.nMaxIterations = 40;
+    settings.minGradL2 = 6e-3;
+    solvers::gradientDescent(settings, 2.0, [&](const Eigen::VectorXf &vars) {
+                                 err.node()->forwardPass(vars);
+                                 return err.node()->value();
+                             },
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
+                                 err.node()->forwardPass(vars);
+                                 err.node()->backwardPass(1.0, grad);
+                             }, vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;
