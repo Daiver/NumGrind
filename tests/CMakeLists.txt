@@ -21,7 +21,7 @@ add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_
 include_directories("../3rdparty")
 include_directories("../NumGrind/")
 #include_directories("../src/CompGraph/")
-#set(test_SRCS ADD ALL TEST SOURCE FILES HERE)
+set(test_SRCS compgraphtests.cpp compgraphtests.h helpers.cpp helpers.h)
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
 target_link_libraries(runUnitTests gtest gmock numgrind)
 add_test(runUnitTests runUnitTests) #included in all tutorials but I don't know what it actually does
