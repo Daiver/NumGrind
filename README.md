@@ -74,7 +74,7 @@ See examples/main.cpp for more examples
 mkdir build 
 cd build 
 cmake .. 
- make
+make
 ```
 4. Profit?
 
