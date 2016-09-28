@@ -2,7 +2,7 @@
 
 #include "utils.h"
 #include "numgrind.h"
-#include "GradientDescentSolver.h"
+#include "solvers/GradientDescentSolver.h"
 #include "Eigen/Core"
 
 
@@ -43,7 +43,10 @@ void logisticRegressionOperatorAndExample01()
 
     f.forwardPass(vars);
     std::cout << "Err " << f.value() << std::endl;
-    solvers::gradientDescent(10, 0.2, f, vars);
+    solvers::gradientDescent(10, 0.2,
+                             [&](const Eigen::VectorXf &vars){f.forwardPass(vars); return f.value();},
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){f.forwardPass(vars); f.backwardPass(1.0, grad);},
+                             vars);
     std::cout << vars << std::endl;
 
 }
@@ -73,7 +76,10 @@ void logisticRegressionOperatorAndExample02()
 
     auto vars = gm.initializeVariables();
 
-    solvers::gradientDescent(20, 0.1, *err.node(), vars);
+    solvers::gradientDescent(20, 0.1,
+                             [&](const Eigen::VectorXf &vars){err.node()->forwardPass(vars); return err.node()->value();},
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){err.node()->forwardPass(vars); err.node()->backwardPass(1.0, grad);},
+                             vars);
     f.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f.value() << std::endl;
@@ -115,7 +121,9 @@ void mlpOperatorOrExample01()
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(40, 2.0, *err.node(), vars);
+    solvers::gradientDescent(40, 2.0,
+                             [&](const Eigen::VectorXf &vars){err.node()->forwardPass(vars); return err.node()->value();},
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad){err.node()->forwardPass(vars); err.node()->backwardPass(1.0, grad);}, vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;

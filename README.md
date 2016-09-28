@@ -73,6 +73,7 @@ See examples/main.cpp for more examples
 #TODO
 
 ##Common
+ - Add some code style
  - Add MNIST test
  - Switch to session model
  - Avoid copy-paste in Symbolic nodes operators
@@ -103,7 +104,7 @@ See examples/main.cpp for more examples
  - Find a way to automaticly include Eigen without adding it inside repository
 
 ##CI
- - Add runinig tests inside travis
+ - Nothing
 
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
@@ -112,3 +113,5 @@ See examples/main.cpp for more examples
  - Split symbolic graph from reverse autodiff graph
  - Add NumGrind namespace
  - Implement toString() for all nodes - i just remove toString
+ - Add runinig tests inside travis
+
