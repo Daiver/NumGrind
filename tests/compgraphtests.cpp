@@ -1,6 +1,4 @@
 
-#include "compgraphtests.h"
-
 #include <cmath>
 #include <iostream>
 #include "gtest/gtest.h"
@@ -14,13 +12,13 @@ using namespace NumGrind::CompGraph;
 
 TEST(NumGrindScalarSuit, test01) {
 
-    auto n1 = GNScalarVariable(0);
-    auto n2 = GNScalarVariable(1);
-    auto n3 = GNScalarConst(2.0);
+    auto n1 = CGScalarVariable(0);
+    auto n2 = CGScalarVariable(1);
+    auto n3 = CGScalarConst(2.0);
 
-    auto n4 = GNScalarMult(&n1, &n3);
-    auto n5 = GNScalarSum(&n2, &n4);
-    auto n6 = GNScalarMult(&n1, &n5);
+    auto n4 = CGScalarMult(&n1, &n3);
+    auto n5 = CGScalarSum(&n2, &n4);
+    auto n6 = CGScalarMult(&n1, &n5);
 
     auto graph = n6;
 
@@ -35,11 +33,11 @@ TEST(NumGrindScalarSuit, test01) {
 
 
 TEST(NumGrindVectorSuit, testDotProduct01) {
-    auto n1 = GNVectorVariable({0, 1});
-    auto n2 = GNVectorVariable({2, 3});
+    auto n1 = CGVectorVariable({0, 1});
+    auto n2 = CGVectorVariable({2, 3});
 
-    auto n3 = GNMatrixElementWiseProduct(&n1, &n2);
-    auto n4 = GNDotProduct(&n3, &n1);
+    auto n3 = CGMatrixElementWiseProduct(&n1, &n2);
+    auto n4 = CGDotProduct(&n3, &n1);
 
     auto graph = n4;
 
@@ -57,9 +55,9 @@ TEST(NumGrindVectorSuit, testDotProduct01) {
 TEST(NumGrindVectorSuit, testDotProduct02) {
     Eigen::MatrixXf mat(3, 1);
     mat << 5, 12, 13;
-    auto a = GNMatrixConstant(mat);
-    auto b = GNVectorVariable({0, 1, 2});
-    auto expr = GNDotProduct(&a, &b);
+    auto a = CGMatrixConstant(mat);
+    auto b = CGVectorVariable({0, 1, 2});
+    auto expr = CGDotProduct(&a, &b);
 
     Eigen::VectorXf vars = utils::vec2EVecf({1, 2, 3});
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
@@ -71,7 +69,7 @@ TEST(NumGrindVectorSuit, testDotProduct02) {
 }
 
 TEST(NumGrindMatrixSuit, test01) {
-    auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
+    auto n1 = CGMatrixVariable(2, 2, {0, 1, 2, 3});
     Eigen::VectorXf vars(4);
     vars << 1, 2, 3, 4;
     n1.forwardPass(vars);
@@ -84,8 +82,8 @@ TEST(NumGrindMatrixSuit, test01) {
 }
 
 TEST(NumGrindMatrixSuit, test02) {
-    auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
-    auto n2 = GNMatrixReduceSum(&n1);
+    auto n1 = CGMatrixVariable(2, 2, {0, 1, 2, 3});
+    auto n2 = CGMatrixReduceSum(&n1);
     Eigen::VectorXf vars(4);
     vars << 1, 2, 3, 4;
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
@@ -100,9 +98,9 @@ TEST(NumGrindMatrixSuit, test02) {
 }
 
 TEST(NumGrindMatrixSuit, test03) {
-    auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
-    auto n2 = GNMatrixVariable(2, 2, {4, 5, 6, 7});
-    auto n3 = GNMatrixProduct(&n1, &n2);
+    auto n1 = CGMatrixVariable(2, 2, {0, 1, 2, 3});
+    auto n2 = CGMatrixVariable(2, 2, {4, 5, 6, 7});
+    auto n3 = CGMatrixProduct(&n1, &n2);
     Eigen::VectorXf vars(8);
     vars << 1, 2, 3, 4, 5, 6, 7, 8;
     n3.forwardPass(vars);
@@ -115,10 +113,10 @@ TEST(NumGrindMatrixSuit, test03) {
 }
 
 TEST(NumGrindMatrixSuit, test04) {
-    auto n1 = GNMatrixVariable(2, 2, {0, 1, 2, 3});
-    auto n2 = GNMatrixVariable(2, 2, {4, 5, 6, 7});
-    auto n3 = GNMatrixProduct(&n1, &n2);
-    auto n4 = GNMatrixReduceSum(&n3);
+    auto n1 = CGMatrixVariable(2, 2, {0, 1, 2, 3});
+    auto n2 = CGMatrixVariable(2, 2, {4, 5, 6, 7});
+    auto n3 = CGMatrixProduct(&n1, &n2);
+    auto n4 = CGMatrixReduceSum(&n3);
     Eigen::VectorXf vars(8);
     vars << 1, 2, 3, 4,
             5, 6, 7, 8;
@@ -138,10 +136,10 @@ TEST(NumGrindMatrixSuit, test04) {
 }
 
 TEST(NumGrindMatrixSuit, test05) {
-    auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
-    auto B = GNMatrixVariable(3, 1, {6, 7, 8});
-    auto C = GNMatrixProduct(&A, &B);
-    auto expr = GNMatrixReduceSum(&C);
+    auto A = CGMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
+    auto B = CGMatrixVariable(3, 1, {6, 7, 8});
+    auto C = CGMatrixProduct(&A, &B);
+    auto expr = CGMatrixReduceSum(&C);
     Eigen::VectorXf vars(9);
     vars << 1, 2, 3, 4, 5, 6,
             7, 8, 9;
@@ -162,12 +160,12 @@ TEST(NumGrindMatrixSuit, test05) {
 }
 
 TEST(NumGrindMatrixSuit, test06) {
-    auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
-    auto B = GNMatrixVariable(3, 1, {6, 7, 8});
-    auto c = GNMatrixProduct(&A, &B);
-    auto w = GNVectorVariable({9, 10});
-//    auto ct = GNMatrixTranspose(&c);
-    auto expr = GNDotProduct(&c, &w);
+    auto A = CGMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
+    auto B = CGMatrixVariable(3, 1, {6, 7, 8});
+    auto c = CGMatrixProduct(&A, &B);
+    auto w = CGVectorVariable({9, 10});
+//    auto ct = CGMatrixTranspose(&c);
+    auto expr = CGDotProduct(&c, &w);
     Eigen::VectorXf vars(11);
     vars << 1, 2, 3, 4, 5, 6,
             7, 8, 9,
@@ -192,10 +190,10 @@ TEST(NumGrindMatrixSuit, test06) {
 }
 
 TEST(NumGrindMatrixSuit, test07) {
-    auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
-    auto B = GNMatrixVariable(3, 1, {6, 7, 8});
-    auto C = GNMatrixProduct(&A, &B);
-    auto expr = GNDotProduct(&C, &C);
+    auto A = CGMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
+    auto B = CGMatrixVariable(3, 1, {6, 7, 8});
+    auto C = CGMatrixProduct(&A, &B);
+    auto expr = CGDotProduct(&C, &C);
     Eigen::VectorXf vars(9);
     vars << 1, 2, 3, 4, 5, 6,
             7, 8, 9;
@@ -216,10 +214,10 @@ TEST(NumGrindMatrixSuit, test07) {
 }
 
 TEST(NumGrindMatrixSuit, test08) {
-    auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
+    auto A = CGMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
 
-    auto sA = GNMatrixMapUnaryFunction<float, testhelpers::sigmoid, testhelpers::sigmoidDer>(&A);
-    auto expr = GNMatrixReduceSum(&sA);
+    auto sA = CGMatrixMapUnaryFunction<float, testhelpers::sigmoid, testhelpers::sigmoidDer>(&A);
+    auto expr = CGMatrixReduceSum(&sA);
 
     Eigen::VectorXf vars(6);
     vars << -0.2, -0.1, 0.0, 0.1, 0.2, 0.3;
@@ -243,10 +241,10 @@ TEST(NumGrindMatrixSuit, test08) {
 
 
 TEST(NumGrindMatrixSuit, test09) {
-    auto A = GNMatrixVariable(3, 1, {0, 1, 2});
-    auto b = GNScalarVariable(3);
-    auto c = GNMatrixScalarSum(&A, &b);
-    auto expr = GNDotProduct(&c, &c);
+    auto A = CGMatrixVariable(3, 1, {0, 1, 2});
+    auto b = CGScalarVariable(3);
+    auto c = CGMatrixScalarSum(&A, &b);
+    auto expr = CGDotProduct(&c, &c);
 
     Eigen::VectorXf vars(4);
     vars << 1, 2, 3, 4;

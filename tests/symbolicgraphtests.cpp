@@ -1,5 +1,3 @@
-#include "symbolicgraphtests.h"
-
 #include <cmath>
 #include <iostream>
 #include "gtest/gtest.h"

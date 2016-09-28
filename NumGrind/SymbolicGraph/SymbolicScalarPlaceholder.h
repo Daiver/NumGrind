@@ -2,13 +2,13 @@
 #define NUMGRIND_SYMBOLICSCALARPLACEHOLDER_H
 
 #include "SymbolicScalarNode.h"
-#include "CompGraph/GNScalarVariable.h"
+#include "CompGraph/CGScalarVariable.h"
 
 namespace NumGrind {
     namespace SymbolicGraph {
         class SymbolicScalarPlaceholder : public SymbolicScalarNode {
         public:
-            SymbolicScalarPlaceholder(GraphManagerAbstract *manager, CompGraph::GNScalarVariable *variable,
+            SymbolicScalarPlaceholder(SymbolicGraphManagerAbstract *manager, CompGraph::CGScalarVariable *variable,
                                       const bool isVariable);
 
             bool isVariable() const { return mIsVariable; }
@@ -17,7 +17,7 @@ namespace NumGrind {
 
         protected:
             bool mIsVariable;
-            CompGraph::GNScalarVariable *mNodeVariable;
+            CompGraph::CGScalarVariable *mNodeVariable;
         };
     }
 }

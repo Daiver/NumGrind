@@ -2,7 +2,7 @@
 
 using namespace NumGrind::SymbolicGraph;
 
-SymbolicTensorNode::SymbolicTensorNode(GraphManagerAbstract *manager, CompGraph::GNTensorOutput *graphNode): SymbolicGraphNode (manager), mGraphNode(graphNode)
+SymbolicTensorNode::SymbolicTensorNode(SymbolicGraphManagerAbstract *manager, CompGraph::CGTensorOutput *graphNode): SymbolicGraphNode (manager), mGraphNode(graphNode)
 {
 
 }

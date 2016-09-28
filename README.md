@@ -71,12 +71,13 @@ See examples/main.cpp for more examples
 #Installation
 Current version tested only under Ubuntu 16.04. But it should be ok on any platform with modern C++11 compiler, Eigen, cmake and DownloadProject
 
-##Common steps
+##Manual install for any platform
 1. Install CMake.
 2. Download Eigen from official site. Or install it by any another way. Copy Eigen dir into 3rdparty dir. Or make link
 3. Just compile project with cmake: mkdir build ; cd build ; cmake .. && make
-4. Run tests repo/build/tests/runUnitTests.
-5. Profit?
+4. Run tests <path_to_cloned_repo>/build/tests/runUnitTests.
+5. It's all. Project is builded. I really don't know why you need NumGrind
+6. Profit?
 
 ##For Ubuntu:
 Just run it

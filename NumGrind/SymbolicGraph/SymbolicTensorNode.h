@@ -2,22 +2,22 @@
 #define NUMGRIND_SYMBOLICTENSORNODE_H
 
 #include "SymbolicGraphNode.h"
-#include "CompGraph/GNTensorOutput.h"
+#include "CompGraph/CGTensorOutput.h"
 
 namespace NumGrind {
     namespace SymbolicGraph {
         class SymbolicTensorNode : public SymbolicGraphNode {
         public:
-            SymbolicTensorNode(GraphManagerAbstract *manager, CompGraph::GNTensorOutput *graphNode);
+            SymbolicTensorNode(SymbolicGraphManagerAbstract *manager, CompGraph::CGTensorOutput *graphNode);
 
             virtual ~SymbolicTensorNode() override;
 
             const Eigen::MatrixXf &value() const { return this->mGraphNode->value(); }
 
-            CompGraph::GNTensorOutput *node() { return this->mGraphNode; }
+            CompGraph::CGTensorOutput *node() { return this->mGraphNode; }
 
         protected:
-            CompGraph::GNTensorOutput *mGraphNode;
+            CompGraph::CGTensorOutput *mGraphNode;
         };
     }
 }

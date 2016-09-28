@@ -4,15 +4,15 @@
 #include "SymbolicScalarNode.h"
 #include "SymbolicTensorNode.h"
 
-#include "CompGraph/GNMatrixElementWiseProduct.h"
-#include "CompGraph/GNDotProduct.h"
-#include "CompGraph/GNMatrixConstant.h"
-#include "CompGraph/GNMatrixProduct.h"
-#include "CompGraph/GNMatrixSum.h"
-#include "CompGraph/GNMatrixSub.h"
-#include "CompGraph/GNMatrixScalarSum.h"
-#include "CompGraph/GNMatrixMapUnaryFunction.h"
-#include "CompGraph/GNMatrixReduceSum.h"
+#include "CompGraph/CGMatrixElementWiseProduct.h"
+#include "CompGraph/CGDotProduct.h"
+#include "CompGraph/CGMatrixConstant.h"
+#include "CompGraph/CGMatrixProduct.h"
+#include "CompGraph/CGMatrixSum.h"
+#include "CompGraph/CGMatrixSub.h"
+#include "CompGraph/CGMatrixScalarSum.h"
+#include "CompGraph/CGMatrixMapUnaryFunction.h"
+#include "CompGraph/CGMatrixReduceSum.h"
 
 namespace NumGrind {
 
@@ -58,8 +58,8 @@ namespace NumGrind {
 template <float Func(float), float Der(float)>
 NumGrind::SymbolicGraph::SymbolicTensorNode NumGrind::SymbolicGraph::apply(NumGrind::SymbolicGraph::SymbolicTensorNode a)
 {
-    NumGrind::SymbolicGraph::GraphManagerAbstract *m = a.manager();
-    auto node = new NumGrind::CompGraph::GNMatrixMapUnaryFunction<float, Func, Der>(a.node());
+    NumGrind::SymbolicGraph::SymbolicGraphManagerAbstract *m = a.manager();
+    auto node = new NumGrind::CompGraph::CGMatrixMapUnaryFunction<float, Func, Der>(a.node());
     m->addGraphNode(node);
     return NumGrind::SymbolicGraph::SymbolicTensorNode(m, node);
 };

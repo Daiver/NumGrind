@@ -3,13 +3,13 @@
 
 #include "SymbolicTensorNode.h"
 
-#include "CompGraph/GNMatrixVariable.h"
+#include "CompGraph/CGMatrixVariable.h"
 
 namespace NumGrind {
     namespace SymbolicGraph {
         class SymbolicTensorPlaceholder : public SymbolicTensorNode {
         public:
-            SymbolicTensorPlaceholder(GraphManagerAbstract *manager, CompGraph::GNMatrixVariable *graphNode,
+            SymbolicTensorPlaceholder(SymbolicGraphManagerAbstract *manager, CompGraph::CGMatrixVariable *graphNode,
                                       const bool isVariable = false);
 
             void setValue(const Eigen::MatrixXf &value) { this->mNodeVariable->setValue(value); }
@@ -18,7 +18,7 @@ namespace NumGrind {
 
         protected:
             bool mIsVariable;
-            CompGraph::GNMatrixVariable *mNodeVariable;
+            CompGraph::CGMatrixVariable *mNodeVariable;
         };
     }
 }

@@ -7,7 +7,7 @@
 using namespace NumGrind;
 using namespace NumGrind::SymbolicGraph;
 
-SymbolicGraphNode::SymbolicGraphNode(GraphManagerAbstract *manager): mManager(manager)
+SymbolicGraphNode::SymbolicGraphNode(SymbolicGraphManagerAbstract *manager): mManager(manager)
 {
 
 }
@@ -16,6 +16,6 @@ SymbolicGraphNode::~SymbolicGraphNode() {
 
 }
 
-GraphManagerAbstract *SymbolicGraphNode::manager() {
+SymbolicGraphManagerAbstract *SymbolicGraphNode::manager() {
     return this->mManager;
 }

@@ -4,18 +4,18 @@
 #include <vector>
 #include <functional>
 #include "Eigen/Core"
-#include "SymbolicGraph/GraphManagerAbstract.h"
+#include "SymbolicGraph/SymbolicGraphManagerAbstract.h"
 #include "SymbolicGraph/SymbolicScalarPlaceholder.h"
 #include "SymbolicGraph/SymbolicTensorPlaceholder.h"
 
 namespace NumGrind {
-    class GraphManager : public SymbolicGraph::GraphManagerAbstract {
+    class GraphManager : public SymbolicGraph::SymbolicGraphManagerAbstract {
     public:
         GraphManager();
 
         ~GraphManager();
 
-        virtual void addGraphNode(CompGraph::GraphNode *node) override;
+        virtual void addGraphNode(CompGraph::CompGraphNode *node) override;
 
         Eigen::VectorXf initializeVariables();
 
@@ -51,9 +51,9 @@ namespace NumGrind {
         int nVarsForMatrices() const;
 
     private:
-        std::vector<CompGraph::GNScalarVariable *> mScalarVariables;
-        std::vector<CompGraph::GNMatrixVariable *> mMatrixVariables;
-        std::vector<CompGraph::GraphNode *> mGraphNodes;
+        std::vector<CompGraph::CGScalarVariable *> mScalarVariables;
+        std::vector<CompGraph::CGMatrixVariable *> mMatrixVariables;
+        std::vector<CompGraph::CompGraphNode *> mGraphNodes;
     };
 
 }

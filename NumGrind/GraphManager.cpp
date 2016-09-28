@@ -1,6 +1,6 @@
 #include "GraphManager.h"
 
-#include "CompGraph/GNMatrixConstant.h"
+#include "CompGraph/CGMatrixConstant.h"
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
@@ -11,18 +11,18 @@ GraphManager::GraphManager() {
 }
 
 GraphManager::~GraphManager() {
-    for(const GraphNode *node : mGraphNodes)
+    for(const CompGraphNode *node : mGraphNodes)
         if(node != nullptr)
             delete node;
 }
 
-void GraphManager::addGraphNode(GraphNode *node) {
+void GraphManager::addGraphNode(CompGraphNode *node) {
     assert(node != nullptr);
     this->mGraphNodes.push_back(node);
 }
 
 SymbolicScalarPlaceholder GraphManager::variable(const float val) {
-    GNScalarVariable *node = new GNScalarVariable(-1);
+    CGScalarVariable *node = new CGScalarVariable(-1);
     node->setValue(val);
     this->mScalarVariables.push_back(node);
     this->addGraphNode(node);
@@ -34,7 +34,7 @@ SymbolicTensorPlaceholder GraphManager::variable(const int nRows, const int nCol
 }
 
 SymbolicTensorPlaceholder GraphManager::variable(const Eigen::MatrixXf &value) {
-    GNMatrixVariable *node = new GNMatrixVariable(value.rows(), value.cols());
+    CGMatrixVariable *node = new CGMatrixVariable(value.rows(), value.cols());
     node->setValue(value);
     this->mMatrixVariables.push_back(node);
     this->addGraphNode(node);
@@ -48,7 +48,7 @@ Eigen::VectorXf GraphManager::initializeGradient(const Eigen::VectorXf &vars) {
 
 int GraphManager::nVarsForMatrices() const {
     int res = 0;
-    for(GNMatrixVariable *var : mMatrixVariables)
+    for(CGMatrixVariable *var : mMatrixVariables)
         res += var->nRows() * var->nCols();
 
     return res;
@@ -87,7 +87,7 @@ Eigen::VectorXf GraphManager::initializeVariables() {
 }
 
 SymbolicTensorNode GraphManager::constant(const Eigen::MatrixXf &value) {
-    auto node = new GNMatrixConstant(value);
+    auto node = new CGMatrixConstant(value);
     this->addGraphNode(node);
     return SymbolicTensorNode(this, node);
 }

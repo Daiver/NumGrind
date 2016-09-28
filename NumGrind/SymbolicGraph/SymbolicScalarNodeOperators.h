@@ -4,12 +4,12 @@
 #include "SymbolicScalarNode.h"
 #include "SymbolicScalarPlaceholder.h"
 
-#include "CompGraph/GNScalarVariable.h"
-#include "CompGraph/GNScalarConst.h"
-#include "CompGraph/GNScalarSum.h"
-#include "CompGraph/GNScalarMult.h"
-#include "CompGraph/GNScalarSub.h"
-#include "CompGraph/GNScalarConst.h"
+#include "CompGraph/CGScalarVariable.h"
+#include "CompGraph/CGScalarConst.h"
+#include "CompGraph/CGScalarSum.h"
+#include "CompGraph/CGScalarMult.h"
+#include "CompGraph/CGScalarSub.h"
+#include "CompGraph/CGScalarConst.h"
 
 namespace NumGrind {
     namespace SymbolicGraph {

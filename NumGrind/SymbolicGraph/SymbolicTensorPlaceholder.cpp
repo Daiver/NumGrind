@@ -7,7 +7,7 @@
 using namespace NumGrind::SymbolicGraph;
 using namespace NumGrind::CompGraph;
 
-SymbolicTensorPlaceholder::SymbolicTensorPlaceholder(GraphManagerAbstract *manager, GNMatrixVariable *graphNode, const bool isVariable)
+SymbolicTensorPlaceholder::SymbolicTensorPlaceholder(SymbolicGraphManagerAbstract *manager, CGMatrixVariable *graphNode, const bool isVariable)
         : SymbolicTensorNode(manager, graphNode), mIsVariable(isVariable)
 {
 

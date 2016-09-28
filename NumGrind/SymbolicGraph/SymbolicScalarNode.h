@@ -2,20 +2,20 @@
 #define NUMGRIND_SCALARVARIABLE_H
 
 #include "SymbolicGraphNode.h"
-#include "CompGraph/GNScalarOutput.h"
+#include "CompGraph/CGScalarOutput.h"
 
 namespace NumGrind {
     namespace SymbolicGraph {
         class SymbolicScalarNode : public SymbolicGraphNode {
         public:
-            SymbolicScalarNode(GraphManagerAbstract *manager, CompGraph::GNScalarOutput *graphNode);
+            SymbolicScalarNode(SymbolicGraphManagerAbstract *manager, CompGraph::CGScalarOutput *graphNode);
 
             float value() const { return mGraphNode->value(); }
 
-            CompGraph::GNScalarOutput *node();
+            CompGraph::CGScalarOutput *node();
 
         protected:
-            CompGraph::GNScalarOutput *mGraphNode;
+            CompGraph::CGScalarOutput *mGraphNode;
         };
     }
 }

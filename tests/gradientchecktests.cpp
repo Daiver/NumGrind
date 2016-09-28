@@ -1,4 +1,3 @@
-#include "gradientchecktests.h"
 
 #include <cmath>
 #include <iostream>

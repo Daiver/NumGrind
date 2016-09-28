@@ -7,11 +7,11 @@
 using namespace NumGrind;
 using namespace NumGrind::SymbolicGraph;
 
-SymbolicScalarNode::SymbolicScalarNode(GraphManagerAbstract *manager, CompGraph::GNScalarOutput *graphNode) : SymbolicGraphNode(manager), mGraphNode(graphNode)
+SymbolicScalarNode::SymbolicScalarNode(SymbolicGraphManagerAbstract *manager, CompGraph::CGScalarOutput *graphNode) : SymbolicGraphNode(manager), mGraphNode(graphNode)
 {
 
 }
 
-CompGraph::GNScalarOutput *SymbolicScalarNode::node() {
+CompGraph::CGScalarOutput *SymbolicScalarNode::node() {
     return mGraphNode;
 }
