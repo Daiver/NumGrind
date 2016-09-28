@@ -71,22 +71,29 @@ See examples/main.cpp for more examples
 #Installation
 Current version tested only under Ubuntu 16.04. But it should be ok on any platform with modern C++11 compiler, Eigen, cmake and DownloadProject
 
-1. Install CMake. In case of Ubuntu
+1. Install CMake.
+2. Download Eigen from official site. Or install it by any another way. Copy Eigen dir into 3rdparty dir. Or make link
+3. Just compile project with cmake: mkdir build ; cd build ; cmake .. && make
+4. Run tests repo/build/tests/runUnitTests.
+5. Profit?
+
+Ubuntu:
 ```
 sudo apt-get install cmake
-```
-2. Download Eigen from official site. Copy Eigen dir into 3rdparty dir. Ubuntu:
-```
 sudo apt-get install libeigen3-dev
-```
-3. 
-```
+
+git clone https://github.com/Daiver/NumGrind
+
+cd NumGrind
+ln -s /usr/include/eigen3/Eigen 3rdparty/Eigen
+
 mkdir build 
 cd build 
 cmake .. 
 make
+./tests/runUnitTests
+
 ```
-4. Profit?
 
 #TODO
 
