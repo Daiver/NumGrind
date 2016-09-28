@@ -43,7 +43,8 @@ void logisticRegressionOperatorAndExample02()
 
     solvers::SolverSettings settings;
     settings.nMaxIterations = 20;
-    solvers::gradientDescent(settings, 0.1, [&](const Eigen::VectorXf &vars) {
+    solvers::gradientDescent(settings, 0.1, 
+                             [&](const Eigen::VectorXf &vars) {
                                  err.node()->forwardPass(vars);
                                  return err.node()->value();
                              },
@@ -95,14 +96,9 @@ void mlpOperatorOrExample01()
     solvers::SolverSettings settings;
     settings.nMaxIterations = 40;
     settings.minDErr = 1e-5;
-    solvers::gradientDescent(settings, 2.0, [&](const Eigen::VectorXf &vars) {
-                                 err.node()->forwardPass(vars);
-                                 return err.node()->value();
-                             },
-                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
-                                 err.node()->forwardPass(vars);
-                                 err.node()->backwardPass(1.0, grad);
-                             }, vars);
+    solvers::gradientDescent(settings, 2.0, 
+                             gm.funcFromNode(&err),
+                             gm.gradFromNode(&err), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;

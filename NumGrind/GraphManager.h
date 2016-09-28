@@ -2,6 +2,7 @@
 #define NUMGRIND_GRAPHMANAGER_H
 
 #include <vector>
+#include <functional>
 #include "Eigen/Core"
 #include "GraphManagerAbstract.h"
 #include "SymbolicScalarPlaceholder.h"
@@ -27,6 +28,24 @@ namespace NumGrind {
         SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
 
         SymbolicTensorNode constant(const Eigen::MatrixXf &value);
+
+        static std::function<float(const Eigen::VectorXf&)> funcFromNode(
+                SymbolicScalarNode *func)
+        {
+            return [&](const Eigen::VectorXf &vars){
+                func->node()->forwardPass(vars);
+                return func->node()->value();
+            };
+        }
+
+        static std::function<void(const Eigen::VectorXf&, Eigen::VectorXf &)> gradFromNode(
+                SymbolicScalarNode *func)
+        {
+			return [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
+					 func->node()->forwardPass(vars);
+					 func->node()->backwardPass(1.0, grad);
+			 };
+		}
 
     protected:
         int nVarsForMatrices() const;
