@@ -153,9 +153,6 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
     ASSERT_FLOAT_EQ(vars[11], 13.0);
 }
 
-float square(float x) { return x*x; }
-float squareDer(float x) { return 2*x; }
-
 TEST(NumGrindGraphMatrixSuit, testMatSum01) {
 
     using namespace SymbolicNodeOps;
@@ -170,7 +167,7 @@ TEST(NumGrindGraphMatrixSuit, testMatSum01) {
     auto a = gm.variable(aMat);
     auto b = gm.variable(bMat);
     auto c = a + b;
-    auto d = apply<square, squareDer>(c);
+    auto d = apply<helpers::square, helpers::squareDer>(c);
     auto e = reduceSum(d);
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);

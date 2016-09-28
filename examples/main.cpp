@@ -13,7 +13,7 @@ float sigmoid(float z)
 
 float sigmoidDer(float z)
 {
-    return sigmoid(z) * sigmoid(1.0f - z);
+    return sigmoid(z) * (1.0 - sigmoid(z));
 }
 
 void logisticRegressionOperatorAndExample02()
@@ -85,7 +85,7 @@ void mlpOperatorOrExample01()
 
     NumGrind::solvers::SolverSettings settings;
     settings.nMaxIterations = 40;
-    settings.minDErr = 1e-5;
+//    settings.minDErr = 1e-5;
     NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;

@@ -232,12 +232,12 @@ TEST(NumGrindMatrixSuit, test08) {
     auto res = expr.value();
     ASSERT_TRUE(fabs(res - 3.0744425168116591) < eps);
 
-    ASSERT_TRUE(fabs(grad[0] - 0.3459637297540461) < eps);
-    ASSERT_TRUE(fabs(grad[1] - 0.35638916496192907) < eps);
-    ASSERT_TRUE(fabs(grad[2] - 0.36552928931500245) < eps);
-    ASSERT_TRUE(fabs(grad[3] - 0.37323369222663105) < eps);
-    ASSERT_TRUE(fabs(grad[4] - 0.37937142700199805) < eps);
-    ASSERT_TRUE(fabs(grad[5] - 0.38383546554705678) < eps);
+    ASSERT_TRUE(fabs(grad[0] - 0.24751657271) < eps);
+    ASSERT_TRUE(fabs(grad[1] - 0.24937604019) < eps);
+    ASSERT_TRUE(fabs(grad[2] - 0.25) < eps);
+    ASSERT_TRUE(fabs(grad[3] - 0.24937604019) < eps);
+    ASSERT_TRUE(fabs(grad[4] - 0.24751657271) < eps);
+    ASSERT_TRUE(fabs(grad[5] - 0.24445831169) < eps);
 
 }
 

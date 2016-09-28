@@ -32,7 +32,7 @@ namespace NumGrind {
         static std::function<float(const Eigen::VectorXf&)> funcFromNode(
                 SymbolicScalarNode *func)
         {
-            return [&](const Eigen::VectorXf &vars){
+            return [=](const Eigen::VectorXf &vars){
                 func->node()->forwardPass(vars);
                 return func->node()->value();
             };
@@ -41,7 +41,7 @@ namespace NumGrind {
         static std::function<void(const Eigen::VectorXf&, Eigen::VectorXf &)> gradFromNode(
                 SymbolicScalarNode *func)
         {
-			return [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
+			return [=](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
 					 func->node()->forwardPass(vars);
 					 func->node()->backwardPass(1.0, grad);
 			 };
