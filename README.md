@@ -1,9 +1,11 @@
 # NumGrind
+
+[![Build Status](https://travis-ci.org/Daiver/NumGrind.svg?branch=master)](https://travis-ci.org/Daiver/NumGrind)
+
 Simple computational graph with reverse mode autodiff framework. Inspired by TensorFlow/Theano and other computational graph tools
 
 I created it for educational purposes
 
-[![Build Status](https://travis-ci.org/Daiver/NumGrind.svg?branch=master)](https://travis-ci.org/Daiver/NumGrind)
 
 Currently NumGrind in active development. Not for production now.
 
@@ -94,6 +96,7 @@ See examples/main.cpp for more examples
  - (long term issue) Add GPU/OpenCL support
 
 ##Tests
+ - Own namespaces/classes for tests?
  - Change tests names
 
 ##3rdparty

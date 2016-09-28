@@ -23,7 +23,10 @@ include_directories("../NumGrind/")
 #include_directories("../src/CompGraph/")
 set(test_SRCS
         helpers.cpp helpers.h
-        compgraphtests.cpp compgraphtests.h symbolicgraphtests.cpp symbolicgraphtests.h)
+        compgraphtests.cpp compgraphtests.h
+        symbolicgraphtests.cpp symbolicgraphtests.h
+        gradientchecktests.cpp gradientchecktests.h)
+
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
 target_link_libraries(runUnitTests gtest gmock numgrind)
 add_test(runUnitTests runUnitTests) #included in all tutorials but I don't know what it actually does
