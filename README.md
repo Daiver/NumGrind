@@ -1,9 +1,11 @@
 # NumGrind
 Simple computational graph with reverse mode autodiff framework. Inspired by TensorFlow/Theano and other computational graph tools
 
+I created it for educational purposes
+
 [![Build Status](https://travis-ci.org/Daiver/NumGrind.svg?branch=master)](https://travis-ci.org/Daiver/NumGrind)
 
-Not for production
+Currently NumGrind in active development. Not for production now.
 
 Pull-requests are welcomed
 
@@ -12,11 +14,11 @@ Pull-requests are welcomed
 ##Multilayer perceptron
 ```cpp
 
-	using namespace SymbolicNodeOps;
+    using namespace NumGrind;
+    using namespace NumGrind::SymbolicNodeOps;
     GraphManager gm;
 
-    //Just "XOR" operator
-	Eigen::MatrixXf data(4, 2);
+    Eigen::MatrixXf data(4, 2);
     Eigen::VectorXf targets(4);
     data << 0, 0,
             0, 1,
@@ -25,6 +27,7 @@ Pull-requests are welcomed
     targets << 0, 1, 1, 0;
 
     std::default_random_engine generator;
+    generator.seed(42);
 
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
@@ -41,7 +44,17 @@ Pull-requests are welcomed
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    solvers::gradientDescent(40, 2.0, *err.node(), vars);
+    SolverSettings settings;
+    settings.nMaxIterations = 40;
+    settings.minDErr = 1e-5;
+    solvers::gradientDescent(settings, 2.0, [&](const Eigen::VectorXf &vars) {
+                                 err.node()->forwardPass(vars);
+                                 return err.node()->value();
+                             },
+                             [&](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
+                                 err.node()->forwardPass(vars);
+                                 err.node()->backwardPass(1.0, grad);
+                             }, vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f2.value() << std::endl;
