@@ -73,6 +73,9 @@ See examples/main.cpp for more examples
 #TODO
 
 ##Common
+ - Improve + operator for matrices (numpy like). Change - operator according to +
+ - Add reshape node
+ - Add transpose node
  - Add own settings class for every solver
  - Add some code style
  - Add MNIST test
@@ -83,7 +86,6 @@ See examples/main.cpp for more examples
  - Remove copy-paste from nodes. Add intermediate classes for binary operators
 
 ##Optimization (Numerical)
- - Add gradient check test for complex case
  - Add and test basic SGD with momentum
  - Add and test complex SGD solvers as Adam/AdaGrad
  - Add common interface for solvers
@@ -115,4 +117,5 @@ See examples/main.cpp for more examples
  - Add runinig tests inside travis
  - Split tests into several files
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
+ - Add gradient check test for complex case - i hope that simple mlp is enough
 
