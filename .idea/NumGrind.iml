@@ -50,6 +50,8 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/helpers.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/compgraphtests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/symbolicgraphtests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/symbolicgraphtests.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicScalarNodeOperators.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicTensorNode.h" isTestSource="false" />
