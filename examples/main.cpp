@@ -41,7 +41,7 @@ void logisticRegressionOperatorAndExample02()
 
     auto vars = gm.initializeVariables();
 
-    SolverSettings settings;
+    solvers::SolverSettings settings;
     settings.nMaxIterations = 20;
     solvers::gradientDescent(settings, 0.1, [&](const Eigen::VectorXf &vars) {
                                  err.node()->forwardPass(vars);
@@ -92,7 +92,7 @@ void mlpOperatorOrExample01()
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
-    SolverSettings settings;
+    solvers::SolverSettings settings;
     settings.nMaxIterations = 40;
     settings.minDErr = 1e-5;
     solvers::gradientDescent(settings, 2.0, [&](const Eigen::VectorXf &vars) {
