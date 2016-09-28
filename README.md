@@ -86,6 +86,7 @@ See examples/main.cpp for more examples
 #TODO
 
 ##Common
+ - Add own settings class for every solver
  - Add some code style
  - Add MNIST test
  - Switch to session model

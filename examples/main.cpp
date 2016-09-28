@@ -116,7 +116,6 @@ void mlpOperatorOrExample01()
 }
 
 int main() {
-//    logisticRegressionOperatorAndExample01();
 //    logisticRegressionOperatorAndExample02();
     mlpOperatorOrExample01();
     return 0;

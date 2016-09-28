@@ -16,12 +16,14 @@ void solvers::gradientDescent(
         gradF(vars, grad);
         vars -= grad * stepSize;
         const float err = func(vars);
+        const float dErr = fabs(err - errOld);
+        const float gradL2 = grad.norm();
         if(settings.verbose)
-            std::cout << iter << " : " << err << std::endl;
+            std::cout << iter << "> err:" << err << " |g|_2:" << gradL2 << " dErr:" << dErr << std::endl;
 
-        if(grad.norm() < settings.minGradL2)
+        if(gradL2 < settings.minGradL2)
             break;
-        if(fabs(err - errOld) < settings.minDErr)
+        if(dErr < settings.minDErr)
             break;
 
         errOld = err;
