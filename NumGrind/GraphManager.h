@@ -4,12 +4,12 @@
 #include <vector>
 #include <functional>
 #include "Eigen/Core"
-#include "GraphManagerAbstract.h"
-#include "SymbolicScalarPlaceholder.h"
-#include "SymbolicTensorPlaceholder.h"
+#include "SymbolicGraph/GraphManagerAbstract.h"
+#include "SymbolicGraph/SymbolicScalarPlaceholder.h"
+#include "SymbolicGraph/SymbolicTensorPlaceholder.h"
 
 namespace NumGrind {
-    class GraphManager : public GraphManagerAbstract {
+    class GraphManager : public SymbolicGraph::GraphManagerAbstract {
     public:
         GraphManager();
 

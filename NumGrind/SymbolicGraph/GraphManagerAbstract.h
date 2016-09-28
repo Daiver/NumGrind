@@ -4,11 +4,13 @@
 #include "CompGraph/GraphNode.h"
 
 namespace NumGrind {
-    class GraphManagerAbstract {
-    public:
-        virtual void addGraphNode(CompGraph::GraphNode *node) = 0;
+    namespace SymbolicGraph {
+        class GraphManagerAbstract {
+        public:
+            virtual void addGraphNode(CompGraph::GraphNode *node) = 0;
 
-    };
+        };
+    }
 }
 
 #endif //NUMGRIND_GRAPHMANAGERABSTRACT_H

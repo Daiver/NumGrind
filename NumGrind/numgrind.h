@@ -27,12 +27,12 @@
 #include "CompGraph/GNMatrixScalarSum.h"
 
 #include "GraphManager.h"
-#include "SymbolicScalarNode.h"
-#include "SymbolicScalarPlaceholder.h"
-#include "SymbolicScalarNodeOperators.h"
-#include "SymbolicTensorNode.h"
-#include "SymbolicTensorPlaceholder.h"
-#include "SymbolicTensorNodeOperators.h"
+#include "SymbolicGraph/SymbolicScalarNode.h"
+#include "SymbolicGraph/SymbolicScalarPlaceholder.h"
+#include "SymbolicGraph/SymbolicScalarNodeOperators.h"
+#include "SymbolicGraph/SymbolicTensorNode.h"
+#include "SymbolicGraph/SymbolicTensorPlaceholder.h"
+#include "SymbolicGraph/SymbolicTensorNodeOperators.h"
 
 namespace NumGrind {
 
