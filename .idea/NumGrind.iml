@@ -124,8 +124,10 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/SolverSettings.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/checkgradient.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/checkgradient.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/CMakeLists.txt" isTestSource="false" />

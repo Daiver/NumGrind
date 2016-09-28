@@ -46,7 +46,9 @@ Pull-requests are welcomed
 
     NumGrind::solvers::SolverSettings settings;
     settings.nMaxIterations = 40;
-    settings.minDErr = 1e-5;
+
+    std::cout << "is gradient ok? " << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
+
     NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
@@ -67,7 +69,13 @@ See examples/main.cpp for more examples
 #Installation
 1. Install CMake
 2. Download Eigen from official site. Copy Eigen dir into 3rdparty dir
-3. mkdir build ; cd build ; cmake .. && make
+3. 
+```
+mkdir build 
+cd build 
+cmake .. 
+ make
+```
 4. Profit?
 
 #TODO

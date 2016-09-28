@@ -4,5 +4,5 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
 set(NUMGRIND_SOLVERS_FILES
         GradientDescentSolver.cpp GradientDescentSolver.h
-        SolverSettings.cpp SolverSettings.h StochasticGradientDescentSolver.cpp StochasticGradientDescentSolver.h numericalgradient.cpp numericalgradient.h)
+        SolverSettings.cpp SolverSettings.h StochasticGradientDescentSolver.cpp StochasticGradientDescentSolver.h numericalgradient.cpp numericalgradient.h checkgradient.cpp checkgradient.h)
 add_library(NumGrindSolvers ${NUMGRIND_SOLVERS_FILES})

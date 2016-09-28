@@ -1,10 +1,6 @@
-//
-// Created by daiver on 28.09.16.
-//
-
 #include "numericalgradient.h"
 
-void ::solvers::numericalGradient(
+void NumGrind::solvers::numericalGradient(
         std::function<float(const Eigen::VectorXf &)> func,
         const Eigen::VectorXf &varsInit,
         const float dx,

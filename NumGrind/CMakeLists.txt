@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 #include_directories("../3rdparty")
-include_directories(${EIGEN3_INCLUDE_DIR})
 include_directories(.)
+include_directories(${EIGEN3_INCLUDE_DIR})
+
 add_subdirectory(CompGraph)
 add_subdirectory(SymbolicGraph)
 add_subdirectory(solvers)
