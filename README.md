@@ -76,7 +76,6 @@ See examples/main.cpp for more examples
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
  - Add transpose node
- - Add own settings class for every solver
  - Add some code style
  - Add MNIST test
  - Switch to session model
@@ -86,6 +85,7 @@ See examples/main.cpp for more examples
  - Remove copy-paste from nodes. Add intermediate classes for binary operators
 
 ##Optimization (Numerical)
+ - Add own settings class for every solver
  - Add and test basic SGD with momentum
  - Add and test complex SGD solvers as Adam/AdaGrad
  - Add common interface for solvers
@@ -105,7 +105,8 @@ See examples/main.cpp for more examples
  - Find a way to automaticly include Eigen without adding it inside repository
 
 ##CI
- - Nothing
+ - Add Windows support
+ - Add OSX support
 
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
