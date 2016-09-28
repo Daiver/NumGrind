@@ -10,8 +10,8 @@ void solvers::gradientDescent(
         std::function<float(const Eigen::VectorXf &)> func,
         std::function<void(const Eigen::VectorXf &, Eigen::VectorXf &)> gradF, Eigen::VectorXf &vars) {
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
-    const float err = func(vars);
-    std::cout << "Initial err " << err << std::endl;
+    float errOld = func(vars);
+    std::cout << "Initial err " << errOld << std::endl;
     for (int iter = 0; iter < settings.nMaxIterations; ++iter) {
         gradF(vars, grad);
         vars -= grad * stepSize;
@@ -21,5 +21,9 @@ void solvers::gradientDescent(
 
         if(grad.norm() < settings.minGradL2)
             break;
+        if(fabs(err - errOld) < settings.minDErr)
+            break;
+
+        errOld = err;
     }
 }

@@ -6,6 +6,7 @@ public:
 
     int nMaxIterations = 0;
     double minGradL2 = 1e-6;
+    double minDErr = 1e-9;
     bool verbose = true;
 };
 

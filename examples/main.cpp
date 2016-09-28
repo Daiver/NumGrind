@@ -94,7 +94,7 @@ void mlpOperatorOrExample01()
 
     SolverSettings settings;
     settings.nMaxIterations = 40;
-    settings.minGradL2 = 6e-3;
+    settings.minDErr = 1e-5;
     solvers::gradientDescent(settings, 2.0, [&](const Eigen::VectorXf &vars) {
                                  err.node()->forwardPass(vars);
                                  return err.node()->value();
