@@ -5,18 +5,21 @@
 #include "CompGraph/GNScalarVariable.h"
 
 namespace NumGrind {
-    class SymbolicScalarPlaceholder : public SymbolicScalarNode {
-    public:
-        SymbolicScalarPlaceholder(GraphManagerAbstract *manager, CompGraph::GNScalarVariable *variable, const bool isVariable);
+    namespace SymbolicGraph {
+        class SymbolicScalarPlaceholder : public SymbolicScalarNode {
+        public:
+            SymbolicScalarPlaceholder(GraphManagerAbstract *manager, CompGraph::GNScalarVariable *variable,
+                                      const bool isVariable);
 
-        bool isVariable() const { return mIsVariable; }
+            bool isVariable() const { return mIsVariable; }
 
-        void setValue(const float value) { this->mNodeVariable->setValue(value); }
+            void setValue(const float value) { this->mNodeVariable->setValue(value); }
 
-    protected:
-        bool mIsVariable;
-        CompGraph::GNScalarVariable *mNodeVariable;
-    };
+        protected:
+            bool mIsVariable;
+            CompGraph::GNScalarVariable *mNodeVariable;
+        };
+    }
 }
 
 #endif //NUMGRIND_SYMBOLICSCALARPLACEHOLDER_H

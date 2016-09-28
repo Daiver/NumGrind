@@ -45,9 +45,9 @@
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/gtest.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/helpers.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/testhelpers.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/helpers.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/testhelpers.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/symbolicgraphtests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/compgraphtests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/gradientchecktests.h" isTestSource="false" />
@@ -63,17 +63,19 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicScalarPlaceholder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/SolverSettings.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/SolverSettings.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicTensorNodeOperators.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicTensorPlaceholder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicScalarPlaceholder.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManagerAbstract.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/tmp.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicScalarNodeOperators.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManagerAbstract.cpp" isTestSource="false" />
@@ -123,7 +125,7 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/GNScalarSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/GNMatrixReduceSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/GNScalarConst.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManagerAbstract.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicTensorNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicTensorNodeOperators.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/main.cpp" isTestSource="false" />

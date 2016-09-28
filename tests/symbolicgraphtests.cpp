@@ -6,13 +6,13 @@
 #include "numgrind.h"
 #include "utils.h"
 
-#include "helpers.h"
+#include "testhelpers.h"
 
 using namespace NumGrind;
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad01) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     auto a = manager.variable(1);
     auto b = manager.variable(2);
@@ -33,7 +33,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad01) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     auto a = manager.variable(7);
     auto b = manager.variable(12);
@@ -56,7 +56,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad02) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     auto a = manager.variable(3);
     auto b = manager.variable(2);
@@ -81,7 +81,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad03) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad04) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     auto a = 2.0f*manager.variable(3);
     auto b = a + manager.variable(10);
@@ -101,7 +101,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad04) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     auto f = 2*manager.variable(13) * manager.variable(16) - 10 + manager.variable(2)/3.0;
 
@@ -122,7 +122,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager manager;
     Eigen::VectorXf val1(3);
     val1 << 4, 6, 1;
@@ -155,7 +155,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
 
 TEST(NumGrindGraphMatrixSuit, testMatSum01) {
 
-    using namespace SymbolicNodeOps;
+    using namespace SymbolicGraph;
     GraphManager gm;
 
     Eigen::MatrixXf aMat(3, 2);
@@ -167,7 +167,7 @@ TEST(NumGrindGraphMatrixSuit, testMatSum01) {
     auto a = gm.variable(aMat);
     auto b = gm.variable(bMat);
     auto c = a + b;
-    auto d = apply<helpers::square, helpers::squareDer>(c);
+    auto d = apply<testhelpers::square, testhelpers::squareDer>(c);
     auto e = reduceSum(d);
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);

@@ -21,16 +21,16 @@ namespace NumGrind {
 
         static Eigen::VectorXf initializeGradient(const Eigen::VectorXf &vars);
 
-        SymbolicScalarPlaceholder variable(const float val = 0.0);
+        SymbolicGraph::SymbolicScalarPlaceholder variable(const float val = 0.0);
 
-        SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
+        SymbolicGraph::SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
 
-        SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
+        SymbolicGraph::SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
 
-        SymbolicTensorNode constant(const Eigen::MatrixXf &value);
+        SymbolicGraph::SymbolicTensorNode constant(const Eigen::MatrixXf &value);
 
         static std::function<float(const Eigen::VectorXf&)> funcFromNode(
-                SymbolicScalarNode *func)
+                SymbolicGraph::SymbolicScalarNode *func)
         {
             return [=](const Eigen::VectorXf &vars){
                 func->node()->forwardPass(vars);
@@ -39,7 +39,7 @@ namespace NumGrind {
         }
 
         static std::function<void(const Eigen::VectorXf&, Eigen::VectorXf &)> gradFromNode(
-                SymbolicScalarNode *func)
+                SymbolicGraph::SymbolicScalarNode *func)
         {
 			return [=](const Eigen::VectorXf &vars, Eigen::VectorXf &grad) {
 					 func->node()->forwardPass(vars);

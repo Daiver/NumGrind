@@ -12,7 +12,7 @@
 #include "CompGraph/GNScalarConst.h"
 
 namespace NumGrind {
-    namespace SymbolicNodeOps {
+    namespace SymbolicGraph {
 
         SymbolicScalarNode operator+(SymbolicScalarNode a, SymbolicScalarNode b);
 

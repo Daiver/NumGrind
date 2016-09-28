@@ -16,7 +16,7 @@
 
 namespace NumGrind {
 
-    namespace SymbolicNodeOps {
+    namespace SymbolicGraph {
 
         SymbolicScalarNode dot(SymbolicTensorNode a, SymbolicTensorNode b);
 
@@ -56,12 +56,12 @@ namespace NumGrind {
 
 //IMPLEMENTATIONS
 template <float Func(float), float Der(float)>
-NumGrind::SymbolicTensorNode NumGrind::SymbolicNodeOps::apply(NumGrind::SymbolicTensorNode a)
+NumGrind::SymbolicGraph::SymbolicTensorNode NumGrind::SymbolicGraph::apply(NumGrind::SymbolicGraph::SymbolicTensorNode a)
 {
     NumGrind::GraphManagerAbstract *m = a.manager();
     auto node = new NumGrind::CompGraph::GNMatrixMapUnaryFunction<float, Func, Der>(a.node());
     m->addGraphNode(node);
-    return NumGrind::SymbolicTensorNode(m, node);
+    return NumGrind::SymbolicGraph::SymbolicTensorNode(m, node);
 };
 
 

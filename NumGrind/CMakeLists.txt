@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 add_subdirectory(CompGraph)
+add_subdirectory(SymbolicGraph)
 add_subdirectory(solvers)
 
 set(CORE_FILES
@@ -18,6 +19,6 @@ set(CORE_FILES
         utils.h numgrind.h)
 
 add_library(numgrind ${CORE_FILES})
-target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers)
+target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers NumGrindSymbolicGraph)
 #add_executable(NumGrindTest01 main.cpp )
 #target_link_libraries(NumGrindTest01 core)

@@ -19,7 +19,7 @@ float sigmoidDer(float z)
 void logisticRegressionOperatorAndExample02()
 {
     using namespace NumGrind;
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
 
     GraphManager gm;
 
@@ -55,7 +55,7 @@ void logisticRegressionOperatorAndExample02()
 
 void mlpOperatorOrExample01()
 {
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
     NumGrind::GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);

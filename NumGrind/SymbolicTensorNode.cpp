@@ -1,6 +1,6 @@
 #include "SymbolicTensorNode.h"
 
-using namespace NumGrind;
+using namespace NumGrind::SymbolicGraph;
 
 SymbolicTensorNode::SymbolicTensorNode(GraphManagerAbstract *manager, CompGraph::GNTensorOutput *graphNode): SymbolicGraphNode (manager), mGraphNode(graphNode)
 {

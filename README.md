@@ -16,7 +16,7 @@ Pull-requests are welcomed
 ##Multilayer perceptron
 ```cpp
 
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
     NumGrind::GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);

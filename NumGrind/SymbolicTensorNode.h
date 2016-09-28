@@ -5,19 +5,21 @@
 #include "CompGraph/GNTensorOutput.h"
 
 namespace NumGrind {
-    class SymbolicTensorNode : public SymbolicGraphNode {
-    public:
-        SymbolicTensorNode(GraphManagerAbstract *manager, CompGraph::GNTensorOutput *graphNode);
+    namespace SymbolicGraph {
+        class SymbolicTensorNode : public SymbolicGraphNode {
+        public:
+            SymbolicTensorNode(GraphManagerAbstract *manager, CompGraph::GNTensorOutput *graphNode);
 
-        virtual ~SymbolicTensorNode() override;
+            virtual ~SymbolicTensorNode() override;
 
-        const Eigen::MatrixXf &value() const { return this->mGraphNode->value(); }
+            const Eigen::MatrixXf &value() const { return this->mGraphNode->value(); }
 
-        CompGraph::GNTensorOutput *node() { return this->mGraphNode; }
+            CompGraph::GNTensorOutput *node() { return this->mGraphNode; }
 
-    protected:
-        CompGraph::GNTensorOutput *mGraphNode;
-    };
+        protected:
+            CompGraph::GNTensorOutput *mGraphNode;
+        };
+    }
 }
 
 #endif //NUMGRIND_SYMBOLICTENSORNODE_H

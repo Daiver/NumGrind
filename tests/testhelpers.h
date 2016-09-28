@@ -7,7 +7,7 @@
 
 #include <cmath>
 
-namespace helpers {
+namespace testhelpers {
 
 
     inline float sigmoid(float z)

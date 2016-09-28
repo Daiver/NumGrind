@@ -7,7 +7,7 @@
 #include "numgrind.h"
 #include "utils.h"
 
-#include "helpers.h"
+#include "testhelpers.h"
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
@@ -218,7 +218,7 @@ TEST(NumGrindMatrixSuit, test07) {
 TEST(NumGrindMatrixSuit, test08) {
     auto A = GNMatrixVariable(2, 3, {0, 1, 2, 3, 4, 5});
 
-    auto sA = GNMatrixMapUnaryFunction<float, helpers::sigmoid, helpers::sigmoidDer>(&A);
+    auto sA = GNMatrixMapUnaryFunction<float, testhelpers::sigmoid, testhelpers::sigmoidDer>(&A);
     auto expr = GNMatrixReduceSum(&sA);
 
     Eigen::VectorXf vars(6);

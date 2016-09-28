@@ -2,8 +2,9 @@
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
+using namespace NumGrind::SymbolicGraph;
 
-SymbolicScalarNode SymbolicNodeOps::dot(SymbolicTensorNode a, SymbolicTensorNode b) {
+SymbolicScalarNode SymbolicGraph::dot(SymbolicTensorNode a, SymbolicTensorNode b) {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
 
@@ -13,7 +14,7 @@ SymbolicScalarNode SymbolicNodeOps::dot(SymbolicTensorNode a, SymbolicTensorNode
     return SymbolicScalarNode(m, node);
 }
 
-SymbolicTensorNode SymbolicNodeOps::matmult(SymbolicTensorNode a, SymbolicTensorNode b) {
+SymbolicTensorNode SymbolicGraph::matmult(SymbolicTensorNode a, SymbolicTensorNode b) {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
 
@@ -23,7 +24,7 @@ SymbolicTensorNode SymbolicNodeOps::matmult(SymbolicTensorNode a, SymbolicTensor
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicGraph::operator+(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -34,7 +35,7 @@ SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicTens
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicNodeOps::operator-(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicGraph::operator-(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -45,7 +46,7 @@ SymbolicTensorNode SymbolicNodeOps::operator-(SymbolicTensorNode a, SymbolicTens
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicNodeOps::operator*(SymbolicTensorNode a, SymbolicTensorNode b)
+SymbolicTensorNode SymbolicGraph::operator*(SymbolicTensorNode a, SymbolicTensorNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -56,7 +57,7 @@ SymbolicTensorNode SymbolicNodeOps::operator*(SymbolicTensorNode a, SymbolicTens
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicScalarNode b)
+SymbolicTensorNode SymbolicGraph::operator+(SymbolicTensorNode a, SymbolicScalarNode b)
 {
     GraphManagerAbstract *m = a.manager();
     assert(b.manager() == m);
@@ -65,7 +66,7 @@ SymbolicTensorNode SymbolicNodeOps::operator+(SymbolicTensorNode a, SymbolicScal
     return SymbolicTensorNode(m, node);
 }
 
-SymbolicScalarNode SymbolicNodeOps::reduceSum(SymbolicTensorNode a)
+SymbolicScalarNode SymbolicGraph::reduceSum(SymbolicTensorNode a)
 {
     GraphManagerAbstract *m = a.manager();
     auto node = new GNMatrixReduceSum(a.node());

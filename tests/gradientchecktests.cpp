@@ -7,7 +7,7 @@
 #include "utils.h"
 #include "solvers/numericalgradient.h"
 
-#include "helpers.h"
+#include "testhelpers.h"
 
 using namespace NumGrind;
 
@@ -24,12 +24,12 @@ TEST(NumGrindCheckGrad, testNumericalGradient01) {
 
 TEST(NumGrindCheckGrad, testSquare01) {
     using namespace NumGrind;
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
 
     GraphManager gm;
 
     auto w = gm.variable(2, 1, 0);
-    auto f = apply<helpers::square, helpers::squareDer>(w);
+    auto f = apply<testhelpers::square, testhelpers::squareDer>(w);
     auto err = dot(f, f);
     auto vars = gm.initializeVariables();
     vars << 0.1, 0.02;
@@ -49,21 +49,21 @@ TEST(NumGrindCheckGrad, testSquare01) {
 
 TEST(NumGrindCheckGrad, testSigmoid01) {
 
-    auto f = [](const Eigen::VectorXf &vars) { return helpers::sigmoid(vars[0]); };
+    auto f = [](const Eigen::VectorXf &vars) { return testhelpers::sigmoid(vars[0]); };
 
     const float val = 0.02;
 
     const Eigen::VectorXf vars = utils::vec2EVecf({val});
     Eigen::VectorXf grad(vars.size());
     solvers::numericalGradient(f, vars, 0.00001, grad);
-    const float realDer = helpers::sigmoidDer(val);
+    const float realDer = testhelpers::sigmoidDer(val);
     ASSERT_TRUE(fabs(grad[0] - realDer) < 0.001);
 }
 
 TEST(NumGrindCheckGrad, testLogistic01) {
 
     using namespace NumGrind;
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
 
     GraphManager gm;
 
@@ -79,7 +79,7 @@ TEST(NumGrindCheckGrad, testLogistic01) {
     auto y = gm.constant(targets);
     auto w = gm.variable(2, 1, 0);
     auto b = gm.variable(0);
-    auto f = apply<helpers::sigmoid, helpers::sigmoidDer>(matmult(X, w) + b);
+    auto f = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(X, w) + b);
     auto residual = f - y;
     auto err = dot(residual, residual);
 
@@ -99,7 +99,7 @@ TEST(NumGrindCheckGrad, testLogistic01) {
 TEST(NumGrindCheckGrad, testLogistic02) {
 
     using namespace NumGrind;
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
 
     GraphManager gm;
 
@@ -115,7 +115,7 @@ TEST(NumGrindCheckGrad, testLogistic02) {
     auto y = gm.constant(targets);
     auto w = gm.variable(2, 1, 0);
     auto b = gm.variable(0);
-    auto f = apply<helpers::sigmoid, helpers::sigmoidDer>(matmult(X, w) + b);
+    auto f = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(X, w) + b);
     auto residual = f - y;
     auto err = dot(residual, residual);
 
@@ -133,7 +133,7 @@ TEST(NumGrindCheckGrad, testLogistic02) {
 }
 
 TEST(NumGrindCheckGrad, testMLP01) {
-    using namespace NumGrind::SymbolicNodeOps;
+    using namespace NumGrind::SymbolicGraph;
     NumGrind::GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);
@@ -154,8 +154,8 @@ TEST(NumGrindCheckGrad, testMLP01) {
     auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
     auto W2 = gm.variable(NumGrind::utils::gaussf(2, 1, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
-    auto f1 = apply<helpers::sigmoid, helpers::sigmoidDer>(matmult(X, W1) + b1);
-    auto f2 = apply<helpers::sigmoid, helpers::sigmoidDer>(matmult(f1, W2) + b2);
+    auto f1 = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(X, W1) + b1);
+    auto f2 = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
     auto err = dot(residual, residual);
 

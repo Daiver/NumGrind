@@ -2,8 +2,9 @@
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
+using namespace NumGrind::SymbolicGraph;
 
-SymbolicScalarNode  SymbolicNodeOps::operator+(SymbolicScalarNode a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator+(SymbolicScalarNode a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = a.manager();
     assert(manager == b.manager());
     GNScalarOutput *node = new GNScalarSum(a.node(), b.node());
@@ -11,7 +12,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator+(SymbolicScalarNode a, SymbolicSca
     return SymbolicScalarNode(manager, node);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator-(SymbolicScalarNode a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator-(SymbolicScalarNode a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = a.manager();
     assert(manager == b.manager());
     GNScalarOutput *node = new GNScalarSub(a.node(), b.node());
@@ -19,7 +20,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator-(SymbolicScalarNode a, SymbolicSca
     return SymbolicScalarNode(manager, node);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator*(SymbolicScalarNode a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator*(SymbolicScalarNode a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = a.manager();
     assert(manager == b.manager());
     GNScalarOutput *node = new GNScalarMult(a.node(), b.node());
@@ -27,7 +28,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator*(SymbolicScalarNode a, SymbolicSca
     return SymbolicScalarNode(manager, node);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator+(const float a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator+(const float a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = b.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(a);
     manager->addGraphNode(nodeConstant);
@@ -36,7 +37,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator+(const float a, SymbolicScalarNode
     return SymbolicScalarNode(manager, nodeAdd);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator-(const float a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator-(const float a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = b.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(a);
     manager->addGraphNode(nodeConstant);
@@ -45,7 +46,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator-(const float a, SymbolicScalarNode
     return SymbolicScalarNode(manager, nodeSub);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator*(const float a, SymbolicScalarNode b) {
+SymbolicScalarNode  SymbolicGraph::operator*(const float a, SymbolicScalarNode b) {
     GraphManagerAbstract *manager = b.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(a);
     manager->addGraphNode(nodeConstant);
@@ -54,7 +55,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator*(const float a, SymbolicScalarNode
     return SymbolicScalarNode(manager, nodeMult);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator+(SymbolicScalarNode a, const float b) {
+SymbolicScalarNode  SymbolicGraph::operator+(SymbolicScalarNode a, const float b) {
     GraphManagerAbstract *manager = a.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(b);
     manager->addGraphNode(nodeConstant);
@@ -63,7 +64,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator+(SymbolicScalarNode a, const float
     return SymbolicScalarNode(manager, nodeAdd);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator-(SymbolicScalarNode a, const float b) {
+SymbolicScalarNode  SymbolicGraph::operator-(SymbolicScalarNode a, const float b) {
     GraphManagerAbstract *manager = a.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(b);
     manager->addGraphNode(nodeConstant);
@@ -72,7 +73,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator-(SymbolicScalarNode a, const float
     return SymbolicScalarNode(manager, nodeSub);
 }
 
-SymbolicScalarNode  SymbolicNodeOps::operator*(SymbolicScalarNode a, const float b) {
+SymbolicScalarNode  SymbolicGraph::operator*(SymbolicScalarNode a, const float b) {
     GraphManagerAbstract *manager = a.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(b);
     manager->addGraphNode(nodeConstant);
@@ -82,7 +83,7 @@ SymbolicScalarNode  SymbolicNodeOps::operator*(SymbolicScalarNode a, const float
 }
 
 
-SymbolicScalarNode  SymbolicNodeOps::operator/(SymbolicScalarNode a, const float b) {
+SymbolicScalarNode  SymbolicGraph::operator/(SymbolicScalarNode a, const float b) {
     GraphManagerAbstract *manager = a.manager();
     GNScalarOutput *nodeConstant = new GNScalarConst(1.0/b);
     manager->addGraphNode(nodeConstant);

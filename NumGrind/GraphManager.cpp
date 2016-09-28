@@ -4,6 +4,7 @@
 
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
+using namespace NumGrind::SymbolicGraph;
 
 GraphManager::GraphManager() {
 

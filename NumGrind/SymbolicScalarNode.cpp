@@ -5,6 +5,7 @@
 #include "SymbolicScalarNode.h"
 
 using namespace NumGrind;
+using namespace NumGrind::SymbolicGraph;
 
 SymbolicScalarNode::SymbolicScalarNode(GraphManagerAbstract *manager, CompGraph::GNScalarOutput *graphNode) : SymbolicGraphNode(manager), mGraphNode(graphNode)
 {

@@ -22,7 +22,7 @@ include_directories("../3rdparty")
 include_directories("../NumGrind/")
 #include_directories("../src/CompGraph/")
 set(test_SRCS
-        helpers.cpp helpers.h
+        testhelpers.cpp testhelpers.h
         compgraphtests.cpp compgraphtests.h
         symbolicgraphtests.cpp symbolicgraphtests.h
         gradientchecktests.cpp gradientchecktests.h)

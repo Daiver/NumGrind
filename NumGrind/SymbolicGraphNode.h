@@ -4,17 +4,19 @@
 #include "GraphManagerAbstract.h"
 
 namespace NumGrind {
-    class SymbolicGraphNode {
-    public:
-        SymbolicGraphNode(GraphManagerAbstract *manager);
+    namespace SymbolicGraph {
+        class SymbolicGraphNode {
+        public:
+            SymbolicGraphNode(GraphManagerAbstract *manager);
 
-        virtual ~SymbolicGraphNode() = 0;
+            virtual ~SymbolicGraphNode() = 0;
 
-        GraphManagerAbstract *manager();
+            GraphManagerAbstract *manager();
 
-    protected:
-        GraphManagerAbstract *mManager;
-    };
+        protected:
+            GraphManagerAbstract *mManager;
+        };
+    }
 }
 
 #endif //NUMGRIND_SYMBOLICGRAPHNODE_H
