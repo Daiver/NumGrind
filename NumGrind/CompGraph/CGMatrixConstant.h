@@ -19,7 +19,7 @@ namespace NumGrind {
                 return mValue;
             }
 
-            void setValue(const Eigen::VectorXf value) { this->mValue = value; }
+            void setValue(const Eigen::MatrixXf &value) { this->mValue = value; }
 
         private:
             Eigen::MatrixXf mValue;

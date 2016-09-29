@@ -10,7 +10,7 @@ namespace NumGrind {
         public:
             SymbolicTensorConstant(SymbolicGraphManagerAbstract *manager, CompGraph::CGMatrixConstant *graphNode);
 
-            void setValue(const Eigen::VectorXf value);
+            void setValue(const Eigen::MatrixXf &value);
 
         protected:
             CompGraph::CGMatrixConstant *mNodeConstant;

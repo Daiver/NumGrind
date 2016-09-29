@@ -54,24 +54,24 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/numgrind.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphManagerAbstract.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphManagerAbstract.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphNode.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixReduceSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSub.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.h" isTestSource="false" />

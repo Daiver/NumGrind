@@ -130,28 +130,28 @@ void mlpOperatorOrExample02()
     auto vars = gm.initializeVariables();
 
     NumGrind::solvers::SolverSettings settings;
-    settings.nMaxIterations = 40;
-    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 0.01);
+    settings.nMaxIterations = 500;
+    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
 
     std::cout << "is gradient ok? " << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
 
-    const int nIters = 10;
+    const int nIters = 100;
     std::uniform_int_distribution<int> dist(0, data.rows() - 1);
     for(int iter = 0; iter < nIters; ++iter){
         const int index = dist(generator);
         const Eigen::MatrixXf sample = data.row(index);
         const Eigen::MatrixXf label  = targets.row(index);
-        X.setValue(sample);
-        y.setValue(label);
+        X.setValue(data);
+        y.setValue(targets);
         solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     }
 
 //    NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-//    f2.node()->forwardPass(vars);
-//    std::cout << "Function result" << std::endl << f2.value() << std::endl;
-//    std::cout << "W1:" << std::endl << W1.value() << std::endl;
-//    std::cout << "W2:" << std::endl << W2.value() << std::endl;
-//    std::cout << "b2:" << std::endl << b2.value() << std::endl;
+    f2.node()->forwardPass(vars);
+    std::cout << "Function result" << std::endl << f2.value() << std::endl;
+    std::cout << "W1:" << std::endl << W1.value() << std::endl;
+    std::cout << "W2:" << std::endl << W2.value() << std::endl;
+    std::cout << "b2:" << std::endl << b2.value() << std::endl;
 }
 
 int main() {
