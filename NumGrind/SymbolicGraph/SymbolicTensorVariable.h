@@ -7,9 +7,9 @@
 
 namespace NumGrind {
     namespace SymbolicGraph {
-        class SymbolicTensorPlaceholder : public SymbolicTensorNode {
+        class SymbolicTensorVariable : public SymbolicTensorNode {
         public:
-            SymbolicTensorPlaceholder(SymbolicGraphManagerAbstract *manager, CompGraph::CGMatrixVariable *graphNode,
+            SymbolicTensorVariable(SymbolicGraphManagerAbstract *manager, CompGraph::CGMatrixVariable *graphNode,
                                       const bool isVariable = false);
 
             void setValue(const Eigen::MatrixXf &value) { this->mNodeVariable->setValue(value); }

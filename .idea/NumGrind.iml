@@ -54,18 +54,20 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/numgrind.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarPlaceholder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarPlaceholder.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphManagerAbstract.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphManagerAbstract.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicGraphNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.cpp" isTestSource="false" />
@@ -122,10 +124,10 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/checkgradient.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/checkgradient.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/mnist.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/mnist.h" isTestSource="false" />

@@ -21,24 +21,24 @@ void GraphManager::addGraphNode(CompGraphNode *node) {
     this->mGraphNodes.push_back(node);
 }
 
-SymbolicScalarPlaceholder GraphManager::variable(const float val) {
+SymbolicScalarVariable GraphManager::variable(const float val) {
     CGScalarVariable *node = new CGScalarVariable(-1);
     node->setValue(val);
     this->mScalarVariables.push_back(node);
     this->addGraphNode(node);
-    return SymbolicScalarPlaceholder(this, node, true);
+    return SymbolicScalarVariable(this, node, true);
 }
 
-SymbolicTensorPlaceholder GraphManager::variable(const int nRows, const int nCols, const float val) {
+SymbolicTensorVariable GraphManager::variable(const int nRows, const int nCols, const float val) {
     return variable(Eigen::MatrixXf::Constant(nRows, nCols, val));
 }
 
-SymbolicTensorPlaceholder GraphManager::variable(const Eigen::MatrixXf &value) {
+SymbolicTensorVariable GraphManager::variable(const Eigen::MatrixXf &value) {
     CGMatrixVariable *node = new CGMatrixVariable(value.rows(), value.cols());
     node->setValue(value);
     this->mMatrixVariables.push_back(node);
     this->addGraphNode(node);
-    return SymbolicTensorPlaceholder(this, node, true);
+    return SymbolicTensorVariable(this, node, true);
 }
 
 Eigen::VectorXf GraphManager::initializeGradient(const Eigen::VectorXf &vars) {
@@ -86,9 +86,9 @@ Eigen::VectorXf GraphManager::initializeVariables() {
     return res;
 }
 
-SymbolicTensorNode GraphManager::constant(const Eigen::MatrixXf &value) {
+SymbolicGraph::SymbolicTensorConstant GraphManager::constant(const Eigen::MatrixXf &value) {
     auto node = new CGMatrixConstant(value);
     this->addGraphNode(node);
-    return SymbolicTensorNode(this, node);
+    return SymbolicTensorConstant(this, node);
 }
 

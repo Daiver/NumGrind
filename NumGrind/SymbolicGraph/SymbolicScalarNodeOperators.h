@@ -2,7 +2,7 @@
 #define NUMGRIND_SYMBOLICSCALARNODEOPERATORS_H
 
 #include "SymbolicScalarNode.h"
-#include "SymbolicScalarPlaceholder.h"
+#include "SymbolicScalarVariable.h"
 
 #include "CompGraph/CGScalarVariable.h"
 #include "CompGraph/CGScalarConst.h"

@@ -6,9 +6,9 @@
 
 namespace NumGrind {
     namespace SymbolicGraph {
-        class SymbolicScalarPlaceholder : public SymbolicScalarNode {
+        class SymbolicScalarVariable : public SymbolicScalarNode {
         public:
-            SymbolicScalarPlaceholder(SymbolicGraphManagerAbstract *manager, CompGraph::CGScalarVariable *variable,
+            SymbolicScalarVariable(SymbolicGraphManagerAbstract *manager, CompGraph::CGScalarVariable *variable,
                                       const bool isVariable);
 
             bool isVariable() const { return mIsVariable; }

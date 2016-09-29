@@ -28,10 +28,10 @@
 
 #include "GraphManager.h"
 #include "SymbolicGraph/SymbolicScalarNode.h"
-#include "SymbolicGraph/SymbolicScalarPlaceholder.h"
+#include "SymbolicGraph/SymbolicScalarVariable.h"
 #include "SymbolicGraph/SymbolicScalarNodeOperators.h"
 #include "SymbolicGraph/SymbolicTensorNode.h"
-#include "SymbolicGraph/SymbolicTensorPlaceholder.h"
+#include "SymbolicGraph/SymbolicTensorVariable.h"
 #include "SymbolicGraph/SymbolicTensorNodeOperators.h"
 
 namespace NumGrind {

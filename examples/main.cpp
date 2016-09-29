@@ -3,6 +3,7 @@
 #include "utils.h"
 #include "numgrind.h"
 #include "solvers/GradientDescentSolver.h"
+#include "solvers/StochasticGradientDescentSolver.h"
 #include "solvers/checkgradient.h"
 
 
@@ -97,9 +98,66 @@ void mlpOperatorOrExample01()
     std::cout << "b2:" << std::endl << b2.value() << std::endl;
 }
 
+
+void mlpOperatorOrExample02()
+{
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 1, 1, 0;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+
+    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
+    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto residual = f2 - y;
+    auto err = dot(residual, residual);
+
+    auto vars = gm.initializeVariables();
+
+    NumGrind::solvers::SolverSettings settings;
+    settings.nMaxIterations = 40;
+    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 0.01);
+
+    std::cout << "is gradient ok? " << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
+
+    const int nIters = 10;
+    std::uniform_int_distribution<int> dist(0, data.rows() - 1);
+    for(int iter = 0; iter < nIters; ++iter){
+        const int index = dist(generator);
+        const Eigen::MatrixXf sample = data.row(index);
+        const Eigen::MatrixXf label  = targets.row(index);
+        X.setValue(sample);
+        y.setValue(label);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    }
+
+//    NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+//    f2.node()->forwardPass(vars);
+//    std::cout << "Function result" << std::endl << f2.value() << std::endl;
+//    std::cout << "W1:" << std::endl << W1.value() << std::endl;
+//    std::cout << "W2:" << std::endl << W2.value() << std::endl;
+//    std::cout << "b2:" << std::endl << b2.value() << std::endl;
+}
+
 int main() {
 //    logisticRegressionOperatorAndExample02();
-    mlpOperatorOrExample01();
+//    mlpOperatorOrExample01();
+    mlpOperatorOrExample02();
     return 0;
 }
 

@@ -5,8 +5,9 @@
 #include <functional>
 #include "Eigen/Core"
 #include "SymbolicGraph/SymbolicGraphManagerAbstract.h"
-#include "SymbolicGraph/SymbolicScalarPlaceholder.h"
-#include "SymbolicGraph/SymbolicTensorPlaceholder.h"
+#include "SymbolicGraph/SymbolicScalarVariable.h"
+#include "SymbolicGraph/SymbolicTensorVariable.h"
+#include "SymbolicGraph/SymbolicTensorConstant.h"
 
 namespace NumGrind {
     class GraphManager : public SymbolicGraph::SymbolicGraphManagerAbstract {
@@ -21,13 +22,13 @@ namespace NumGrind {
 
         static Eigen::VectorXf initializeGradient(const Eigen::VectorXf &vars);
 
-        SymbolicGraph::SymbolicScalarPlaceholder variable(const float val = 0.0);
+        SymbolicGraph::SymbolicScalarVariable variable(const float val = 0.0);
 
-        SymbolicGraph::SymbolicTensorPlaceholder variable(const int nRows, const int nCols, const float val = 0.0);
+        SymbolicGraph::SymbolicTensorVariable variable(const int nRows, const int nCols, const float val = 0.0);
 
-        SymbolicGraph::SymbolicTensorPlaceholder variable(const Eigen::MatrixXf &value);
+        SymbolicGraph::SymbolicTensorVariable variable(const Eigen::MatrixXf &value);
 
-        SymbolicGraph::SymbolicTensorNode constant(const Eigen::MatrixXf &value);
+        SymbolicGraph::SymbolicTensorConstant constant(const Eigen::MatrixXf &value);
 
         static std::function<float(const Eigen::VectorXf&)> funcFromNode(
                 SymbolicGraph::SymbolicScalarNode *func)

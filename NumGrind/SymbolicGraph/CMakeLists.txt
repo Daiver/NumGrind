@@ -7,11 +7,11 @@ set(NUMGRIND_SYMBOLICGRAPH_FILES
         SymbolicGraphNode.cpp SymbolicGraphNode.h
         SymbolicScalarNode.cpp SymbolicScalarNode.h
         SymbolicScalarNodeOperators.cpp SymbolicScalarNodeOperators.h
-        SymbolicScalarPlaceholder.cpp SymbolicScalarPlaceholder.h
+        SymbolicScalarVariable.cpp SymbolicScalarVariable.h
         SymbolicTensorNode.cpp SymbolicTensorNode.h
-        SymbolicTensorPlaceholder.cpp SymbolicTensorPlaceholder.h
+        SymbolicTensorVariable.cpp SymbolicTensorVariable.h
         SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h
-        SymbolicGraphManagerAbstract.cpp SymbolicGraphManagerAbstract.h)
+        SymbolicGraphManagerAbstract.cpp SymbolicGraphManagerAbstract.h SymbolicTensorConstant.cpp SymbolicTensorConstant.h)
 
 add_library(NumGrindSymbolicGraph ${NUMGRIND_SYMBOLICGRAPH_FILES})
 target_link_libraries(NumGrindSymbolicGraph NumGrindCompGraph)

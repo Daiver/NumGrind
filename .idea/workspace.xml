@@ -53,11 +53,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/CompGraph/CMakeLists.txt" afterPath="$PROJECT_DIR$/NumGrind/CompGraph/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/solvers/numericalgradient.h" afterPath="$PROJECT_DIR$/NumGrind/solvers/numericalgradient.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mnist.cpp" afterPath="$PROJECT_DIR$/examples/mnist.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mnist.h" afterPath="$PROJECT_DIR$/examples/mnist.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarPlaceholder.cpp" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.cpp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarPlaceholder.h" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.cpp" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.h" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NumGrind.iml" afterPath="$PROJECT_DIR$/.idea/NumGrind.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h" afterPath="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/GraphManager.cpp" afterPath="$PROJECT_DIR$/NumGrind/GraphManager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/GraphManager.h" afterPath="$PROJECT_DIR$/NumGrind/GraphManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.h" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/numgrind.h" afterPath="$PROJECT_DIR$/NumGrind/numgrind.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" afterPath="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" afterPath="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/main.cpp" afterPath="$PROJECT_DIR$/examples/main.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,129 +89,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CGScalarFunction.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGScalarFunction.h">
+      <file leaf-file-name="PlainObjectBase.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/PlainObjectBase.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-              <folding>
-                <marker date="1475094011862" expanded="true" signature="156:432" ph="{...}" />
-                <marker date="1475094011862" expanded="true" signature="182:430" ph="{...}" />
-                <marker date="1475094011862" expanded="true" signature="239:422" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CGScalarMult.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGScalarMult.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <marker date="1475094031929" expanded="true" signature="149:1093" ph="{...}" />
-                <marker date="1475094031929" expanded="true" signature="175:1091" ph="{...}" />
-                <marker date="1475094031929" expanded="true" signature="230:1083" ph="{...}" />
-                <marker date="1475094031929" expanded="true" signature="490:739" ph="{...}" />
-                <marker date="1475094031929" expanded="true" signature="836:1072" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CGScalarSub.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGScalarSub.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <marker date="1475094044357" expanded="true" signature="111:1004" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="137:1002" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="189:994" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="300:316" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="393:552" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="649:775" ph="{...}" />
-                <marker date="1475094044357" expanded="true" signature="826:872" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CGScalarSum.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGScalarSum.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <marker date="1475094055960" expanded="true" signature="147:999" ph="{...}" />
-                <marker date="1475094055960" expanded="true" signature="173:997" ph="{...}" />
-                <marker date="1475094055960" expanded="true" signature="227:990" ph="{...}" />
-                <marker date="1475094055960" expanded="true" signature="486:735" ph="{...}" />
-                <marker date="1475094055960" expanded="true" signature="832:979" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CGScalarVariable.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGScalarVariable.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="287">
+              <caret line="284" column="74" selection-start-line="284" selection-start-column="74" selection-end-line="284" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CMakeLists.txt">
+      <file leaf-file-name="Macros.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/util/Macros.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="182">
+              <caret line="887" column="8" selection-start-line="887" selection-start-column="8" selection-end-line="887" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/mnist.h">
+      <file leaf-file-name="AssignEvaluator.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/AssignEvaluator.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="773" column="0" selection-start-line="773" selection-start-column="0" selection-end-line="773" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CGMatrixConstant.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolicTensorConstant.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="141" column="45" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <marker date="1475175605119" expanded="true" signature="409:1091" ph="{...}" />
+                <marker date="1475175605119" expanded="true" signature="2704:3016" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolicTensorVariable.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="59" />
+              <folding>
+                <marker date="1475175844356" expanded="true" signature="184:767" ph="{...}" />
+                <marker date="1475175844356" expanded="true" signature="214:765" ph="{...}" />
+                <marker date="1475175844356" expanded="true" signature="281:758" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolicTensorVariable.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-              <folding>
-                <element signature="e#51#68#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mnist.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/mnist.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="numericalgradient.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/solvers/numericalgradient.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="numericalgradient.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/solvers/numericalgradient.h">
+      <file leaf-file-name="SymbolicScalarVariable.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Matrix.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/Matrix.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -213,23 +205,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NumGrind/solvers/checkgradient.h" />
-        <option value="$PROJECT_DIR$/examples/main.cpp" />
-        <option value="$PROJECT_DIR$/examples/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/GraphManagerAbstract.h" />
-        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicGraphManagerAbstract.h" />
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/GraphNode.h" />
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CompGraphNode.h" />
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNVectorVariable.h" />
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGVectorVariable.h" />
-        <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/tests/symbolicgraphtests.cpp" />
-        <option value="$PROJECT_DIR$/tests/gradientchecktests.cpp" />
         <option value="$PROJECT_DIR$/tests/compgraphtests.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNDotProduct.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGDotProduct.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNMatrixConstant.h" />
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNMatrixElementWiseProduct.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixElementWiseProduct.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNMatrixMapUnaryFunction.h" />
@@ -264,6 +243,19 @@
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/examples/mnist.h" />
         <option value="$PROJECT_DIR$/examples/mnist.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/GraphManager.h" />
+        <option value="$PROJECT_DIR$/NumGrind/GraphManager.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h" />
+        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h" />
+        <option value="$PROJECT_DIR$/examples/main.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.h" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorPlaceholder.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarPlaceholder.h" />
+        <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h" />
       </list>
     </option>
   </component>
@@ -730,14 +722,11 @@
       <workItem from="1474782899409" duration="8063000" />
       <workItem from="1474829772984" duration="5929000" />
       <workItem from="1474902121808" duration="11318000" />
-      <workItem from="1474993883519" duration="28138000" />
+      <workItem from="1474993883519" duration="31143000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="runUnitTests - 2016.09.28 at 21h 31m 30s.xml">
-      <configuration name="runUnitTests" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="runUnitTests - 2016.09.28 at 21h 31m 31s.xml">
       <configuration name="runUnitTests" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -765,9 +754,12 @@
     <history-entry file="runUnitTests - 2016.09.28 at 23h 14m 58s.xml">
       <configuration name="runUnitTests" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="runUnitTests - 2016.09.29 at 21h 56m 18s.xml">
+      <configuration name="runUnitTests" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110362000" />
+    <option name="totallyTimeSpent" value="113367000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -820,160 +812,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraphNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicScalarNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicScalarPlaceholder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicScalarPlaceholder.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/GraphManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-            <marker date="1475094066192" expanded="true" signature="202:206" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="238:343" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="398:469" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="537:750" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="852:922" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="1322:1372" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="1418:1549" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="1604:2734" ph="{...}" />
-            <marker date="1475094066192" expanded="true" signature="2808:2929" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicTensorNodeOperators.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicTensorNodeOperators.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/numgrind.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/solvers/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/Dot.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="101" column="97" selection-start-line="101" selection-start-column="97" selection-end-line="101" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/solvers/checkgradient.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/solvers/checkgradient.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <marker date="1475091036869" expanded="true" signature="9:139" ph="..." />
-            <marker date="1475091036869" expanded="true" signature="165:211" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="239:308" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="356:1038" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="356:1369" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="1401:2963" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="2651:2963" ph="{...}" />
-            <marker date="1475091036869" expanded="true" signature="2976:3071" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1002,16 +846,6 @@
             <marker date="1475093548472" expanded="true" signature="138:325" ph="{...}" />
             <marker date="1475093548472" expanded="true" signature="168:323" ph="{...}" />
             <marker date="1475093548472" expanded="true" signature="213:316" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/GraphManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="e#65#82#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1111,14 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1313,7 +1139,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
-          <folding />
+          <folding>
+            <marker date="1475121477884" expanded="true" signature="139:429" ph="{...}" />
+            <marker date="1475121477884" expanded="true" signature="163:427" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1330,7 +1159,8 @@
         <state relative-caret-position="135">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding>
-            <element signature="e#51#68#0" expanded="true" />
+            <element signature="e#51#68#0" expanded="false" />
+            <marker date="1475121552907" expanded="true" signature="108:245" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1340,8 +1170,166 @@
         <state relative-caret-position="405">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1475121721080" expanded="true" signature="9:38" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="106" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/GraphManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <element signature="e#65#82#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/GraphManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="88" column="15" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="112" selection-start-line="12" selection-start-column="112" selection-end-line="12" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/solvers/StochasticGradientDescentSolver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+          <folding>
+            <element signature="e#103#124#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseStorage.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="400" column="0" selection-start-line="400" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+          <folding>
+            <element signature="e#85#124#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/util/Memory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixConstant.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorConstant.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/Matrix.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/AssignEvaluator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="773" column="0" selection-start-line="773" selection-start-column="0" selection-end-line="773" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/util/Macros.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="887" column="8" selection-start-line="887" selection-start-column="8" selection-end-line="887" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/PlainObjectBase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="284" column="74" selection-start-line="284" selection-start-column="74" selection-end-line="284" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="141" column="45" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1475175605119" expanded="true" signature="409:1091" ph="{...}" />
+            <marker date="1475175605119" expanded="true" signature="2704:3016" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="59" />
+          <folding>
+            <marker date="1475175844356" expanded="true" signature="184:767" ph="{...}" />
+            <marker date="1475175844356" expanded="true" signature="214:765" ph="{...}" />
+            <marker date="1475175844356" expanded="true" signature="281:758" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

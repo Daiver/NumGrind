@@ -2,12 +2,12 @@
 // Created by daiver on 25.09.16.
 //
 
-#include "SymbolicTensorPlaceholder.h"
+#include "SymbolicTensorVariable.h"
 
 using namespace NumGrind::SymbolicGraph;
 using namespace NumGrind::CompGraph;
 
-SymbolicTensorPlaceholder::SymbolicTensorPlaceholder(SymbolicGraphManagerAbstract *manager, CGMatrixVariable *graphNode, const bool isVariable)
+SymbolicTensorVariable::SymbolicTensorVariable(SymbolicGraphManagerAbstract *manager, CGMatrixVariable *graphNode, const bool isVariable)
         : SymbolicTensorNode(manager, graphNode), mIsVariable(isVariable)
 {
 
