@@ -13,5 +13,3 @@ set(CORE_FILES
 
 add_library(numgrind ${CORE_FILES})
 target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers NumGrindSymbolicGraph)
-#add_executable(NumGrindTest01 main.cpp )
-#target_link_libraries(NumGrindTest01 core)

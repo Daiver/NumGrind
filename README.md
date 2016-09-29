@@ -100,6 +100,7 @@ make
 #TODO
 
 ##Common
+ - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
  - Add transpose node

@@ -11,7 +11,9 @@ set(NUMGRIND_SYMBOLICGRAPH_FILES
         SymbolicTensorNode.cpp SymbolicTensorNode.h
         SymbolicTensorVariable.cpp SymbolicTensorVariable.h
         SymbolicTensorNodeOperators.cpp SymbolicTensorNodeOperators.h
-        SymbolicGraphManagerAbstract.cpp SymbolicGraphManagerAbstract.h SymbolicTensorConstant.cpp SymbolicTensorConstant.h)
+        SymbolicGraphManagerAbstract.cpp SymbolicGraphManagerAbstract.h
+        SymbolicTensorConstant.cpp SymbolicTensorConstant.h
+        )
 
 add_library(NumGrindSymbolicGraph ${NUMGRIND_SYMBOLICGRAPH_FILES})
 target_link_libraries(NumGrindSymbolicGraph NumGrindCompGraph)
