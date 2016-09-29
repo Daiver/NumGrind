@@ -6,6 +6,7 @@
 
 namespace NumGrind {
     namespace solvers {
+        //Trivial implementation. Maybe i should use something better
         void numericalGradient(std::function<float(const Eigen::VectorXf &)> func, const Eigen::VectorXf &varsInit,
                                const float dx, Eigen::VectorXf &grad);
     }

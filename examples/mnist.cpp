@@ -1,5 +1,19 @@
 #include "mnist.h"
 
+#include <fstream>
+
+int reverseInt (int i)
+{
+    unsigned char c1, c2, c3, c4;
+
+    c1 = i & 255;
+    c2 = (i >> 8) & 255;
+    c3 = (i >> 16) & 255;
+    c4 = (i >> 24) & 255;
+
+    return ((int)c1 << 24) + ((int)c2 << 16) + ((int)c3 << 8) + c4;
+}
+
 /*
  * ml::DataSet readMNISTData(std::string fname)
 {
@@ -47,6 +61,14 @@
 
 std::vector<int> readMNISTLabels(std::string fname)
 {
+
+}
+*/
+Eigen::MatrixXf mnist::readMNISTImages(const std::string &fileName) {
+    return Eigen::MatrixXf();
+}
+
+Eigen::VectorXi mnist::readMNISTLabels(const std::string &fname) {
     std::ifstream in;
     in.open(fname.c_str(), std::ios::binary | std::ios::in);
     int magic;
@@ -59,7 +81,7 @@ std::vector<int> readMNISTLabels(std::string fname)
 
     printf("magic %d %d\n", magic, countOfLabels);
 
-    std::vector<int> res(countOfLabels, 0);
+    Eigen::VectorXi res = Eigen::VectorXi::Zero(countOfLabels);
     unsigned char tmp;
     int counter = 0;
     while(in.good()){
@@ -71,4 +93,3 @@ std::vector<int> readMNISTLabels(std::string fname)
     in.close();
     return res;
 }
-*/

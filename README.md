@@ -8,8 +8,7 @@ Simple computational graph with reverse mode autodiff framework. Inspired by Ten
 
 I created it for educational purposes
 
-
-Currently NumGrind in active development. Not for production now.
+Currently NumGrind in active development. It is not for production now.
 
 Pull-requests are welcomed
 
@@ -114,8 +113,8 @@ make
 
 ##Optimization (Numerical)
  - Add own settings class for every solver
- - Add and test basic SGD with momentum
  - Add and test complex SGD solvers as Adam/AdaGrad
+ - Add and test basic SGD with momentum
  - Add common interface for solvers
 
 ##Performance
@@ -126,6 +125,7 @@ make
  - (long term issue) Add GPU/OpenCL support
 
 ##Tests
+ - Proper gradient check for MLP 
  - Own namespaces/classes for tests?
  - Change tests names
 

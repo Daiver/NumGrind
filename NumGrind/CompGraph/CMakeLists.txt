@@ -24,4 +24,5 @@ set(NUMGRIND_COMPGRAPH_FILES
         CGMatrixConstant.cpp CGMatrixConstant.h
         CGMatrixSub.cpp CGMatrixSub.h
         CGMatrixScalarSum.cpp CGMatrixScalarSum.h)
+
 add_library(NumGrindCompGraph ${NUMGRIND_COMPGRAPH_FILES})
