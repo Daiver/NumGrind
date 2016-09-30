@@ -150,6 +150,64 @@ void mlpOperatorOrExample02() {
     std::cout << "b2:" << std::endl << b2.value() << std::endl;
 }
 
+void mlpOperatorOrAndExample03() {
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::MatrixXf targets(4, 2);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 0,
+               1, 0,
+               1, 0,
+               0, 1;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+
+    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0f, 0.01f, generator));
+    //auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
+    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto err = sumOfSquares(f2 - y);
+
+    auto vars = gm.initializeVariables();
+
+    NumGrind::solvers::SolverSettings settings;
+    settings.nMaxIterations = 500;
+    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
+
+    std::cout << "is gradient ok? "
+              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << std::endl;
+
+    const int nIters = 100;
+    std::uniform_int_distribution<int> dist(0, data.rows() - 1);
+    for (int iter = 0; iter < nIters; ++iter) {
+        const int index = dist(generator);
+        const Eigen::MatrixXf sample = data.row(index);
+        const Eigen::MatrixXf label = targets.row(index);
+        X.setValue(data);
+        y.setValue(targets);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    }
+
+    f2.node()->forwardPass(vars);
+    std::cout << "Function result" << std::endl << f2.value() << std::endl;
+    std::cout << "W1:" << std::endl << W1.value() << std::endl;
+    std::cout << "W2:" << std::endl << W2.value() << std::endl;
+    std::cout << "b2:" << std::endl << b2.value() << std::endl;
+}
+
 void mnistTest01() {
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
     const std::string fnameImagesTrain = fnameMNISTDir + "train-images-idx3-ubyte";
@@ -159,13 +217,17 @@ void mnistTest01() {
 
     const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain);
     const Eigen::VectorXi trainLabels = mnist::readMNISTLabels(fnameLabelsTrain);
+
+    Eigen::MatrixXf labels(trainLabels.size(), 1);
+
 }
 
 int main() {
 //    logisticRegressionOperatorAndExample02();
 //    mlpOperatorOrExample01();
-    mlpOperatorOrExample02();
-//    mnistTest01();
+//    mlpOperatorOrExample02();
+    mlpOperatorOrAndExample03();
+    //mnistTest01();
     return 0;
 }
 
