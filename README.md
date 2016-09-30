@@ -78,15 +78,18 @@ Current version tested only under Ubuntu 16.04. But it should be ok on any platf
 5. It's all. Project is builded. I really don't know why you need NumGrind
 6. Profit?
 
-##For Ubuntu:
+##For Ubuntu/Linux:
 Just run it
 ```
-sudo apt-get install cmake
-sudo apt-get install libeigen3-dev
+#Install Eigen and CMake
+#In case of non-Ubuntu system just replace this by your package manager commands
+sudo apt-get install cmake libeigen3-dev
 
 git clone https://github.com/Daiver/NumGrind
 
 cd NumGrind
+
+#Replace it by your Eigen folder if it needed
 ln -s /usr/include/eigen3/Eigen 3rdparty/Eigen
 
 mkdir build 
@@ -100,6 +103,7 @@ make
 #TODO
 
 ##Common
+ - Add node for sum of squares
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
