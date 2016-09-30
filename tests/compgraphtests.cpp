@@ -239,7 +239,6 @@ TEST(NumGrindMatrixSuit, test08) {
 
 }
 
-
 TEST(NumGrindMatrixSuit, test09) {
     auto A = CGMatrixVariable(3, 1, {0, 1, 2});
     auto b = CGScalarVariable(3);
@@ -257,3 +256,79 @@ TEST(NumGrindMatrixSuit, test09) {
     ASSERT_FLOAT_EQ(grad[2], 2*(3 + 4));
     ASSERT_FLOAT_EQ(grad[3], 2*(1 + 4) + 2*(2 + 4) + 2*(3 + 4));
 }
+
+TEST(NumGrindSumOfSquares, test01) {
+    auto var = CGMatrixVariable(3, 2, {0, 1, 2, 3, 4, 5});
+    auto sum = CGSumOfSquares(&var);
+
+    auto expr = sum;
+
+    Eigen::VectorXf vars(6);
+    vars << 1, 2, 3, 4, 5, 6;
+    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
+    expr.forwardPass(vars);
+    auto val = expr.value();
+    expr.backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(val, 1 + 4 + 9 + 16 + 25 + 36);
+    ASSERT_FLOAT_EQ(grad[0], 2);
+    ASSERT_FLOAT_EQ(grad[1], 4);
+    ASSERT_FLOAT_EQ(grad[2], 6);
+    ASSERT_FLOAT_EQ(grad[3], 8);
+    ASSERT_FLOAT_EQ(grad[4], 10);
+    ASSERT_FLOAT_EQ(grad[5], 12);
+}
+
+TEST(NumGrindSumOfSquares, test02) {
+    auto A = CGMatrixVariable(3, 2, {0, 1, 2, 3, 4, 5});
+    auto b = CGScalarVariable(6);
+    auto sum = CGSumOfSquares(&A);
+    auto mult = CGScalarMult(&sum, &b);
+    auto expr = mult;
+
+    Eigen::VectorXf vars(7);
+    vars << 1, 2, 3, 4, 5, 6, 7;
+    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
+    expr.forwardPass(vars);
+    auto val = expr.value();
+    expr.backwardPass(1.0, grad);
+
+    ASSERT_FLOAT_EQ(val, 7*(1 + 4 + 9 + 16 + 25 + 36));
+    ASSERT_FLOAT_EQ(grad[0], 2*7);
+    ASSERT_FLOAT_EQ(grad[1], 4*7);
+    ASSERT_FLOAT_EQ(grad[2], 6*7);
+    ASSERT_FLOAT_EQ(grad[3], 8*7);
+    ASSERT_FLOAT_EQ(grad[4], 10*7);
+    ASSERT_FLOAT_EQ(grad[5], 12*7);
+    ASSERT_FLOAT_EQ(grad[6], (1 + 4 + 9 + 16 + 25 + 36));
+}
+
+//TEST(NumGrindSumOfSquares, test03) {
+//    auto A = CGMatrixVariable(3, 2, {0, 1, 2, 3, 4, 5});
+//    auto b = CGScalarVariable(6);
+//    auto C = CGMatrixVariable(2, 1, {7, 8});
+//    auto mult1 = CGMatrixProduct(&A, &C);
+//    auto sum = CGSumOfSquares(&mult1);
+//    auto mult2 = CGScalarMult(&sum, &b);
+//    auto expr = mult2;
+//
+//    Eigen::VectorXf vars(9);
+//    vars << 1, 2, 3, 4, 5, 6,
+//            7,
+//            8, 9;
+//
+//    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
+//    expr.forwardPass(vars);
+//    auto val = expr.value();
+//    expr.backwardPass(1.0, grad);
+//
+//    //Not implemented fully
+//    ASSERT_FLOAT_EQ(val, 7*(pow(1*8, 2) + pow(2 * 9, 2)));
+//    ASSERT_FLOAT_EQ(grad[0], 2*7);
+//    ASSERT_FLOAT_EQ(grad[1], 4*7);
+//    ASSERT_FLOAT_EQ(grad[2], 6*7);
+//    ASSERT_FLOAT_EQ(grad[3], 8*7);
+//    ASSERT_FLOAT_EQ(grad[4], 10*7);
+//    ASSERT_FLOAT_EQ(grad[5], 12*7);
+//    ASSERT_FLOAT_EQ(grad[6], (1 + 4 + 9 + 16 + 25 + 36));
+//}

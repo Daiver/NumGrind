@@ -23,6 +23,7 @@ set(NUMGRIND_COMPGRAPH_FILES
         CGMatrixMapUnaryFunction.h
         CGMatrixConstant.cpp CGMatrixConstant.h
         CGMatrixSub.cpp CGMatrixSub.h
-        CGMatrixScalarSum.cpp CGMatrixScalarSum.h)
+        CGMatrixScalarSum.cpp CGMatrixScalarSum.h
+        CGSumOfSquares.cpp CGSumOfSquares.h)
 
 add_library(NumGrindCompGraph ${NUMGRIND_COMPGRAPH_FILES})

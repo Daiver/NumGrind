@@ -25,6 +25,7 @@
 #include "CompGraph/CGMatrixMapUnaryFunction.h"
 #include "CompGraph/CGMatrixSub.h"
 #include "CompGraph/CGMatrixScalarSum.h"
+#include "CompGraph/CGSumOfSquares.h"
 
 #include "GraphManager.h"
 #include "SymbolicGraph/SymbolicScalarNode.h"
