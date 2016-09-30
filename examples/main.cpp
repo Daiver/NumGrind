@@ -155,15 +155,15 @@ void mlpOperatorOrAndExample03() {
     NumGrind::GraphManager gm;
 
     Eigen::MatrixXf data(4, 2);
-    Eigen::MatrixXf targets(4, 2);
+    Eigen::MatrixXf targets(4, 3);
     data << 0, 0,
             0, 1,
             1, 0,
             1, 1;
-    targets << 0, 0,
-               1, 0,
-               1, 0,
-               0, 1;
+    targets << 0, 0, 0,
+               1, 0, 1,
+               1, 0, 1,
+               0, 1, 1;
 
     std::default_random_engine generator;
     generator.seed(42);
@@ -173,8 +173,8 @@ void mlpOperatorOrAndExample03() {
 
     auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
     auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0f, 0.01f, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 3, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 3, 0.0f, 0.01f, generator));
     //auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
@@ -205,6 +205,7 @@ void mlpOperatorOrAndExample03() {
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
     std::cout << "W2:" << std::endl << W2.value() << std::endl;
+    std::cout << "b1:" << std::endl << b1.value() << std::endl;
     std::cout << "b2:" << std::endl << b2.value() << std::endl;
 }
 
