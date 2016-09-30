@@ -218,7 +218,7 @@ void mnistTest01() {
     const std::string fnameImagesTest  = fnameMNISTDir + "t10k-images-idx3-ubyte";
     const std::string fnameLabelsTest  = fnameMNISTDir + "t10k-labels-idx1-ubyte";
 
-    const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain);
+    const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain)/255.0;
     const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain);
     Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(trainLabelsPure.rows(), 10);
 
@@ -234,8 +234,8 @@ void mnistTest01() {
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainLabels);
 
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 10, 0.0, 0.5, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0, 0.05, generator));
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 10, 0.0, 0.00, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0, 0.00, generator));
     //auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
     //auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
