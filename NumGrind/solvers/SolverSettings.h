@@ -6,7 +6,7 @@ namespace NumGrind {
         class SolverSettings {
         public:
 
-            int nMaxIterations = 0;
+            int nMaxIterations = 20;
             double minGradL2 = 1e-6;
             double minDErr = 1e-9;
             bool verbose = true;

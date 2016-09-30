@@ -1,4 +1,5 @@
 #include "numericalgradient.h"
+#include <iostream>
 
 void NumGrind::solvers::numericalGradient(
         std::function<float(const Eigen::VectorXf &)> func,

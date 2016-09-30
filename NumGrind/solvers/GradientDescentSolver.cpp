@@ -21,10 +21,10 @@ void solvers::gradientDescent(
         if(settings.verbose)
             std::cout << iter << "> err:" << err << " |g|_2:" << gradL2 << " dErr:" << dErr << std::endl;
 
-        if(gradL2 < settings.minGradL2)
-            break;
-        if(dErr < settings.minDErr)
-            break;
+        //if(gradL2 < settings.minGradL2)
+            //break;
+        //if(dErr < settings.minDErr)
+            /*break;*/
 
         errOld = err;
     }

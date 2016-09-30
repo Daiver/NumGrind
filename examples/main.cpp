@@ -126,7 +126,7 @@ void mlpOperatorOrExample02() {
 
     NumGrind::solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
+    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 1.0);
 
     std::cout << "is gradient ok? "
               << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
@@ -138,11 +138,13 @@ void mlpOperatorOrExample02() {
         const int index = dist(generator);
         const Eigen::MatrixXf sample = data.row(index);
         const Eigen::MatrixXf label = targets.row(index);
-        X.setValue(data);
-        y.setValue(targets);
+        X.setValue(sample);
+        y.setValue(label);
         solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     }
 
+    X.setValue(data);
+    y.setValue(targets);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
@@ -217,9 +219,41 @@ void mnistTest01() {
     const std::string fnameLabelsTest  = fnameMNISTDir + "t10k-labels-idx1-ubyte";
 
     const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain);
-    const Eigen::VectorXi trainLabels = mnist::readMNISTLabels(fnameLabelsTrain);
+    const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain);
+    Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(trainLabelsPure.rows(), 10);
 
-    Eigen::MatrixXf labels(trainLabels.size(), 1);
+    for(int i = 0; i < trainLabels.rows(); ++i)
+        trainLabels(i, trainLabelsPure[i]) = 1.0;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
+
+    auto X = gm.constant(trainData);
+    auto y = gm.constant(trainLabels);
+
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 10, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0, 0.05, generator));
+    //auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
+    //auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
+    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
+    //auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto err = sumOfSquares(f1 - y);
+
+    auto vars = gm.initializeVariables();
+
+    NumGrind::solvers::SolverSettings settings;
+
+
+    std::cout << "before gradient check" << std::endl;
+    std::cout << "is gradient ok? "
+              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << std::endl;
+
+    NumGrind::solvers::gradientDescent(settings, 0.03, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+ 
 
 }
 
@@ -227,8 +261,8 @@ int main() {
 //    logisticRegressionOperatorAndExample02();
 //    mlpOperatorOrExample01();
 //    mlpOperatorOrExample02();
-    mlpOperatorOrAndExample03();
-    //mnistTest01();
+//    mlpOperatorOrAndExample03();
+    mnistTest01();
     return 0;
 }
 
