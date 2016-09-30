@@ -1,5 +1,7 @@
 #include "SymbolicTensorNodeOperators.h"
 
+#include "CompGraph/CGSumOfSquares.h"
+
 using namespace NumGrind;
 using namespace NumGrind::CompGraph;
 using namespace NumGrind::SymbolicGraph;
@@ -70,6 +72,14 @@ SymbolicScalarNode SymbolicGraph::reduceSum(SymbolicTensorNode a)
 {
     SymbolicGraphManagerAbstract *m = a.manager();
     auto node = new CGMatrixReduceSum(a.node());
+    m->addGraphNode(node);
+    return SymbolicScalarNode(m, node);
+}
+
+SymbolicScalarNode SymbolicGraph::sumOfSquares(SymbolicTensorNode a)
+{
+    SymbolicGraphManagerAbstract *m = a.manager();
+    auto node = new CGSumOfSquares(a.node());
     m->addGraphNode(node);
     return SymbolicScalarNode(m, node);
 }

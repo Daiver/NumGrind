@@ -40,23 +40,34 @@ Pull-requests are welcomed
     auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
-    auto residual = f2 - y;
-    auto err = dot(residual, residual);
+    auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
     NumGrind::solvers::SolverSettings settings;
-    settings.nMaxIterations = 40;
+    settings.nMaxIterations = 500;
+    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
 
-    std::cout << "is gradient ok? " << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
+    std::cout << "is gradient ok? "
+              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    const int nIters = 100;
+    std::uniform_int_distribution<int> dist(0, data.rows() - 1);
+    for (int iter = 0; iter < nIters; ++iter) {
+        const int index = dist(generator);
+        const Eigen::MatrixXf sample = data.row(index);
+        const Eigen::MatrixXf label = targets.row(index);
+        X.setValue(data);
+        y.setValue(targets);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    }
+    
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
     std::cout << "W2:" << std::endl << W2.value() << std::endl;
     std::cout << "b2:" << std::endl << b2.value() << std::endl;
-
 ```
 
 See examples/main.cpp for more examples
@@ -103,7 +114,6 @@ make
 #TODO
 
 ##Common
- - Add node for sum of squares
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
@@ -152,4 +162,5 @@ make
  - Split tests into several files
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add gradient check test for complex case - i hope that simple mlp is enough
+ - Add node for sum of squares
 

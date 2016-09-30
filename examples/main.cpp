@@ -120,8 +120,7 @@ void mlpOperatorOrExample02() {
     auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
-    auto residual = f2 - y;
-    auto err = dot(residual, residual);
+    auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
@@ -130,7 +129,8 @@ void mlpOperatorOrExample02() {
     NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
 
     std::cout << "is gradient ok? "
-              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
+              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << std::endl;
 
     const int nIters = 100;
     std::uniform_int_distribution<int> dist(0, data.rows() - 1);
@@ -143,7 +143,6 @@ void mlpOperatorOrExample02() {
         solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     }
 
-//    NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
@@ -165,8 +164,8 @@ void mnistTest01() {
 int main() {
 //    logisticRegressionOperatorAndExample02();
 //    mlpOperatorOrExample01();
-//    mlpOperatorOrExample02();
-    mnistTest01();
+    mlpOperatorOrExample02();
+//    mnistTest01();
     return 0;
 }
 

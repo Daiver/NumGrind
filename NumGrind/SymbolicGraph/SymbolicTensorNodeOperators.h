@@ -24,6 +24,8 @@ namespace NumGrind {
 
         SymbolicTensorNode matmult(SymbolicTensorNode a, SymbolicTensorNode b);
 
+        SymbolicScalarNode sumOfSquares(SymbolicTensorNode a);
+
         template<float Func(float), float Der(float)>
         SymbolicTensorNode apply(SymbolicTensorNode a);
 
