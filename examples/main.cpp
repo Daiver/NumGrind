@@ -257,7 +257,7 @@ void mnistTest01() {
               //<< NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
               //<< std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 0.03, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::solvers::gradientDescent(settings, 0.003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
  
 
 }
