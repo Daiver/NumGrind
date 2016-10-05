@@ -151,7 +151,7 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {
     ASSERT_FLOAT_EQ(vars[11], 13.0);
 }
 
-TEST(NumGrindGraphMatrixSuit, testMatSum01) {
+TEST(NumGrindGraphManagerSuit, testMatSum01) {
 
     using namespace SymbolicGraph;
     GraphManager gm;
@@ -191,5 +191,64 @@ TEST(NumGrindGraphMatrixSuit, testMatSum01) {
 
     ASSERT_FLOAT_EQ(grad[6], 2*11 + 2*13 + 2*15);
     ASSERT_FLOAT_EQ(grad[7], 2*22 + 2*24 + 2*26);
+
+}
+
+TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
+    using namespace SymbolicGraph;
+    GraphManager gm;
+
+    Eigen::MatrixXf targets(3, 1);
+    targets << 1, 2, 3;
+
+    Eigen::MatrixXf varsInit(3, 1);
+    varsInit << 0, 0, 0;
+    //varsInit << 1, 1, 1;
+
+    auto a = gm.variable(varsInit);
+    auto b = gm.constant(targets);
+    auto residuals = a - b;
+    auto err  = dot(residuals, residuals);//reduceSum(residuals*residuals);
+    auto vars = gm.initializeVariables();
+    auto grad = gm.initializeGradient(vars);
+
+    auto func  = gm.funcFromNode(&err);
+    auto gradF = gm.gradFromNode(&err);
+
+    gradF(vars, grad);
+
+    ASSERT_FLOAT_EQ(grad[0], -2*1);
+    ASSERT_FLOAT_EQ(grad[1], -2*2);
+    ASSERT_FLOAT_EQ(grad[2], -2*3);
+
+    vars[0] = 1;
+    vars[1] = 1;
+    vars[2] = 1;
+
+    gradF(vars, grad);
+
+    ASSERT_FLOAT_EQ(grad[0],  2*0);
+    ASSERT_FLOAT_EQ(grad[1], -2*1);
+    ASSERT_FLOAT_EQ(grad[2], -2*2);
+
+    vars[0] = 2;
+    vars[1] = 2;
+    vars[2] = 1;
+
+    gradF(vars, grad);
+
+    ASSERT_FLOAT_EQ(grad[0],  2*1);
+    ASSERT_FLOAT_EQ(grad[1], -2*0);
+    ASSERT_FLOAT_EQ(grad[2], -2*2);
+
+    vars[0] = 1;
+    vars[1] = 2;
+    vars[2] = 3;
+
+    gradF(vars, grad);
+
+    ASSERT_FLOAT_EQ(grad[0],  2*0);
+    ASSERT_FLOAT_EQ(grad[1], -2*0);
+    ASSERT_FLOAT_EQ(grad[2], -2*0);
 
 }
