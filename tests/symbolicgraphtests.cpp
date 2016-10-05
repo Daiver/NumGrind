@@ -215,6 +215,7 @@ TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
     auto func  = gm.funcFromNode(&err);
     auto gradF = gm.gradFromNode(&err);
 
+    ASSERT_FLOAT_EQ(func(vars), 1 + 4 + 9);
     gradF(vars, grad);
 
     ASSERT_FLOAT_EQ(grad[0], -2*1);
@@ -226,6 +227,7 @@ TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
     vars[2] = 1;
 
     gradF(vars, grad);
+    ASSERT_FLOAT_EQ(func(vars), 0 + 1 + 4);
 
     ASSERT_FLOAT_EQ(grad[0],  2*0);
     ASSERT_FLOAT_EQ(grad[1], -2*1);
@@ -235,6 +237,7 @@ TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
     vars[1] = 2;
     vars[2] = 1;
 
+    ASSERT_FLOAT_EQ(func(vars), 1 + 0 + 4);
     gradF(vars, grad);
 
     ASSERT_FLOAT_EQ(grad[0],  2*1);
@@ -246,6 +249,7 @@ TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
     vars[2] = 3;
 
     gradF(vars, grad);
+    ASSERT_FLOAT_EQ(func(vars), 0 + 0 + 0);
 
     ASSERT_FLOAT_EQ(grad[0],  2*0);
     ASSERT_FLOAT_EQ(grad[1], -2*0);
