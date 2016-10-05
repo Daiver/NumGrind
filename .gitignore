@@ -31,6 +31,7 @@
 #Vim
 .*.swo
 .*.swp
+.*.swn
 
 3rdparty/Eigen
 3rdparty/Eigen/*
