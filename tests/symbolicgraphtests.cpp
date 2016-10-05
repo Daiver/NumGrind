@@ -207,8 +207,7 @@ TEST(NumGrindGraphManagerSuit, testSeriesOfCalls01) {
 
     auto a = gm.variable(varsInit);
     auto b = gm.constant(targets);
-    auto residuals = a - b;
-    auto err  = dot(residuals, residuals);//reduceSum(residuals*residuals);
+    auto err  = sumOfSquares(a - b);
     auto vars = gm.initializeVariables();
     auto grad = gm.initializeGradient(vars);
 
