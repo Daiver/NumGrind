@@ -220,12 +220,13 @@ void mnistTest01() {
 
     const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain).block(0, 0, 60000, 28*28)/255.0;
     const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain).block(0, 0, 60000, 1);
-    Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(trainLabelsPure.rows(), 1);
+    Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(trainLabelsPure.rows(), 10);
 
     for(int i = 0; i < trainLabels.rows(); ++i)
-        if(trainLabelsPure[i] == 0) {
-            trainLabels(i, 0) = 1.0;
-        }
+        trainLabels(i, trainLabelsPure[i]) = 1.0;
+//        if(trainLabelsPure[i] == 0) {
+//            trainLabels(i, 0) = 1.0;
+//        }
 
     std::default_random_engine generator;
     generator.seed(42);
@@ -236,29 +237,29 @@ void mnistTest01() {
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainLabels);
 
-    auto W1 = gm.variable(trainData.cols(), 1, 0);
-    auto b1 = gm.variable(0);
+    auto W1 = gm.variable(trainData.cols(), 10, 0);
+    auto b1 = gm.variable(1, 10, 0);
     //auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
     //auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     //auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
-    auto residual = f1 - y;
-    auto err = dot(residual, residual);
+//    auto residual = f1 - y;
+//    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-//    auto err = sumOfSquares(f1 - y);
+    auto err = sumOfSquares(f1 - y);
 
     auto vars = gm.initializeVariables();
 
     NumGrind::solvers::SolverSettings settings;
-    settings.nMaxIterations = 30;
+    settings.nMaxIterations = 100;
 
 //    std::cout << "before gradient check" << std::endl;
 //    std::cout << "is gradient ok? "
 //              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
 //              << std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 0.00001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::solvers::gradientDescent(settings, 0.000015, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
 
 //    std::cout << trainLabelsPure << std::endl;
 //    std::cout << W1.value() << std::endl;
