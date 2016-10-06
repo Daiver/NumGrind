@@ -13,6 +13,7 @@ void solvers::gradientDescent(
     float errOld = func(vars);
     std::cout << "Initial err " << errOld << std::endl;
     for (int iter = 0; iter < settings.nMaxIterations; ++iter) {
+        grad.fill(0);
         gradF(vars, grad);
         vars -= grad * stepSize;
         const float err = func(vars);
@@ -20,8 +21,8 @@ void solvers::gradientDescent(
         const float gradL2 = grad.norm();
         if(settings.verbose)
             std::cout << iter << "> err:" << err << " |g|_2:" << gradL2 << " dErr:" << dErr << std::endl;
-        std::cout << grad(0, 0) << std::endl;
-        std::cout << vars(0, 0) << std::endl;
+//        std::cout << grad(0, 0) << std::endl;
+//        std::cout << vars(0, 0) << std::endl;
 
         //if(gradL2 < settings.minGradL2)
             //break;

@@ -1,5 +1,6 @@
 #include "mnist.h"
 
+#include <iostream>
 #include <fstream>
 
 int reverseInt(int i) {
@@ -44,6 +45,7 @@ Eigen::MatrixXf mnist::readMNISTImages(const std::string &fname) {
             unsigned char temp = 0;
             in.read((char *) &temp, sizeof(temp));
             res(i, j) = temp;
+//            std::cout << i << ":" << j << ":" << res(i, j) << " ";
         }
     }
     in.close();

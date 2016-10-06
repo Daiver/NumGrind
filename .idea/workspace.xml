@@ -14,13 +14,13 @@
       <config projectName="NumGrind" targetName="NightlySubmit" />
       <config projectName="NumGrind" targetName="NightlyMemCheck" />
       <config projectName="NumGrind" targetName="ContinuousBuild" />
-      <config projectName="NumGrind" targetName="ExperimentalSubmit" />
       <config projectName="NumGrind" targetName="NumGrindTest" />
+      <config projectName="NumGrind" targetName="ExperimentalSubmit" />
       <config projectName="NumGrind" targetName="NightlyStart" />
       <config projectName="NumGrind" targetName="NightlyConfigure" />
+      <config projectName="NumGrind" targetName="examples" />
       <config projectName="NumGrind" targetName="ExperimentalTest" />
       <config projectName="NumGrind" targetName="ExperimentalCoverage" />
-      <config projectName="NumGrind" targetName="examples" />
       <config projectName="NumGrind" targetName="NumGrind" />
       <config projectName="NumGrind" targetName="ExperimentalConfigure" />
       <config projectName="NumGrind" targetName="runUnitTests" />
@@ -53,9 +53,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h" afterPath="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NumGrind.iml" afterPath="$PROJECT_DIR$/.idea/NumGrind.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" afterPath="$PROJECT_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/main.cpp" afterPath="$PROJECT_DIR$/examples/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mnist.cpp" afterPath="$PROJECT_DIR$/examples/mnist.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,22 +79,20 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="149" selection-end-column="63" />
+            <state relative-caret-position="496">
+              <caret line="253" column="32" selection-start-line="253" selection-start-column="32" selection-end-line="253" selection-end-column="32" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1475209894140" expanded="true" signature="431:1113" ph="{...}" />
-                <marker date="1475209894140" expanded="true" signature="2740:3052" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DenseCoeffsBase.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseCoeffsBase.h">
+      <file leaf-file-name="GradientDescentSolver.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/solvers/GradientDescentSolver.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-718">
-              <caret line="407" column="0" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -112,11 +111,10 @@
       <file leaf-file-name="mnist.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/mnist.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
-              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+            <state relative-caret-position="435">
+              <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1475177357239" expanded="true" signature="334:1288" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -135,7 +133,7 @@
       <file leaf-file-name="compgraphtests.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/compgraphtests.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="4575">
               <caret line="305" column="0" selection-start-line="305" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
               <folding>
                 <element signature="e#1#17#0" expanded="true" />
@@ -157,7 +155,7 @@
       <file leaf-file-name="SymbolicTensorNodeOperators.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="390">
               <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="62" />
               <folding />
             </state>
@@ -167,7 +165,7 @@
       <file leaf-file-name="SymbolicTensorNodeOperators.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
+            <state relative-caret-position="1215">
               <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -196,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixProduct.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNMatrixReduceSum.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixReduceSum.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNMatrixScalarSum.h" />
@@ -238,7 +235,6 @@
         <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/NumGrind/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/examples/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/examples/mnist.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGSumOfSquares.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGSumOfSquares.cpp" />
@@ -246,6 +242,8 @@
         <option value="$PROJECT_DIR$/NumGrind/numgrind.h" />
         <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h" />
         <option value="$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp" />
+        <option value="$PROJECT_DIR$/examples/mnist.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/solvers/GradientDescentSolver.cpp" />
         <option value="$PROJECT_DIR$/examples/main.cpp" />
       </list>
     </option>
@@ -673,13 +671,13 @@
       <item index="4" class="java.lang.String" itemvalue="Application.gtest_main" />
       <item index="5" class="java.lang.String" itemvalue="Application.core" />
       <item index="6" class="java.lang.String" itemvalue="Google Test.runUnitTests" />
-      <item index="7" class="java.lang.String" itemvalue="Google Test.All in gtest.cpp" />
-      <item index="8" class="java.lang.String" itemvalue="Google Test.Suite01.Test02" />
-      <item index="9" class="java.lang.String" itemvalue="Application.NumGrindCompGraph" />
-      <item index="10" class="java.lang.String" itemvalue="Application.examples" />
-      <item index="11" class="java.lang.String" itemvalue="Application.numgrind" />
-      <item index="12" class="java.lang.String" itemvalue="Application.NumGrindSolvers" />
-      <item index="13" class="java.lang.String" itemvalue="Application.NumGrindSymbolicGraph" />
+      <item index="7" class="java.lang.String" itemvalue="Application.NumGrindCompGraph" />
+      <item index="8" class="java.lang.String" itemvalue="Application.examples" />
+      <item index="9" class="java.lang.String" itemvalue="Application.numgrind" />
+      <item index="10" class="java.lang.String" itemvalue="Application.NumGrindSolvers" />
+      <item index="11" class="java.lang.String" itemvalue="Application.NumGrindSymbolicGraph" />
+      <item index="12" class="java.lang.String" itemvalue="Google Test.All in gtest.cpp" />
+      <item index="13" class="java.lang.String" itemvalue="Google Test.Suite01.Test02" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -714,6 +712,7 @@
       <workItem from="1474829772984" duration="5929000" />
       <workItem from="1474902121808" duration="11318000" />
       <workItem from="1474993883519" duration="34556000" />
+      <workItem from="1475773978743" duration="3781000" />
     </task>
     <servers />
   </component>
@@ -750,7 +749,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116780000" />
+    <option name="totallyTimeSpent" value="120561000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -771,7 +770,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12664908" sideWeight="0.12093023" order="2" side_tool="true" content_ui="tabs" />
@@ -803,19 +802,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGDotProduct.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/CompGraph/CGMatrixElementWiseProduct.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,15 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <marker date="1475093898425" expanded="true" signature="138:1495" ph="{...}" />
-            <marker date="1475093898425" expanded="true" signature="164:1493" ph="{...}" />
-            <marker date="1475093898425" expanded="false" signature="174:240" ph="&lt;Scalar,Scalar Func(Scalar),Scalar Der(Scalar)&gt;" />
-            <marker date="1475093898425" expanded="true" signature="304:1485" ph="{...}" />
-            <marker date="1475093898425" expanded="true" signature="470:805" ph="{...}" />
-            <marker date="1475093898425" expanded="true" signature="913:1274" ph="{...}" />
-            <marker date="1475093898425" expanded="true" signature="1342:1388" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -847,14 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <marker date="1475093909112" expanded="true" signature="131:1537" ph="{...}" />
-            <marker date="1475093909112" expanded="true" signature="157:1535" ph="{...}" />
-            <marker date="1475093909112" expanded="true" signature="213:1528" ph="{...}" />
-            <marker date="1475093909112" expanded="true" signature="328:389" ph="{...}" />
-            <marker date="1475093909112" expanded="true" signature="449:728" ph="{...}" />
-            <marker date="1475093909112" expanded="true" signature="836:1321" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -870,15 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <marker date="1475093948436" expanded="true" signature="151:1110" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="177:1108" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="236:1100" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="353:369" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="446:607" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="715:854" ph="{...}" />
-            <marker date="1475093948436" expanded="true" signature="922:968" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,10 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding>
-            <marker date="1475093990846" expanded="true" signature="154:2166" ph="{...}" />
-            <marker date="1475093990846" expanded="true" signature="180:2164" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,7 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,11 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <marker date="1475094011862" expanded="true" signature="156:432" ph="{...}" />
-            <marker date="1475094011862" expanded="true" signature="182:430" ph="{...}" />
-            <marker date="1475094011862" expanded="true" signature="239:422" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,13 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <marker date="1475094031929" expanded="true" signature="149:1093" ph="{...}" />
-            <marker date="1475094031929" expanded="true" signature="175:1091" ph="{...}" />
-            <marker date="1475094031929" expanded="true" signature="230:1083" ph="{...}" />
-            <marker date="1475094031929" expanded="true" signature="490:739" ph="{...}" />
-            <marker date="1475094031929" expanded="true" signature="836:1072" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,15 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <marker date="1475094044357" expanded="true" signature="111:1004" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="137:1002" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="189:994" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="300:316" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="393:552" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="649:775" ph="{...}" />
-            <marker date="1475094044357" expanded="true" signature="826:872" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -971,13 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <marker date="1475094055960" expanded="true" signature="147:999" ph="{...}" />
-            <marker date="1475094055960" expanded="true" signature="173:997" ph="{...}" />
-            <marker date="1475094055960" expanded="true" signature="227:990" ph="{...}" />
-            <marker date="1475094055960" expanded="true" signature="486:735" ph="{...}" />
-            <marker date="1475094055960" expanded="true" signature="832:979" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,10 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
-          <folding>
-            <marker date="1475121477884" expanded="true" signature="139:429" ph="{...}" />
-            <marker date="1475121477884" expanded="true" signature="163:427" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,7 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="106" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="88" column="15" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,7 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="773" column="0" selection-start-line="773" selection-start-column="0" selection-end-line="773" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="887" column="8" selection-start-line="887" selection-start-column="8" selection-end-line="887" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,11 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="59" />
-          <folding>
-            <marker date="1475175844356" expanded="true" signature="184:767" ph="{...}" />
-            <marker date="1475175844356" expanded="true" signature="214:765" ph="{...}" />
-            <marker date="1475175844356" expanded="true" signature="281:758" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1074,7 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="388" column="0" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="367" column="0" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,9 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,7 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1172,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1180,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,20 +1089,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseCoeffsBase.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
+        <state relative-caret-position="6105">
           <caret line="407" column="0" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/mnist.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1475177357239" expanded="true" signature="334:1288" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1239,7 +1123,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/compgraphtests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="4575">
           <caret line="305" column="0" selection-start-line="305" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
           <folding>
             <element signature="e#1#17#0" expanded="true" />
@@ -1257,7 +1141,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="390">
           <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="62" />
           <folding />
         </state>
@@ -1265,7 +1149,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNodeOperators.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
+        <state relative-caret-position="1215">
           <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -1273,14 +1157,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/examples/mnist.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/solvers/GradientDescentSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="149" selection-end-column="63" />
+        <state relative-caret-position="496">
+          <caret line="253" column="32" selection-start-line="253" selection-start-column="32" selection-end-line="253" selection-end-column="32" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1475209894140" expanded="true" signature="431:1113" ph="{...}" />
-            <marker date="1475209894140" expanded="true" signature="2740:3052" ph="{...}" />
           </folding>
         </state>
       </provider>
