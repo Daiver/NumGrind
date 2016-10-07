@@ -7,13 +7,27 @@
 #include "solvers/checkgradient.h"
 #include "mnist.h"
 
-float sigmoid(float z) {
+float sigmoid(float z) 
+{
     return (float) (1.0f / (1.0f + exp(-z)));
 }
 
-float sigmoidDer(float z) {
+float sigmoidDer(float z) 
+{
     const float sigZ = sigmoid(z);
     return sigZ * (1.0f - sigZ);
+}
+
+float relu(float x)
+{
+    return std::max(0.0f, x);
+}
+
+float reluDer(float x)
+{
+    if(x < 0.0f)
+        return 0.0f;
+    return x;
 }
 
 void logisticRegressionOperatorAndExample02() {
@@ -262,18 +276,21 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 100, 0.0, 0.05, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 100, 0.0, 0.05, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 300, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 300, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(300, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
-    auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
+    //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
+    auto f1 = apply<relu, reluDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+
+    auto output = f2;
 //    auto residual = f1 - y;
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-    const int batchSize = 500;
-    auto err = sumOfSquares(f2 - y);
+    const int batchSize = 60;
+    auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
 
@@ -283,15 +300,15 @@ void mnistTest01() {
     X.setValue(trainData.block(0, 0, batchSize, 28*28));
     y.setValue(trainLabels.block(0, 0, batchSize, 10));
     NumGrind::solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-    settings.nMaxIterations = 5;
-    for(int i = 0; i < 50; ++i){
+    settings.nMaxIterations = 2;
+    for(int i = 0; i < 1001; ++i){
         std::cout << "Epoch " << i << std::endl;
         X.setValue(trainData.block((i*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((i*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::solvers::gradientDescent(settings, 0.01, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-        if(i%10 == 0){
+        NumGrind::solvers::gradientDescent(settings, 0.025, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        if(i%50 == 0){
             X.setValue(testData);
-            f2.node()->forwardPass(vars);
+            output.node()->forwardPass(vars);
             auto res = f2.value();
             const auto colwiseMax = argmaxRowwise(res);
             int nErr = 0;
@@ -299,7 +316,11 @@ void mnistTest01() {
                 if(colwiseMax[j] != testLabelsPure[j])
                     nErr += 1;
             }
-            std::cout << "err " << (float)nErr << " " << (float)nErr/testLabelsPure.rows() 
+            float fErr = (float)nErr/testLabelsPure.rows();
+            std::cout 
+                      << "Test error " << fErr << ", "
+                      << "acc " << (1.0 - fErr) * 100 << "%, "
+                      << "n errors " << (float)nErr << " " 
                       << std::endl;
         }
     }
