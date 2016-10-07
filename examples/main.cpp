@@ -211,6 +211,30 @@ void mlpOperatorOrAndExample03() {
     std::cout << "b2:" << std::endl << b2.value() << std::endl;
 }
 
+Eigen::MatrixXf labelsToMatrix(const Eigen::VectorXi &labels, const int nClasses)
+{
+    Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(labels.rows(), nClasses);
+    for(int i = 0; i < trainLabels.rows(); ++i)
+        trainLabels(i, labels[i]) = 1.0;
+    return trainLabels;
+}
+
+Eigen::VectorXi argmaxRowwise(const Eigen::MatrixXf &mat){
+    Eigen::VectorXi res = Eigen::VectorXi::Zero(mat.rows());
+    for(int row = 0; row < mat.rows(); ++row){
+        float maxVal = -10000;
+        int maxInd = 0;
+        for(int col = 0; col < mat.cols(); ++col){
+            if(mat(row, col) > maxVal){
+                maxVal = mat(row, col);
+                maxInd = col;
+            }
+        }
+        res[row] = maxInd;
+    }
+    return res;
+}
+
 void mnistTest01() {
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
     const std::string fnameImagesTrain = fnameMNISTDir + "train-images-idx3-ubyte";
@@ -218,12 +242,14 @@ void mnistTest01() {
     const std::string fnameImagesTest  = fnameMNISTDir + "t10k-images-idx3-ubyte";
     const std::string fnameLabelsTest  = fnameMNISTDir + "t10k-labels-idx1-ubyte";
 
-    const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain).block(0, 0, 60000, 28*28)/255.0;
-    const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain).block(0, 0, 60000, 1);
-    Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(trainLabelsPure.rows(), 10);
+    const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain)/255.0;
+    const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain);
 
-    for(int i = 0; i < trainLabels.rows(); ++i)
-        trainLabels(i, trainLabelsPure[i]) = 1.0;
+    const Eigen::MatrixXf testData   = mnist::readMNISTImages(fnameImagesTest)/255.0;
+    const Eigen::VectorXi testLabelsPure = mnist::readMNISTLabels(fnameLabelsTest);
+
+    Eigen::MatrixXf trainLabels = labelsToMatrix(trainLabelsPure, 10);
+    //Eigen::MatrixXf testLabels = labelsToMatrix(testLabelsPure, 10);
 
 
     std::default_random_engine generator;
@@ -246,20 +272,37 @@ void mnistTest01() {
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
+    const int batchSize = 500;
     auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
     NumGrind::solvers::SolverSettings settings;
-    settings.nMaxIterations = 600;
+    settings.nMaxIterations = 10;
 
-//    std::cout << "before gradient check" << std::endl;
-//    std::cout << "is gradient ok? "
-//              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
-//              << std::endl;
-
-    NumGrind::solvers::gradientDescent(settings, 0.000005, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-
+    X.setValue(trainData.block(0, 0, batchSize, 28*28));
+    y.setValue(trainLabels.block(0, 0, batchSize, 10));
+    NumGrind::solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    settings.nMaxIterations = 5;
+    for(int i = 0; i < 50; ++i){
+        std::cout << "Epoch " << i << std::endl;
+        X.setValue(trainData.block((i*batchSize) % trainData.rows(), 0, batchSize, 28*28));
+        y.setValue(trainLabels.block((i*batchSize) % trainData.rows(), 0, batchSize, 10));
+        NumGrind::solvers::gradientDescent(settings, 0.01, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        if(i%10 == 0){
+            X.setValue(testData);
+            f2.node()->forwardPass(vars);
+            auto res = f2.value();
+            const auto colwiseMax = argmaxRowwise(res);
+            int nErr = 0;
+            for(int j = 0; j < colwiseMax.rows(); ++j){
+                if(colwiseMax[j] != testLabelsPure[j])
+                    nErr += 1;
+            }
+            std::cout << "err " << (float)nErr << " " << (float)nErr/testLabelsPure.rows() 
+                      << std::endl;
+        }
+    }
 //    std::cout << trainLabelsPure << std::endl;
 //    std::cout << W1.value() << std::endl;
 //    std::cout << b1.value() << std::endl;
