@@ -168,5 +168,5 @@ make
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add gradient check test for complex case - i hope that simple mlp is enough
  - Add node for sum of squares
- - Add MNIST test - Done! 97.08% acc!
+ - Add MNIST test - Done! 97.19% acc!
 
