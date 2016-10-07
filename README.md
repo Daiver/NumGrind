@@ -119,7 +119,6 @@ make
  - Add reshape node
  - Add transpose node
  - Add some code style
- - Add MNIST test
  - Switch to session model
  - Avoid copy-paste in Symbolic nodes operators
  - Make work with variables values more explicit
@@ -131,6 +130,11 @@ make
  - Add and test complex SGD solvers as Adam/AdaGrad
  - Add and test basic SGD with momentum
  - Add common interface for solvers
+
+##Deep learning
+ - Add batch normalization
+ - Add dropout
+ - Add convolution network
 
 ##Performance
  - Prepare valgrind or another profiler (gprof?)
@@ -164,4 +168,5 @@ make
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add gradient check test for complex case - i hope that simple mlp is enough
  - Add node for sum of squares
+ - Add MNIST test - Done! 96.31% acc!
 
