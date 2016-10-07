@@ -238,17 +238,17 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 10, 0.0, 0.05, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0, 0.05, generator));
-    //auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
-    //auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 100, 0.0, 0.05, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 100, 0.0, 0.05, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
-    //auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
 //    auto residual = f1 - y;
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-    auto err = sumOfSquares(f1 - y);
+    auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
