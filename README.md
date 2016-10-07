@@ -133,6 +133,7 @@ make
  - Add common interface for solvers
 
 ##Performance
+ - Prepare valgrind or another profiler (gprof?)
  - Create big problem for performance tests
  - Add pre-allocated arrays for intermediate results
  - (long term issue) Do not compute backwardPass for Constants

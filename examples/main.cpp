@@ -224,9 +224,7 @@ void mnistTest01() {
 
     for(int i = 0; i < trainLabels.rows(); ++i)
         trainLabels(i, trainLabelsPure[i]) = 1.0;
-//        if(trainLabelsPure[i] == 0) {
-//            trainLabels(i, 0) = 1.0;
-//        }
+
 
     std::default_random_engine generator;
     generator.seed(42);
@@ -260,7 +258,7 @@ void mnistTest01() {
 //              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
 //              << std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 0.00001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::solvers::gradientDescent(settings, 0.000005, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
 
 //    std::cout << trainLabelsPure << std::endl;
 //    std::cout << W1.value() << std::endl;

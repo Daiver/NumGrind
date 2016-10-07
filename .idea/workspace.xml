@@ -53,6 +53,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/main.cpp" afterPath="$PROJECT_DIR$/examples/main.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
@@ -76,8 +77,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="240" column="71" selection-start-line="240" selection-start-column="71" selection-end-line="240" selection-end-column="71" />
+            <state relative-caret-position="376">
+              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -707,7 +708,7 @@
       <workItem from="1474829772984" duration="5929000" />
       <workItem from="1474902121808" duration="11318000" />
       <workItem from="1474993883519" duration="34556000" />
-      <workItem from="1475773978743" duration="9756000" />
+      <workItem from="1475773978743" duration="10428000" />
     </task>
     <servers />
   </component>
@@ -744,7 +745,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126536000" />
+    <option name="totallyTimeSpent" value="127208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1172,8 +1173,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="240" column="71" selection-start-line="240" selection-start-column="71" selection-end-line="240" selection-end-column="71" />
+        <state relative-caret-position="376">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
