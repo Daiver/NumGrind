@@ -237,8 +237,9 @@ void mnistTest01() {
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainLabels);
 
-    auto W1 = gm.variable(trainData.cols(), 10, 0);
-    auto b1 = gm.variable(1, 10, 0);
+//    auto b1 = gm.variable(1, 10, 0);
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 10, 0.0, 0.05, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0, 0.05, generator));
     //auto W2 = gm.variable(NumGrind::utils::gaussf(100, 10, 0.0, 0.01, generator));
     //auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
@@ -252,14 +253,14 @@ void mnistTest01() {
     auto vars = gm.initializeVariables();
 
     NumGrind::solvers::SolverSettings settings;
-    settings.nMaxIterations = 100;
+    settings.nMaxIterations = 600;
 
 //    std::cout << "before gradient check" << std::endl;
 //    std::cout << "is gradient ok? "
 //              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
 //              << std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 0.000015, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::solvers::gradientDescent(settings, 0.00001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
 
 //    std::cout << trainLabelsPure << std::endl;
 //    std::cout << W1.value() << std::endl;
