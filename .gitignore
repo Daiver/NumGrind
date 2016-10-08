@@ -32,6 +32,7 @@
 .*.swo
 .*.swp
 .*.swn
+.*.swm
 
 3rdparty/Eigen
 3rdparty/Eigen/*
