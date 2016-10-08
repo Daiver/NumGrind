@@ -4,6 +4,7 @@ dist: trusty
 
 os:
   - linux
+  #- osx
 
 language: cpp
 
@@ -12,8 +13,8 @@ compiler:
   - clang
 
 before_script:
-  - sudo apt-get install libeigen3-dev
-  - ln -s /usr/include/eigen3/Eigen 3rdparty/Eigen
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install libeigen3-dev ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ln -s /usr/include/eigen3/Eigen 3rdparty/Eigen ; fi
   - mkdir build
   - cd build
   - cmake ..
