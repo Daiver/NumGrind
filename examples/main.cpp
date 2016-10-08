@@ -276,9 +276,9 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 800, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 800, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(800, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 200, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 200, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(200, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f1 = apply<relu, reluDer>(matmult(X, W1) + b1);
@@ -289,7 +289,7 @@ void mnistTest01() {
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-    const int batchSize = 50;
+    const int batchSize = 22;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -303,12 +303,12 @@ void mnistTest01() {
     X.setValue(trainData.block(0, 0, batchSize, 28*28));
     y.setValue(trainLabels.block(0, 0, batchSize, 10));
     NumGrind::solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-    settings.nMaxIterations = 2;
+    settings.nMaxIterations = 1;
     //for(int i = 0; i < 2001; ++i){
     for(int i = 0; i < 50001; ++i){
         X.setValue(trainData.block((i*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((i*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::solvers::gradientDescent(settings, 0.0015, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        NumGrind::solvers::gradientDescent(settings, 0.0050, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
         std::cout << "Epoch " << i << " err " << err.node()->value() << std::endl;
         if(i%100 == 0){
             X.setValue(testData);

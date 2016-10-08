@@ -236,7 +236,6 @@ make
 
 ##CI
  - Add Windows support
- - Add OSX support
 
 ##Solved
  - Switch from raw pointers to smart pointers - currently not needed because of GraphManager. Maybe will be implemented later
@@ -253,4 +252,5 @@ make
  - Add MNIST test - Done! 97.19% acc!
  - Prepare valgrind or another profiler (gprof?) - currently done by console run
  - Create big problem for performance tests - MNIST is ok, bottleneck is matrices multiplication
+ - Add OSX support
 
