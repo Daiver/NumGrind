@@ -2,7 +2,7 @@
 
 Platform | Build status
 ---------|-------------:
-Linux | [![Build Status](https://travis-ci.org/Daiver/NumGrind.svg?branch=master)](https://travis-ci.org/Daiver/NumGrind)
+Linux <br> OSX| [![Build Status](https://travis-ci.org/Daiver/NumGrind.svg?branch=master)](https://travis-ci.org/Daiver/NumGrind)
 
 Simple computational graph with reverse mode autodiff framework. Inspired by TensorFlow/Theano and other computational graph tools
 
