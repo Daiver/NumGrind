@@ -7,6 +7,10 @@ os:
 
 language: cpp
 
+compiler:
+  - gcc
+  - clang
+
 before_script:
   - sudo apt-get install libeigen3-dev
   - ln -s /usr/include/eigen3/Eigen 3rdparty/Eigen
