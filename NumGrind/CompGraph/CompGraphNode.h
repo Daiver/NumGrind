@@ -11,6 +11,7 @@ namespace NumGrind {
         class CompGraphNode {
         public:
             virtual void forwardPass(const Eigen::VectorXf &vars) = 0;
+            virtual ~CompGraphNode(){}
         };
     }
 }
