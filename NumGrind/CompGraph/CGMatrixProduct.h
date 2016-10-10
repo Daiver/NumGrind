@@ -11,7 +11,7 @@ namespace NumGrind {
 //        assert(false);//Not implemented yet
             }
 
-            void forwardPass(const Eigen::VectorXf &vars) {
+            void forwardPass(const Eigen::VectorXf &vars) override {
                 arg1->forwardPass(vars);
                 arg2->forwardPass(vars);
                 auto res1 = arg1->value();
@@ -37,7 +37,7 @@ namespace NumGrind {
                 arg2->backwardPass((res1.transpose() * sensitivity), grad);
             }
 
-            const Eigen::MatrixXf &value() const { return this->mValue; }
+            const Eigen::MatrixXf &value() const override { return this->mValue; }
 
         private:
             Eigen::MatrixXf mValue;

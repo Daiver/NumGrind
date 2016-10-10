@@ -24,7 +24,7 @@ namespace NumGrind {
                     grad[indices[i]] += sensitivity(i, 0);
             }
 
-            const Eigen::MatrixXf &value() const { return this->mValue; }
+            const Eigen::MatrixXf &value() const override { return this->mValue; }
 
         private:
             const std::vector<int> indices;
