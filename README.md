@@ -72,6 +72,9 @@ Pull-requests are welcomed
 
 See examples/ for more examples
 
+#Achivements
+ - MNIST: 97.47% accuracy
+
 #Dependencies
  - cmake - build tool
  - Eigen3 - basic linear algebra

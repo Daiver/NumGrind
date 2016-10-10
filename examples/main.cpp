@@ -36,9 +36,9 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 400, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 400, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::Utils::gaussf(400, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 200, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 200, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(200, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f1 = apply<NumGrind::DeepGrind::relu, NumGrind::DeepGrind::reluDer>(matmult(X, W1) + b1);
@@ -49,7 +49,7 @@ void mnistTest01() {
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-    const int batchSize = 32;
+    const int batchSize = 16;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -65,15 +65,18 @@ void mnistTest01() {
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
     //for(int i = 0; i < 2001; ++i){
+    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 0.002, vars);
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
         X.setValue(trainData.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::Solvers::gradientDescent(settings, 0.0020, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        solver.makeStep(gm.funcFromNode(&err),
+                        gm.gradFromNode(&err));
+//        NumGrind::Solvers::gradientDescent(settings, 0.0020, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
         if(iterInd % 10 == 0)
             std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
         if(iterInd%100 == 0){
             X.setValue(testData);
-            output.node()->forwardPass(vars);
+            output.node()->forwardPass(solver.vars);
             auto res = f2.value();
             const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
             int nErr = 0;

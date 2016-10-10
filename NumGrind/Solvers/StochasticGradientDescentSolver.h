@@ -10,10 +10,14 @@ namespace NumGrind {
 
         class StochasticGradientDescentSolver {
         public:
-            StochasticGradientDescentSolver(const SolverSettings &settings, const float stepSize);
+            StochasticGradientDescentSolver(
+                        const NumGrind::Solvers::SolverSettings &settings, const float stepSize, const Eigen::VectorXf &vars);
 
-            void makeStep(std::function<float (const Eigen::VectorXf &)> func, std::function<void (const Eigen::VectorXf &, Eigen::VectorXf &)> gradFunc, Eigen::VectorXf &vars);
+            void makeStep(std::function<float(const Eigen::VectorXf &)> func,
+                                      std::function<void(const Eigen::VectorXf &,
+                                                                                                 Eigen::VectorXf &)> gradFunc);
 
+            Eigen::VectorXf vars;
         protected:
             const SolverSettings settings;
             const float stepSize;
