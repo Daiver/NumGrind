@@ -8,8 +8,9 @@ add_subdirectory(SymbolicGraph)
 add_subdirectory(solvers)
 
 set(CORE_FILES
+        numgrind.h
         GraphManager.cpp GraphManager.h
-        utils.h numgrind.h utils.cpp)
+        utils.h utils.cpp)
 
 add_library(numgrind ${CORE_FILES})
 target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers NumGrindSymbolicGraph)

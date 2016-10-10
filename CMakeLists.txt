@@ -9,11 +9,12 @@ project(NumGrind)
 #set(CMAKE_CXX_FLAGS "-O3  -msse4 ")
 #set(CMAKE_CXX_FLAGS "-O3  -msse2 ")
 set(CMAKE_CXX_FLAGS "-O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-register")
+
 
 set(EIGEN3_INCLUDE_DIR 3rdparty)
 include_directories(${EIGEN3_INCLUDE_DIR})
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 #include_directories("./3rdparty")
 add_subdirectory(NumGrind)
