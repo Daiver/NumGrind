@@ -10,7 +10,7 @@ namespace NumGrind {
             CGScalarVariable(const int index) : index(index), mValue(0.0) {
             }
 
-            void forwardPass(const Eigen::VectorXf &vars) {
+            void forwardPass(const Eigen::VectorXf &vars) override {
                 assert(index < vars.size());
                 this->mValue = vars[index];
             }
@@ -20,7 +20,7 @@ namespace NumGrind {
                 grad[this->index] += sensitivity;
             }
 
-            float value() const { return this->mValue; }
+            float value() const override { return this->mValue; }
 
             void setValue(const float value) { this->mValue = value; }
 

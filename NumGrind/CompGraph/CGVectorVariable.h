@@ -12,7 +12,7 @@ namespace NumGrind {
                                                                 mValue(Eigen::VectorXf::Zero(indices.size())) {
             }
 
-            void forwardPass(const Eigen::VectorXf &vars) {
+            void forwardPass(const Eigen::VectorXf &vars) override {
                 assert(this->mValue.cols() == 1);
                 for (int i = 0; i < indices.size(); ++i)
                     this->mValue(i, 0) = vars[indices[i]];

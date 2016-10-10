@@ -17,7 +17,7 @@ namespace NumGrind {
                 assert(nRows * nCols == indices.size());
             }
 
-            void forwardPass(const Eigen::VectorXf &vars) {
+            void forwardPass(const Eigen::VectorXf &vars) override {
                 for (int i = 0; i < indices.size(); ++i) {
                     auto inds2D = flatIndTo2DInd(i);
                     this->mValue(inds2D.first, inds2D.second) = vars[indices[i]];
@@ -41,7 +41,7 @@ namespace NumGrind {
 
             int nCols() const { return mNCols; }
 
-            const Eigen::MatrixXf &value() const { return this->mValue; }
+            const Eigen::MatrixXf &value() const override { return this->mValue; }
 
         protected:
             std::pair<int, int> flatIndTo2DInd(const int flatInd) {

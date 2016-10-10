@@ -89,7 +89,7 @@ void mnistTest01() {
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
         X.setValue(trainData.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::solvers::gradientDescent(settings, 0.0030, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        NumGrind::solvers::gradientDescent(settings, 0.0020, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
         if(iterInd % 10 == 0)
             std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
         if(iterInd%100 == 0){

@@ -12,7 +12,7 @@ namespace NumGrind {
                 this->arguments.push_back(argB);
             }
 
-            void forwardPass(const Eigen::VectorXf &vars) {
+            void forwardPass(const Eigen::VectorXf &vars) override {
                 float res = 1.0;
                 for (CGScalarOutput *arg : this->arguments) {
                     arg->forwardPass(vars);
