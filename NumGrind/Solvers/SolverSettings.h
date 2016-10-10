@@ -2,7 +2,7 @@
 #define NUMGRIND_SOLVERSETTINGS_H
 
 namespace NumGrind {
-    namespace solvers {
+    namespace Solvers {
         class SolverSettings {
         public:
 

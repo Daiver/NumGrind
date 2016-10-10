@@ -1,6 +1,6 @@
 #include "utils.h"
 
-Eigen::MatrixXf NumGrind::utils::labelsToMatrix(const Eigen::VectorXi &labels, const int nClasses)
+Eigen::MatrixXf NumGrind::Utils::labelsToMatrix(const Eigen::VectorXi &labels, const int nClasses)
 {
     Eigen::MatrixXf trainLabels = Eigen::MatrixXf::Zero(labels.rows(), nClasses);
     for(int i = 0; i < trainLabels.rows(); ++i)
@@ -8,7 +8,7 @@ Eigen::MatrixXf NumGrind::utils::labelsToMatrix(const Eigen::VectorXi &labels, c
     return trainLabels;
 }
 
-Eigen::VectorXi NumGrind::utils::argmaxRowwise(const Eigen::MatrixXf &mat){
+Eigen::VectorXi NumGrind::Utils::argmaxRowwise(const Eigen::MatrixXf &mat){
     Eigen::VectorXi res = Eigen::VectorXi::Zero(mat.rows());
     for(int row = 0; row < mat.rows(); ++row){
         float maxVal = -10000;

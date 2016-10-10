@@ -2,9 +2,9 @@
 
 #include "utils.h"
 #include "numgrind.h"
-#include "solvers/GradientDescentSolver.h"
-#include "solvers/StochasticGradientDescentSolver.h"
-#include "solvers/checkgradient.h"
+#include "Solvers/GradientDescentSolver.h"
+#include "Solvers/StochasticGradientDescentSolver.h"
+#include "Solvers/checkgradient.h"
 #include "DeepGrind/ActivationFunctions.h"
 #include "mnist.h"
 
@@ -22,7 +22,7 @@ void mnistTest01() {
     const Eigen::MatrixXf testData   = mnist::readMNISTImages(fnameImagesTest)/255.0;
     const Eigen::VectorXi testLabelsPure = mnist::readMNISTLabels(fnameLabelsTest);
 
-    Eigen::MatrixXf trainLabels = NumGrind::utils::labelsToMatrix(trainLabelsPure, 10);
+    Eigen::MatrixXf trainLabels = NumGrind::Utils::labelsToMatrix(trainLabelsPure, 10);
     //Eigen::MatrixXf testLabels = labelsToMatrix(testLabelsPure, 10);
 
 
@@ -36,10 +36,10 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 400, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 400, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(400, 10, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 400, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 400, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(400, 10, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f1 = apply<NumGrind::DeepGrind::relu, NumGrind::DeepGrind::reluDer>(matmult(X, W1) + b1);
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
@@ -54,7 +54,7 @@ void mnistTest01() {
 
     auto vars = gm.initializeVariables();
 
-    NumGrind::solvers::SolverSettings settings;
+    NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 20;
     settings.verbose = false;
 
@@ -62,20 +62,20 @@ void mnistTest01() {
 
     X.setValue(trainData.block(0, 0, batchSize, 28*28));
     y.setValue(trainLabels.block(0, 0, batchSize, 10));
-    NumGrind::solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
     //for(int i = 0; i < 2001; ++i){
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
         X.setValue(trainData.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::solvers::gradientDescent(settings, 0.0020, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        NumGrind::Solvers::gradientDescent(settings, 0.0020, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
         if(iterInd % 10 == 0)
             std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
         if(iterInd%100 == 0){
             X.setValue(testData);
             output.node()->forwardPass(vars);
             auto res = f2.value();
-            const auto colwiseMax = NumGrind::utils::argmaxRowwise(res);
+            const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
             int nErr = 0;
             for(int j = 0; j < colwiseMax.rows(); ++j){
                 if(colwiseMax[j] != testLabelsPure[j])

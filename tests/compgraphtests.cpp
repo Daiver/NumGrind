@@ -22,7 +22,7 @@ TEST(NumGrindScalarSuit, test01) {
 
     auto graph = n6;
 
-    Eigen::VectorXf vars = utils::vec2EVecf({3, 4});
+    Eigen::VectorXf vars = Utils::vec2EVecf({3, 4});
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
     graph.forwardPass(vars);
     graph.backwardPass(1, grad);
@@ -41,7 +41,7 @@ TEST(NumGrindVectorSuit, testDotProduct01) {
 
     auto graph = n4;
 
-    Eigen::VectorXf vars = utils::vec2EVecf({1, 2, 3, 4});
+    Eigen::VectorXf vars = Utils::vec2EVecf({1, 2, 3, 4});
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
     graph.forwardPass(vars);
     graph.backwardPass(1, grad);
@@ -59,7 +59,7 @@ TEST(NumGrindVectorSuit, testDotProduct02) {
     auto b = CGVectorVariable({0, 1, 2});
     auto expr = CGDotProduct(&a, &b);
 
-    Eigen::VectorXf vars = utils::vec2EVecf({1, 2, 3});
+    Eigen::VectorXf vars = Utils::vec2EVecf({1, 2, 3});
     Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
     expr.forwardPass(vars);
     expr.backwardPass(1, grad);

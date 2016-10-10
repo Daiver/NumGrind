@@ -6,7 +6,7 @@
 #include "SolverSettings.h"
 
 namespace NumGrind {
-    namespace solvers {
+    namespace Solvers {
         void gradientDescent(
                 const SolverSettings &settings, const float stepSize,
                 std::function<float(const Eigen::VectorXf &)> func,

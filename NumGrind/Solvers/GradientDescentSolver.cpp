@@ -4,7 +4,7 @@
 
 using namespace NumGrind;
 
-void solvers::gradientDescent(
+void Solvers::gradientDescent(
         const SolverSettings &settings,
         const float stepSize,
         std::function<float(const Eigen::VectorXf &)> func,

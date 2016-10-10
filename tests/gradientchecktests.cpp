@@ -12,9 +12,9 @@ using namespace NumGrind;
 
 TEST(NumGrindCheckGrad, testNumericalGradient01) {
     auto f = [](const Eigen::VectorXf &vars) { return vars.dot(vars); };
-    const Eigen::VectorXf vars = utils::vec2EVecf({1, 2, 3});
+    const Eigen::VectorXf vars = Utils::vec2EVecf({1, 2, 3});
     Eigen::VectorXf grad(vars.size());
-    solvers::numericalGradient(f, vars, 0.00001, grad);
+    Solvers::numericalGradient(f, vars, 0.00001, grad);
 
     ASSERT_TRUE(fabs(grad[0] - 2.0) < 0.01);
     ASSERT_TRUE(fabs(grad[1] - 4.0) < 0.01);
@@ -40,7 +40,7 @@ TEST(NumGrindCheckGrad, testSquare01) {
     err.node()->forwardPass(vars);
     err.node()->backwardPass(1, grad2);
 
-    solvers::numericalGradient(func, vars, 0.001, grad1);
+    Solvers::numericalGradient(func, vars, 0.001, grad1);
 
     ASSERT_TRUE((grad1 - grad2).norm() < 0.01);
 }
@@ -52,9 +52,9 @@ TEST(NumGrindCheckGrad, testSigmoid01) {
 
     const float val = 0.02;
 
-    const Eigen::VectorXf vars = utils::vec2EVecf({val});
+    const Eigen::VectorXf vars = Utils::vec2EVecf({val});
     Eigen::VectorXf grad(vars.size());
-    solvers::numericalGradient(f, vars, 0.00001, grad);
+    Solvers::numericalGradient(f, vars, 0.00001, grad);
     const float realDer = testhelpers::sigmoidDer(val);
     ASSERT_TRUE(fabs(grad[0] - realDer) < 0.001);
 }
@@ -89,7 +89,7 @@ TEST(NumGrindCheckGrad, testLogistic01) {
     auto grad2 = gm.initializeGradient(vars);
 
     vars << -0.1, 0.02, 0.03;
-    solvers::numericalGradient(func, vars, 0.001, grad1);
+    Solvers::numericalGradient(func, vars, 0.001, grad1);
     err.node()->forwardPass(vars);
     err.node()->backwardPass(1, grad2);
     ASSERT_TRUE((grad1 - grad2).norm() < 0.01);
@@ -127,7 +127,7 @@ TEST(NumGrindCheckGrad, testLogistic02) {
     vars << 0.7, -0.52, 0.13;
     err.node()->forwardPass(vars);
     err.node()->backwardPass(1, grad2);
-    solvers::numericalGradient(func, vars, 0.001, grad1);
+    Solvers::numericalGradient(func, vars, 0.001, grad1);
     ASSERT_TRUE((grad1 - grad2).norm() < 0.01);
 }
 
@@ -149,10 +149,10 @@ TEST(NumGrindCheckGrad, testMLP01) {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 1, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<testhelpers::sigmoid, testhelpers::sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
@@ -173,6 +173,6 @@ TEST(NumGrindCheckGrad, testMLP01) {
             0.05;
     err.node()->forwardPass(vars);
     err.node()->backwardPass(1, grad2);
-    solvers::numericalGradient(func, vars, 0.001, grad1);
+    Solvers::numericalGradient(func, vars, 0.001, grad1);
     ASSERT_TRUE((grad1 - grad2).norm() < 0.01);
 }

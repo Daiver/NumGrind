@@ -6,7 +6,7 @@
 #include "SolverSettings.h"
 
 namespace NumGrind {
-    namespace solvers {
+    namespace Solvers {
 
         class StochasticGradientDescentSolver {
         public:

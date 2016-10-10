@@ -1,7 +1,7 @@
 #include "numericalgradient.h"
 #include <iostream>
 
-void NumGrind::solvers::numericalGradient(
+void NumGrind::Solvers::numericalGradient(
         std::function<float(const Eigen::VectorXf &)> func,
         const Eigen::VectorXf &varsInit,
         const float dx,

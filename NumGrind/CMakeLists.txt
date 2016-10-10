@@ -5,7 +5,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
 add_subdirectory(CompGraph)
 add_subdirectory(SymbolicGraph)
-add_subdirectory(solvers)
+add_subdirectory(Solvers)
 add_subdirectory(DeepGrind)
 
 set(CORE_FILES

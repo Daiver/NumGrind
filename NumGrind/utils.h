@@ -6,7 +6,7 @@
 #include "Eigen/Core"
 
 namespace NumGrind {
-    namespace utils {
+    namespace Utils {
 
         inline Eigen::VectorXf vec2EVecf(const std::vector<float> &vec) {
             Eigen::VectorXf res(vec.size());
@@ -55,20 +55,20 @@ namespace NumGrind {
 //IMPLEMENTATIONS
 
 template <typename T>
-inline T NumGrind::utils::gauss(const T mean, const T std, std::default_random_engine &generator)
+inline T NumGrind::Utils::gauss(const T mean, const T std, std::default_random_engine &generator)
 {
     std::normal_distribution<T> distribution(mean, std);
     return distribution(generator);
 }
 
-inline float NumGrind::utils::gaussf(const float mean, const float std, std::default_random_engine &generator)
+inline float NumGrind::Utils::gaussf(const float mean, const float std, std::default_random_engine &generator)
 {
     std::normal_distribution<float> distribution(mean, std);
     return distribution(generator);
 }
 
 template <typename T>
-inline Eigen::Matrix<T, -1, -1> NumGrind::utils::gauss(const int rows, const int cols, const T mean, const T std, std::default_random_engine &generator)
+inline Eigen::Matrix<T, -1, -1> NumGrind::Utils::gauss(const int rows, const int cols, const T mean, const T std, std::default_random_engine &generator)
 {
     std::normal_distribution<T> distribution(mean, std);
     Eigen::Matrix<T, -1, -1> res(rows, cols);
@@ -78,7 +78,7 @@ inline Eigen::Matrix<T, -1, -1> NumGrind::utils::gauss(const int rows, const int
     return res;
 };
 
-inline Eigen::MatrixXf NumGrind::utils::gaussf(const int rows, const int cols, const float mean, const float std, std::default_random_engine &generator)
+inline Eigen::MatrixXf NumGrind::Utils::gaussf(const int rows, const int cols, const float mean, const float std, std::default_random_engine &generator)
 {
     return gauss<float>(rows, cols, mean, std, generator);
 };

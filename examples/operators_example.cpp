@@ -42,9 +42,9 @@ void logisticRegressionOperatorAndExample02() {
 
     auto vars = gm.initializeVariables();
 
-    solvers::SolverSettings settings;
+    Solvers::SolverSettings settings;
     settings.nMaxIterations = 20;
-    solvers::gradientDescent(settings, 0.1, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    Solvers::gradientDescent(settings, 0.1, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     f.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl;
     std::cout << f.value() << std::endl;
@@ -72,10 +72,10 @@ void mlpOperatorOrExample01() {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 1, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto residual = f2 - y;
@@ -83,13 +83,13 @@ void mlpOperatorOrExample01() {
 
     auto vars = gm.initializeVariables();
 
-    NumGrind::solvers::SolverSettings settings;
+    NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 40;
 
     std::cout << "is gradient ok? "
-              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
+              << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars) << std::endl;
 
-    NumGrind::solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::Solvers::gradientDescent(settings, 2.0, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     f2.node()->forwardPass(vars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
@@ -116,22 +116,22 @@ void mlpOperatorOrExample02() {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 1, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(2, 1, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
-    NumGrind::solvers::SolverSettings settings;
+    NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 1.0);
+    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 1.0);
 
     std::cout << "is gradient ok? "
-              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
               << std::endl;
 
     const int nIters = 100;
@@ -175,23 +175,23 @@ void mlpOperatorOrAndExample03() {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::utils::gaussf(2, 2, 0.0, 0.5, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 2, 0.0, 0.5, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(2, 3, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::utils::gaussf(1, 3, 0.0f, 0.01f, generator));
-    //auto b2 = gm.variable(NumGrind::utils::gaussf(0.0f, 0.01f, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(2, 2, 0.0, 0.5, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 2, 0.0, 0.5, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(2, 3, 0.0, 0.01, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 3, 0.0f, 0.01f, generator));
+    //auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0f, 0.01f, generator));
     auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto err = sumOfSquares(f2 - y);
 
     auto vars = gm.initializeVariables();
 
-    NumGrind::solvers::SolverSettings settings;
+    NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::solvers::StochasticGradientDescentSolver solver(settings, 4.0);
+    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 4.0);
 
     std::cout << "is gradient ok? "
-              << NumGrind::solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
               << std::endl;
 
     const int nIters = 100;

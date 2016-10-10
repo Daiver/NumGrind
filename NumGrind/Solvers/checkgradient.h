@@ -4,7 +4,7 @@
 #include "numericalgradient.h"
 
 namespace NumGrind {
-    namespace solvers {
+    namespace Solvers {
         bool isGradientOk(
                 std::function<float (const Eigen::VectorXf &)> func,
                 std::function<void (const Eigen::VectorXf &, Eigen::VectorXf &)> grad,
