@@ -197,7 +197,6 @@ make
 ##Common
  - Refactor examples
  - Refactor utils
- - Travis show multiple warnings. I should fix it
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
@@ -256,4 +255,5 @@ make
  - Prepare valgrind or another profiler (gprof?) - currently done by console run
  - Create big problem for performance tests - MNIST is ok, bottleneck is matrices multiplication
  - Add OSX support
+ - Travis show multiple warnings. I should fix it
 
