@@ -42,14 +42,14 @@ Pull-requests are welcomed
     auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
     auto err = sumOfSquares(f2 - y);
 
-    auto vars = gm.initializeVariables();
+    auto mVars = gm.initializeVariables();
 
     NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
     NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 4.0);
 
     std::cout << "is gradient ok? "
-              << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
+              << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), mVars)
               << std::endl;
 
     const int nIters = 100;
@@ -60,10 +60,10 @@ Pull-requests are welcomed
         const Eigen::MatrixXf label = targets.row(index);
         X.setValue(data);
         y.setValue(targets);
-        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), mVars);
     }
     
-    f2.node()->forwardPass(vars);
+    f2.node()->forwardPass(mVars);
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
     std::cout << "W2:" << std::endl << W2.value() << std::endl;

@@ -312,13 +312,13 @@ TEST(NumGrindSumOfSquares, test02) {
 //    auto mult2 = CGScalarMult(&sum, &b);
 //    auto expr = mult2;
 //
-//    Eigen::VectorXf vars(9);
-//    vars << 1, 2, 3, 4, 5, 6,
+//    Eigen::VectorXf mVars(9);
+//    mVars << 1, 2, 3, 4, 5, 6,
 //            7,
 //            8, 9;
 //
-//    Eigen::VectorXf grad = Eigen::VectorXf::Zero(vars.size());
-//    expr.forwardPass(vars);
+//    Eigen::VectorXf grad = Eigen::VectorXf::Zero(mVars.size());
+//    expr.forwardPass(mVars);
 //    auto val = expr.value();
 //    expr.backwardPass(1.0, grad);
 //

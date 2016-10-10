@@ -4,7 +4,7 @@
 
 NumGrind::Solvers::StochasticGradientDescentSolver::StochasticGradientDescentSolver(
             const NumGrind::Solvers::SolverSettings &settings, const float stepSize, const Eigen::VectorXf &vars)
-        : settings(settings), stepSize(stepSize), vars(vars)
+        : settings(settings), stepSize(stepSize), mVars(vars)
 {
 
 }
@@ -13,10 +13,10 @@ void NumGrind::Solvers::StochasticGradientDescentSolver::makeStep(std::function<
                                                                   std::function<void(const Eigen::VectorXf &,
                                                                                      Eigen::VectorXf &)> gradFunc)
 {
-    this->grad.resize(vars.size());
+    this->grad.resize(mVars.size());
     grad.fill(0);
-    gradFunc(vars, grad);
-    vars += -stepSize * grad;
+    gradFunc(mVars, grad);
+    mVars += -stepSize * grad;
     if(this->settings.verbose)
-        std::cout << "err " << func(vars) << std::endl;
+        std::cout << "err " << func(mVars) << std::endl;
 }

@@ -16,12 +16,12 @@ namespace NumGrind {
             void makeStep(std::function<float(const Eigen::VectorXf &)> func,
                                       std::function<void(const Eigen::VectorXf &,
                                                                                                  Eigen::VectorXf &)> gradFunc);
-
-            Eigen::VectorXf vars;
+            const Eigen::VectorXf &vars() { return this->mVars; }
         protected:
             const SolverSettings settings;
             const float stepSize;
             Eigen::VectorXf grad;
+            Eigen::VectorXf mVars;
         };
 
     }
