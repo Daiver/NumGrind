@@ -101,21 +101,24 @@ TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGrad05) {
 
     using namespace SymbolicGraph;
     GraphManager manager;
-    auto f = 2*manager.variable(13) * manager.variable(16) - 10 + manager.variable(2)/3.0;
+    auto a = manager.variable(13);
+    auto b = manager.variable(16);
+    auto c = manager.variable(2);
+    auto f = 2*a * b - 10 + c/3.0;
 
     auto vars = manager.initializeVariables();
     auto grad = manager.initializeGradient(vars);
 
-    ASSERT_FLOAT_EQ(vars[2], 13.0);
+    ASSERT_FLOAT_EQ(vars[0], 13.0);
     ASSERT_FLOAT_EQ(vars[1], 16.0);
-    ASSERT_FLOAT_EQ(vars[0], 2.0);
+    ASSERT_FLOAT_EQ(vars[2], 2.0);
 
     f.node()->forwardPass(vars);
     f.node()->backwardPass(1.0, grad);
 
-    ASSERT_FLOAT_EQ(grad[2], 2*16.0);
+    ASSERT_FLOAT_EQ(grad[0], 2*16.0);
     ASSERT_FLOAT_EQ(grad[1], 2*13.0);
-    ASSERT_FLOAT_EQ(grad[0], 1.0/3.0);
+    ASSERT_FLOAT_EQ(grad[2], 1.0/3.0);
 }
 
 TEST(NumGrindGraphManagerSuit, testInitializeVarsAndGradMat01) {

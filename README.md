@@ -252,7 +252,7 @@ make
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add gradient check test for complex case - i hope that simple mlp is enough
  - Add node for sum of squares
- - Add MNIST test - Done! 97.36% acc!
+ - Add MNIST test - Done! 97.47% acc!
  - Prepare valgrind or another profiler (gprof?) - currently done by console run
  - Create big problem for performance tests - MNIST is ok, bottleneck is matrices multiplication
  - Add OSX support
