@@ -3,3 +3,10 @@
 //
 
 #include "CGScalarConst.h"
+
+NumGrind::CompGraph::CGScalarConst::CGScalarConst(const float value) : mValue(value) {
+}
+
+void NumGrind::CompGraph::CGScalarConst::forwardPass(const Eigen::VectorXf &vars) {}
+
+void NumGrind::CompGraph::CGScalarConst::backwardPass(const float sensitivity, Eigen::VectorXf &grad) {}

@@ -8,14 +8,13 @@ namespace NumGrind {
 
         class CGScalarConst : public CGScalarOutput {
         public:
-            CGScalarConst(const float value) : mValue(value) {
-            }
+            CGScalarConst(const float value);
 
-            void forwardPass(const Eigen::VectorXf &vars) override {}
+            void forwardPass(const Eigen::VectorXf &vars) override;
 
             float value() const override { return this->mValue; }
 
-            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override {}
+            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override;
 
         private:
             float mValue;

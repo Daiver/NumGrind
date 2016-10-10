@@ -7,25 +7,11 @@ namespace NumGrind {
     namespace CompGraph {
         class CGScalarSum : public CGScalarFunction {
         public:
-            CGScalarSum(CGScalarOutput *argA, CGScalarOutput *argB) {
-                this->arguments.push_back(argA);
-                this->arguments.push_back(argB);
-            }
+            CGScalarSum(CGScalarOutput *argA, CGScalarOutput *argB);
 
-            void forwardPass(const Eigen::VectorXf &vars) override {
-                float res = 0.0;
-                for (CGScalarOutput *arg : this->arguments) {
-                    arg->forwardPass(vars);
-                    res += arg->value();
-                }
-                this->mValue = res;
-            }
+            void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override {
-                for (CGScalarOutput *arg : arguments) {
-                    arg->backwardPass(sensitivity, grad);
-                }
-            }
+            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override;
 
         };
     }

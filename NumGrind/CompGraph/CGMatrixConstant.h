@@ -7,13 +7,11 @@ namespace NumGrind {
     namespace CompGraph {
         class CGMatrixConstant : public CGTensorOutput {
         public:
-            CGMatrixConstant(const Eigen::MatrixXf &value) : mValue(value) {
+            CGMatrixConstant(const Eigen::MatrixXf &value);
 
-            }
+            virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void forwardPass(const Eigen::VectorXf &vars) override {}
-
-            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override {}
+            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
 
             virtual const Eigen::MatrixXf &value() const override {
                 return mValue;

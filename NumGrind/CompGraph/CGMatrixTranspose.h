@@ -7,18 +7,11 @@ namespace NumGrind {
     namespace CompGraph {
         class CGMatrixTranspose : public CGTensorOutput {
         public:
-            CGMatrixTranspose(CGTensorOutput *arg) : arg(arg) {
-                assert(false);//Not implemented yet
-            }
+            CGMatrixTranspose(CGTensorOutput *arg);
 
-            virtual void forwardPass(const Eigen::VectorXf &vars) override {
-                arg->forwardPass(vars);
-                this->mValue = arg->value().transpose();
-            }
+            virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override {
-
-            }
+            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
 
             virtual const Eigen::MatrixXf &value() const override {
                 return mValue;

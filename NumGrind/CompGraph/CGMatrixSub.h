@@ -8,22 +8,11 @@ namespace NumGrind {
 
         class CGMatrixSub : public CGTensorOutput {
         public:
-            CGMatrixSub(CGTensorOutput *arg1, CGTensorOutput *arg2) : arg1(arg1), arg2(arg2) {
+            CGMatrixSub(CGTensorOutput *arg1, CGTensorOutput *arg2);
 
-            }
+            virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void forwardPass(const Eigen::VectorXf &vars) override {
-                arg1->forwardPass(vars);
-                arg2->forwardPass(vars);
-                auto res1 = arg1->value();
-                auto res2 = arg2->value();
-                mValue = res1 - res2;
-            }
-
-            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override {
-                arg1->backwardPass(sensitivity, grad);
-                arg2->backwardPass(-sensitivity, grad);
-            }
+            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
 
             virtual const Eigen::MatrixXf &value() const override {
                 return mValue;

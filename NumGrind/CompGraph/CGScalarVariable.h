@@ -7,18 +7,11 @@ namespace NumGrind {
     namespace CompGraph {
         class CGScalarVariable : public CGScalarOutput {
         public:
-            CGScalarVariable(const int index) : index(index), mValue(0.0) {
-            }
+            CGScalarVariable(const int index);
 
-            void forwardPass(const Eigen::VectorXf &vars) override {
-                assert(index < vars.size());
-                this->mValue = vars[index];
-            }
+            void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override {
-                assert(index < grad.size());
-                grad[this->index] += sensitivity;
-            }
+            virtual void backwardPass(const float sensitivity, Eigen::VectorXf &grad) override;
 
             float value() const override { return this->mValue; }
 

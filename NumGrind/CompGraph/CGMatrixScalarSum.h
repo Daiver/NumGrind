@@ -9,20 +9,11 @@ namespace NumGrind {
 
         class CGMatrixScalarSum : public CGTensorOutput {
         public:
-            CGMatrixScalarSum(CGTensorOutput *arg1, CGScalarOutput *arg2) : arg1(arg1), arg2(arg2) {
+            CGMatrixScalarSum(CGTensorOutput *arg1, CGScalarOutput *arg2);
 
-            }
+            virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
-            virtual void forwardPass(const Eigen::VectorXf &vars) override {
-                arg1->forwardPass(vars);
-                arg2->forwardPass(vars);
-                mValue = arg1->value().array() + arg2->value();
-            }
-
-            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override {
-                arg1->backwardPass(sensitivity, grad);
-                arg2->backwardPass(sensitivity.array().sum(), grad);
-            }
+            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
 
             virtual const Eigen::MatrixXf &value() const override {
                 return mValue;
