@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 #include "numgrind.h"
 #include "utils.h"
-#include "solvers/numericalgradient.h"
+#include "Solvers/numericalgradient.h"
 
 #include "testhelpers.h"
 

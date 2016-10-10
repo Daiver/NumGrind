@@ -2,9 +2,9 @@
 #include <iostream>
 #include "utils.h"
 #include "numgrind.h"
-#include "solvers/GradientDescentSolver.h"
-#include "solvers/StochasticGradientDescentSolver.h"
-#include "solvers/checkgradient.h"
+#include "Solvers/GradientDescentSolver.h"
+#include "Solvers/SGDSolver.h"
+#include "Solvers/checkgradient.h"
 #include "mnist.h"
 
 float sigmoid(float z)
@@ -128,7 +128,7 @@ void mlpOperatorOrExample02() {
 
     NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 1.0);
+    NumGrind::Solvers::SGDSolver solver(settings, 1.0, vars);
 
     std::cout << "is gradient ok? "
               << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
@@ -142,12 +142,12 @@ void mlpOperatorOrExample02() {
         const Eigen::MatrixXf label = targets.row(index);
         X.setValue(sample);
         y.setValue(label);
-        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
     }
 
     X.setValue(data);
     y.setValue(targets);
-    f2.node()->forwardPass(vars);
+    f2.node()->forwardPass(solver.vars());
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
     std::cout << "W2:" << std::endl << W2.value() << std::endl;
@@ -188,7 +188,7 @@ void mlpOperatorOrAndExample03() {
 
     NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 4.0);
+    NumGrind::Solvers::SGDSolver solver(settings, 4.0, vars);
 
     std::cout << "is gradient ok? "
               << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), vars)
@@ -202,10 +202,10 @@ void mlpOperatorOrAndExample03() {
         const Eigen::MatrixXf label = targets.row(index);
         X.setValue(data);
         y.setValue(targets);
-        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
     }
 
-    f2.node()->forwardPass(vars);
+    f2.node()->forwardPass(solver.vars());
     std::cout << "Function result" << std::endl << f2.value() << std::endl;
     std::cout << "W1:" << std::endl << W1.value() << std::endl;
     std::cout << "W2:" << std::endl << W2.value() << std::endl;

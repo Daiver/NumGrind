@@ -2,9 +2,9 @@
 
 #include "utils.h"
 #include "numgrind.h"
-#include "solvers/GradientDescentSolver.h"
-#include "solvers/StochasticGradientDescentSolver.h"
-#include "solvers/checkgradient.h"
+#include "Solvers/GradientDescentSolver.h"
+#include "Solvers/SGDSolver.h"
+#include "Solvers/checkgradient.h"
 #include "mnist.h"
 
 float sigmoid(float z)
