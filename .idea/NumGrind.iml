@@ -61,9 +61,10 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixConstant.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixTranspose.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixScalarSum.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixVariable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGTensorOutput.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixVariable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixProduct.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixTranspose.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarMult.h" isTestSource="false" />
@@ -96,7 +97,6 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixReduceSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixProduct.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarOutput.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNodeOperators.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h" isTestSource="false" />
@@ -124,16 +124,18 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/numgrind.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SolverSettings.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/numericalgradient.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/GradientDescentSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SolverSettings.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/StochasticGradientDescentSolver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SGDSolver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/numericalgradient.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/checkgradient.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/StochasticGradientDescentSolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/numericalgradient.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/checkgradient.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/GradientDescentSolver.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/GradientDescentSolver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/Solvers/SGDSolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/operators_example.cpp" isTestSource="false" />

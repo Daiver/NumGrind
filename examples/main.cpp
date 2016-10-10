@@ -3,7 +3,7 @@
 #include "utils.h"
 #include "numgrind.h"
 #include "Solvers/GradientDescentSolver.h"
-#include "Solvers/StochasticGradientDescentSolver.h"
+#include "Solvers/SGDSolver.h"
 #include "Solvers/checkgradient.h"
 #include "DeepGrind/ActivationFunctions.h"
 #include "mnist.h"
@@ -57,7 +57,7 @@ void mnistTest01() {
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
     //for(int i = 0; i < 2001; ++i){
-    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 0.002, vars);
+    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
         X.setValue(trainData.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 10));

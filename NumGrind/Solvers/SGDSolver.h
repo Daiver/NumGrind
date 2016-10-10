@@ -8,15 +8,19 @@
 namespace NumGrind {
     namespace Solvers {
 
-        class StochasticGradientDescentSolver {
+        class SGDSolver {
         public:
-            StochasticGradientDescentSolver(
-                        const NumGrind::Solvers::SolverSettings &settings, const float stepSize, const Eigen::VectorXf &vars);
+            SGDSolver(
+                    const NumGrind::Solvers::SolverSettings &settings,
+                    const float stepSize,
+                    const Eigen::VectorXf &vars);
 
             void makeStep(std::function<float(const Eigen::VectorXf &)> func,
-                                      std::function<void(const Eigen::VectorXf &,
-                                                                                                 Eigen::VectorXf &)> gradFunc);
+                          std::function<void(const Eigen::VectorXf &,
+                                             Eigen::VectorXf &)> gradFunc);
+
             const Eigen::VectorXf &vars() { return this->mVars; }
+
         protected:
             const SolverSettings settings;
             const float stepSize;

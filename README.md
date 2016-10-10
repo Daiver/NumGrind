@@ -46,7 +46,7 @@ Pull-requests are welcomed
 
     NumGrind::Solvers::SolverSettings settings;
     settings.nMaxIterations = 500;
-    NumGrind::Solvers::StochasticGradientDescentSolver solver(settings, 4.0);
+    NumGrind::Solvers::SGDSolver solver(settings, 4.0);
 
     std::cout << "is gradient ok? "
               << NumGrind::Solvers::isGradientOk(gm.funcFromNode(&err), gm.gradFromNode(&err), mVars)
