@@ -6,6 +6,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 add_subdirectory(CompGraph)
 add_subdirectory(SymbolicGraph)
 add_subdirectory(solvers)
+add_subdirectory(DeepGrind)
 
 set(CORE_FILES
         numgrind.h
@@ -13,4 +14,4 @@ set(CORE_FILES
         utils.h utils.cpp)
 
 add_library(numgrind ${CORE_FILES})
-target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers NumGrindSymbolicGraph)
+target_link_libraries(numgrind NumGrindCompGraph NumGrindSolvers NumGrindSymbolicGraph DeepGrind)

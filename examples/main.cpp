@@ -5,30 +5,9 @@
 #include "solvers/GradientDescentSolver.h"
 #include "solvers/StochasticGradientDescentSolver.h"
 #include "solvers/checkgradient.h"
+#include "DeepGrind/ActivationFunctions.h"
 #include "mnist.h"
 
-float sigmoid(float z) 
-{
-    return (float) (1.0f / (1.0f + exp(-z)));
-}
-
-float sigmoidDer(float z) 
-{
-    const float sigZ = sigmoid(z);
-    return sigZ * (1.0f - sigZ);
-}
-
-float relu(float x)
-{
-    return std::max(0.0f, x);
-}
-
-float reluDer(float x)
-{
-    if(x < 0.0f)
-        return 0.0f;
-    return x;
-}
 
 void mnistTest01() {
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
@@ -62,8 +41,8 @@ void mnistTest01() {
     auto W2 = gm.variable(NumGrind::utils::gaussf(400, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
-    auto f1 = apply<relu, reluDer>(matmult(X, W1) + b1);
-    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto f1 = apply<NumGrind::DeepGrind::relu, NumGrind::DeepGrind::reluDer>(matmult(X, W1) + b1);
+    auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
 //    auto residual = f1 - y;

@@ -51,7 +51,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/compgraphtests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/gradientchecktests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/testhelpers.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManager.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/numgrind.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManager.h" isTestSource="false" />
@@ -66,7 +66,7 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGTensorOutput.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixVariable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixProduct.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixTranspose.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarMult.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixMapUnaryFunction.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixElementWiseProduct.h" isTestSource="false" />
@@ -77,10 +77,10 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarFunction.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSub.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarMult.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSum.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarFunction.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixScalarSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CompGraphNode.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarFunction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSub.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGSumOfSquares.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CompGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGVectorVariable.cpp" isTestSource="false" />
@@ -91,10 +91,10 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSub.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarOutput.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSub.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGDotProduct.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGVectorVariable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixReduceSum.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixTranspose.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixProduct.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSum.h" isTestSource="false" />
@@ -118,8 +118,11 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicTensorNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/GraphManager.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/DeepGrind/ActivationFunctions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/DeepGrind/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/DeepGrind/ActivationFunctions.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/utils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/SolverSettings.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/solvers/numericalgradient.cpp" isTestSource="false" />

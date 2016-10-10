@@ -208,8 +208,8 @@ make
  - Refactor all nodes
  - Remove copy-paste from nodes. Add intermediate classes for binary operators
 
-##Example
- - Split examples into several files
+##Examples
+ - Refactor examples
 
 ##Optimization (Numerical)
  - Add own settings class for every solver
@@ -256,4 +256,5 @@ make
  - Create big problem for performance tests - MNIST is ok, bottleneck is matrices multiplication
  - Add OSX support
  - Travis show multiple warnings. I should fix it
+ - Split examples into several files
 
