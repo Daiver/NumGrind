@@ -26,6 +26,10 @@ namespace NumGrind {
 
         Eigen::MatrixXf gaussf(const int rows, const int cols, const float mean, const float std,
                                std::default_random_engine &generator);
+
+        Eigen::MatrixXf labelsToMatrix(const Eigen::VectorXi &labels, const int nClasses);
+
+        Eigen::VectorXi argmaxRowwise(const Eigen::MatrixXf &mat);
     }
 }
 

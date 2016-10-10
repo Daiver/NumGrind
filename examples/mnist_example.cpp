@@ -7,12 +7,12 @@
 #include "solvers/checkgradient.h"
 #include "mnist.h"
 
-float sigmoid(float z) 
+float sigmoid(float z)
 {
     return (float) (1.0f / (1.0f + exp(-z)));
 }
 
-float sigmoidDer(float z) 
+float sigmoidDer(float z)
 {
     const float sigZ = sigmoid(z);
     return sigZ * (1.0f - sigZ);
@@ -57,9 +57,9 @@ void mnistTest01() {
     auto y = gm.constant(trainLabels);
 
 //    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 200, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 200, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::utils::gaussf(200, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::utils::gaussf(trainData.cols(), 150, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::utils::gaussf(1, 150, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::utils::gaussf(150, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
     auto f1 = apply<relu, reluDer>(matmult(X, W1) + b1);
@@ -70,7 +70,7 @@ void mnistTest01() {
 //    auto err = dot(residual, residual);
     //auto tmp = residual * residual;
     //auto err = reduceSum(residual);
-    const int batchSize = 32;
+    const int batchSize = 50;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -105,19 +105,20 @@ void mnistTest01() {
             const float acc = (1.0 - fErr) * 100;
             if(acc > bestAcc)
                 bestAcc = acc;
-            std::cout 
-                      << std::endl 
-                      << "Test error " << fErr << ", "
-                      << "acc " << (1.0 - fErr) * 100 << "%, "
-                      << "n errors " << (float)nErr << ", " 
-                      << "best " << bestAcc << "% "
-                      << std::endl << std::endl;
+            std::cout
+                    << std::endl
+                    << "Test error " << fErr << ", "
+                    << "acc " << (1.0 - fErr) * 100 << "%, "
+                    << "n errors " << (float)nErr << ", "
+                    << "best " << bestAcc << "% "
+                    << std::endl << std::endl;
         }
     }
 }
 
 int main() {
-    mnistTest01();
+    mnistTest01();//Should achive 97.28 accuracy
     return 0;
 }
+
 

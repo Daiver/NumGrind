@@ -195,6 +195,9 @@ make
 #TODO
 
 ##Common
+ - Refactor examples
+ - Refactor utils
+ - Travis show multiple warnings. I should fix it
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
  - Add reshape node
@@ -249,7 +252,7 @@ make
  - Split NumGrind and utility code (main.cpp/utils.h/etc)
  - Add gradient check test for complex case - i hope that simple mlp is enough
  - Add node for sum of squares
- - Add MNIST test - Done! 97.19% acc!
+ - Add MNIST test - Done! 97.24% acc!
  - Prepare valgrind or another profiler (gprof?) - currently done by console run
  - Create big problem for performance tests - MNIST is ok, bottleneck is matrices multiplication
  - Add OSX support
