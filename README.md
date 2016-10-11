@@ -73,7 +73,7 @@ Pull-requests are welcomed
 See examples/ for more examples
 
 #Achivements
- - MNIST: 97.47% accuracy
+ - MNIST: 97.48% accuracy
 
 #Dependencies
  - cmake - build tool
@@ -117,7 +117,7 @@ make
 #TODO
 
 ##Common
- - Refactor examples
+ - Improve mini batch selection
  - Refactor Utils
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
@@ -136,7 +136,6 @@ make
 ##Optimization (Numerical)
  - Add own settings class for every solver
  - Add and test complex SGD Solvers as Adam/AdaGrad
- - Add and test basic SGD with momentum
  - Add common interface for Solvers
 
 ##Deep learning
@@ -179,4 +178,5 @@ make
  - Add OSX support
  - Travis show multiple warnings. I should fix it
  - Split examples into several files
+ - Add and test basic SGD with momentum
 
