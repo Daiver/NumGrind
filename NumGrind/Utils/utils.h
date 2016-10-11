@@ -30,6 +30,11 @@ namespace NumGrind {
         Eigen::MatrixXf labelsToMatrix(const Eigen::VectorXi &labels, const int nClasses);
 
         Eigen::VectorXi argmaxRowwise(const Eigen::MatrixXf &mat);
+
+        template <typename T1, typename T2>
+        void rowDataTargetSampling(const Eigen::Matrix<T1, -1, -1> &sourceData, const Eigen::Matrix<T2, -1, -1> &sourceTargets,
+                                           std::default_random_engine &generator, Eigen::Matrix<T1, -1, -1> &resData,
+                                           Eigen::Matrix<T2, -1, -1> &resTargets);
     }
 }
 
@@ -81,6 +86,27 @@ inline Eigen::Matrix<T, -1, -1> NumGrind::Utils::gauss(const int rows, const int
 inline Eigen::MatrixXf NumGrind::Utils::gaussf(const int rows, const int cols, const float mean, const float std, std::default_random_engine &generator)
 {
     return gauss<float>(rows, cols, mean, std, generator);
+}
+
+template<typename T1, typename T2>
+inline void NumGrind::Utils::rowDataTargetSampling(const Eigen::Matrix<T1, -1, -1> &sourceData, const Eigen::Matrix<T2, -1, -1> &sourceTargets,
+                                                   std::default_random_engine &generator,
+                                                   Eigen::Matrix<T1, -1, -1> &resData,
+                                                   Eigen::Matrix<T2, -1, -1> &resTargets)
+{
+    const int nTargetRows = resData.rows();
+    const int nDataCols = sourceData.cols();
+    const int nTargetCols = sourceTargets.cols();
+    assert(sourceData.rows() == sourceTargets.rows());
+    assert(nDataCols == resData.cols());
+    assert(nTargetCols == resTargets.cols());
+    assert(nTargetRows == resTargets.rows());
+    std::uniform_int_distribution<> dist(0, sourceData.rows() - 1);
+    for(int i = 0; i < nTargetRows; ++i){
+        const int index = dist(generator);
+        resData.row(i) = sourceData.row(index);
+        resTargets.row(i) = sourceTargets.row(index);
+    }
 };
 
 

@@ -58,11 +58,18 @@ void mnistTest01() {
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
 //    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
-    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.002, 0.9, vars);
+    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0015, 0.9, vars);
+
+    Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
+    Eigen::MatrixXf trainLabelsSamples(batchSize, trainLabels.cols());
+
 //    for(int iterInd = 0; iterInd < 10001; ++iterInd){
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
-        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
-        y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
+        NumGrind::Utils::rowDataTargetSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
+        X.setValue(trainDataSamples);
+        y.setValue(trainLabelsSamples);
+//        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
+//        y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
         solver.makeStep(gm.funcFromNode(&err),
                         gm.gradFromNode(&err));
 
