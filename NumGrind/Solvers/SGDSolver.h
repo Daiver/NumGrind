@@ -1,7 +1,9 @@
 #ifndef NUMGRIND_STOCHASTICGRADIENTDESCENTSOLVER_H
 #define NUMGRIND_STOCHASTICGRADIENTDESCENTSOLVER_H
 
+#include <limits>
 #include <functional>
+#include <cfloat>
 #include "Eigen/Core"
 #include "SolverSettings.h"
 
@@ -19,13 +21,17 @@ namespace NumGrind {
                           std::function<void(const Eigen::VectorXf &,
                                              Eigen::VectorXf &)> gradFunc);
 
-            const Eigen::VectorXf &vars() { return this->mVars; }
+            const Eigen::VectorXf &vars()     { return this->mVars; }
+            const Eigen::VectorXf &bestVars() { return this->mBestVars; }
 
         protected:
+            void updateBestVars(const float err);
             const SolverSettings settings;
             const float stepSize;
+            float bestErr = FLT_MAX;
             Eigen::VectorXf grad;
             Eigen::VectorXf mVars;
+            Eigen::VectorXf mBestVars;
         };
 
     }

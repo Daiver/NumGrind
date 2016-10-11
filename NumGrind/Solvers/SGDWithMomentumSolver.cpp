@@ -20,6 +20,8 @@ void NumGrind::Solvers::SGDWithMomentumSolver::makeStep(std::function<float(cons
     grad += this->momentumCoeff * this->oldGrad;
     oldGrad = grad;
     mVars -= grad;
+    const float err = func(mVars);
+    this->updateBestVars(err);
     if (this->settings.verbose)
-        std::cout << "err " << func(mVars) << std::endl;
+        std::cout << "err " << err << std::endl;
 }

@@ -42,7 +42,7 @@ void mnistTest01() {
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-    const int batchSize = 64;
+    const int batchSize = 32;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();

@@ -34,15 +34,15 @@ void mnistTest01() {
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainLabels);
 
-    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 200, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 200, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::Utils::gaussf(200, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 300, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 300, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(300, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 10, 0.0f, 0.01f, generator));
     auto f1 = apply<NumGrind::DeepGrind::relu, NumGrind::DeepGrind::reluDer>(matmult(X, W1) + b1);
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-    const int batchSize = 64;
+    const int batchSize = 32;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
