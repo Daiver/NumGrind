@@ -4,31 +4,11 @@
 #include "numgrind.h"
 #include "Solvers/GradientDescentSolver.h"
 #include "Solvers/SGDSolver.h"
+#include "Solvers/SGDWithMomentumSolver.h"
 #include "Solvers/checkgradient.h"
+#include "DeepGrind/ActivationFunctions.h"
 #include "mnist.h"
 
-float sigmoid(float z)
-{
-    return (float) (1.0f / (1.0f + exp(-z)));
-}
-
-float sigmoidDer(float z)
-{
-    const float sigZ = sigmoid(z);
-    return sigZ * (1.0f - sigZ);
-}
-
-float relu(float x)
-{
-    return std::max(0.0f, x);
-}
-
-float reluDer(float x)
-{
-    if(x < 0.0f)
-        return 0.0f;
-    return x;
-}
 
 void mnistTest01() {
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
@@ -44,8 +24,6 @@ void mnistTest01() {
     const Eigen::VectorXi testLabelsPure = mnist::readMNISTLabels(fnameLabelsTest);
 
     Eigen::MatrixXf trainLabels = NumGrind::Utils::labelsToMatrix(trainLabelsPure, 10);
-    //Eigen::MatrixXf testLabels = labelsToMatrix(testLabelsPure, 10);
-
 
     std::default_random_engine generator;
     generator.seed(42);
@@ -56,21 +34,15 @@ void mnistTest01() {
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainLabels);
 
-//    auto b1 = gm.variable(1, 10, 0);
-    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 300, 0.0, 0.02, generator));
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 300, 0.0, 0.02, generator));
-    auto W2 = gm.variable(NumGrind::Utils::gaussf(300, 10, 0.0, 0.01, generator));
+    auto W1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 200, 0.0, 0.02, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 200, 0.0, 0.02, generator));
+    auto W2 = gm.variable(NumGrind::Utils::gaussf(200, 10, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 10, 0.0f, 0.01f, generator));
-    //auto f1 = apply<sigmoid, sigmoidDer>(matmult(X, W1) + b1);
-    auto f1 = apply<relu, reluDer>(matmult(X, W1) + b1);
-    auto f2 = apply<sigmoid, sigmoidDer>(matmult(f1, W2) + b2);
+    auto f1 = apply<NumGrind::DeepGrind::relu, NumGrind::DeepGrind::reluDer>(matmult(X, W1) + b1);
+    auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-//    auto residual = f1 - y;
-//    auto err = dot(residual, residual);
-    //auto tmp = residual * residual;
-    //auto err = reduceSum(residual);
-    const int batchSize = 32;
+    const int batchSize = 64;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -85,16 +57,20 @@ void mnistTest01() {
     y.setValue(trainLabels.block(0, 0, batchSize, 10));
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
-    //for(int i = 0; i < 2001; ++i){
+//    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
+    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.002, 0.9, vars);
+//    for(int iterInd = 0; iterInd < 10001; ++iterInd){
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
-        X.setValue(trainData.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 28*28));
-        y.setValue(trainLabels.block((iterInd*batchSize) % trainData.rows(), 0, batchSize, 10));
-        NumGrind::Solvers::gradientDescent(settings, 0.0030, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
+        y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
+        solver.makeStep(gm.funcFromNode(&err),
+                        gm.gradFromNode(&err));
+
         if(iterInd % 10 == 0)
             std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
         if(iterInd%100 == 0){
             X.setValue(testData);
-            output.node()->forwardPass(vars);
+            output.node()->forwardPass(solver.vars());
             auto res = f2.value();
             const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
             int nErr = 0;

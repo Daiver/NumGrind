@@ -59,8 +59,8 @@ void mnistTest01() {
     settings.nMaxIterations = 1;
 //    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
     NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.002, 0.9, vars);
-    for(int iterInd = 0; iterInd < 10001; ++iterInd){
-//    for(int iterInd = 0; iterInd < 200001; ++iterInd){
+//    for(int iterInd = 0; iterInd < 10001; ++iterInd){
+    for(int iterInd = 0; iterInd < 200001; ++iterInd){
         X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
         y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
         solver.makeStep(gm.funcFromNode(&err),

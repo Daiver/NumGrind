@@ -73,7 +73,7 @@ Pull-requests are welcomed
 See examples/ for more examples
 
 #Achivements
- - MNIST: 97.48% accuracy
+ - MNIST: 97.95% accuracy
 
 #Dependencies
  - cmake - build tool
@@ -113,6 +113,11 @@ make
 ./tests/runUnitTests
 
 ```
+
+#References and usefull links
+##Optimization
+###Solvers
+ - http://sebastianruder.com/optimizing-gradient-descent/index.html#nesterovacceleratedgradient - description of cool SGD algorithms
 
 #TODO
 
