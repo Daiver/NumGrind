@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "utils.h"
+#include "Utils/utils.h"
 #include "numgrind.h"
 #include "Solvers/GradientDescentSolver.h"
 #include "Solvers/SGDSolver.h"

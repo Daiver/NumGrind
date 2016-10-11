@@ -3,7 +3,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 #include "numgrind.h"
-#include "utils.h"
+#include "Utils/utils.h"
 #include "Solvers/numericalgradient.h"
 
 #include "testhelpers.h"
