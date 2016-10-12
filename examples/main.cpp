@@ -11,6 +11,8 @@
 
 
 void mnistTest01() {
+    using namespace NumGrind::SymbolicGraph;
+    
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
     const std::string fnameImagesTrain = fnameMNISTDir + "train-images-idx3-ubyte";
     const std::string fnameLabelsTrain = fnameMNISTDir + "train-labels-idx1-ubyte";
@@ -28,7 +30,6 @@ void mnistTest01() {
     std::default_random_engine generator;
     generator.seed(42);
 
-    using namespace NumGrind::SymbolicGraph;
     NumGrind::GraphManager gm;
 
     auto X = gm.constant(trainData);
@@ -42,7 +43,7 @@ void mnistTest01() {
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-    const int batchSize = 50;
+    const int batchSize = 64;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -58,45 +59,48 @@ void mnistTest01() {
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
 //    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
-    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0025, 0.9, vars);
+    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0022, 0.9, vars);
 
     Eigen::MatrixXf trainDataSamples(trainData.rows(), trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(trainData.rows(), trainLabels.cols());
     std::vector<int> shuffledIndices = NumGrind::Utils::range(0, trainData.rows());
 
-    for (int epochInd = 0; epochInd < 10000; ++epochInd) {
+    for (int epochInd = 0; epochInd < 100; ++epochInd) {
         std::shuffle(shuffledIndices.begin(), shuffledIndices.end(), generator);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainData, trainDataSamples);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainLabels, trainLabelsSamples);
-
         for (int iterInd = 0; iterInd < trainData.rows() / batchSize + 1; ++iterInd) {
-
             X.setValue(trainDataSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, trainDataSamples.cols()));
             y.setValue(trainLabelsSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, trainLabelsSamples.cols()));
-            solver.makeStep(gm.funcFromNode(&err),
-                            gm.gradFromNode(&err));
+            solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
 
-            if (iterInd % 10 == 0)
-                std::cout << "Epoch: " << epochInd << " iter: " << iterInd << " err " << err.node()->value() << std::endl;
             if (iterInd % 100 == 0) {
+                std::cout << "Epoch: " << epochInd << " iter: " << iterInd << " err " << err.node()->value() << std::endl;
                 X.setValue(testData);
                 output.node()->forwardPass(solver.vars());
-                auto res = f2.value();
-                const int nErr = (NumGrind::Utils::argmaxRowwise(res).array() != testLabelsPure.array()).count();
-
+                const int nErr = (NumGrind::Utils::argmaxRowwise(output.value()).array() != testLabelsPure.array()).count();
                 const float fErr = (float) nErr / testLabelsPure.rows();
                 const float acc = (1.0 - fErr) * 100;
                 if (acc > bestAcc)
                     bestAcc = acc;
                 std::cout
-                        << std::endl
                         << "Test error " << fErr << ", "
                         << "acc " << (1.0 - fErr) * 100 << "%, "
                         << "n errors " << (float) nErr << ", "
                         << "best " << bestAcc << "% "
-                        << std::endl << std::endl;
+                        << std::endl;
             }
         }
+        X.setValue(trainData);
+        output.node()->forwardPass(solver.vars());
+        const int nErr = (NumGrind::Utils::argmaxRowwise(output.value()).array() != testLabelsPure.array()).count();
+        const float fErr = (float) nErr / trainLabelsPure.rows();
+        const float acc = (1.0 - fErr) * 100;
+        std::cout
+                << "Train error " << fErr << ", "
+                << "acc " << (1.0 - fErr) * 100 << "%, "
+                << "n errors " << (float) nErr << ", "
+                << std::endl;
     }
 }
 
