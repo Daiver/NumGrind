@@ -73,7 +73,7 @@ Pull-requests are welcomed
 See examples/ for more examples
 
 #Achivements
- - MNIST: 98.25% accuracy
+ - MNIST: 98.26% accuracy
 
 #Dependencies
  - cmake - build tool
