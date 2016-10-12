@@ -121,6 +121,7 @@ inline void ::NumGrind::Utils::sampleRowsByIndices(const std::vector<int> &indic
                                             Eigen::Matrix<T2, -1, -1> &res) {
     const int nRows = indices.size();
     assert(nRows == res.rows());
+    assert(mat.cols() == res.cols());
     for(int i = 0; i < nRows; ++i){
         const int index = indices[i];
         res.row(i) = mat.row(index);

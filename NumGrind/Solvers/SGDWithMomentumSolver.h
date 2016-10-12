@@ -16,7 +16,9 @@ namespace NumGrind {
 
             void makeStep(std::function<float(const Eigen::VectorXf &)> func,
                           std::function<void(const Eigen::VectorXf &,
-                                             Eigen::VectorXf &)> gradFunc);
+                                             Eigen::VectorXf &)> gradFunc) override ;
+
+            void setMomentumCoeff(const float newCoeff) { this->momentumCoeff = newCoeff; }
 
         protected:
             Eigen::VectorXf oldGrad;

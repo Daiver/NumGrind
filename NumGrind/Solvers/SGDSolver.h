@@ -17,17 +17,19 @@ namespace NumGrind {
                     const float stepSize,
                     const Eigen::VectorXf &vars);
 
-            void makeStep(std::function<float(const Eigen::VectorXf &)> func,
+            virtual void makeStep(std::function<float(const Eigen::VectorXf &)> func,
                           std::function<void(const Eigen::VectorXf &,
                                              Eigen::VectorXf &)> gradFunc);
 
             const Eigen::VectorXf &vars()     { return this->mVars; }
             const Eigen::VectorXf &bestVars() { return this->mBestVars; }
 
+            void setStep(const float newStep) { this->stepSize = newStep; }
+
         protected:
             void updateBestVars(const float err);
             const SolverSettings settings;
-            const float stepSize;
+            float stepSize;
             float bestErr = FLT_MAX;
             Eigen::VectorXf grad;
             Eigen::VectorXf mVars;

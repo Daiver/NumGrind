@@ -42,7 +42,7 @@ void mnistTest01() {
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-    const int batchSize = 64;
+    const int batchSize = 32;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -62,16 +62,15 @@ void mnistTest01() {
 
     Eigen::MatrixXf trainDataSamples(trainData.rows(), trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(trainData.rows(), trainLabels.cols());
-    std::vector<int> indicesToSample = NumGrind::Utils::range(0, trainData.rows());
+    std::vector<int> shuffledIndices = NumGrind::Utils::range(0, trainData.rows());
 
 //    for(int iterInd = 0; iterInd < 10001; ++iterInd){
     for (int epochInd = 0; epochInd < 10000; ++epochInd) {
-        std::shuffle(indicesToSample.begin(), indicesToSample.end(), generator);
-        for (int i = 0; i < indicesToSample.size(); ++i) {
-            const int index = indicesToSample[i];
-            trainDataSamples.row(i)   = trainData.row(index);
-            trainLabelsSamples.row(i) = trainLabels.row(index);
-        }
+        std::shuffle(shuffledIndices.begin(), shuffledIndices.end(), generator);
+        NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainData, trainDataSamples);
+        NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainLabels, trainLabelsSamples);
+        solver.setStep(0.003/(0.05*epochInd + 1));//step decay
+        solver.setMomentumCoeff(0.9/(0.05*epochInd + 1));
         for (int iterInd = 0; iterInd < trainData.rows() / batchSize + 1; ++iterInd) {
 //            NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
 //            X.setValue(trainDataSamples);
