@@ -23,3 +23,11 @@ Eigen::VectorXi NumGrind::Utils::argmaxRowwise(const Eigen::MatrixXf &mat){
     }
     return res;
 }
+
+std::vector<int> NumGrind::Utils::range(const int start, const int end) {
+    const int delta = end - start;
+    std::vector<int> res(delta);
+    for(int i = 0; i < delta; ++i)
+        res[i] = i + start;
+    return res;
+};

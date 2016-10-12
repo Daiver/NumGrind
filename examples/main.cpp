@@ -14,13 +14,13 @@ void mnistTest01() {
     const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
     const std::string fnameImagesTrain = fnameMNISTDir + "train-images-idx3-ubyte";
     const std::string fnameLabelsTrain = fnameMNISTDir + "train-labels-idx1-ubyte";
-    const std::string fnameImagesTest  = fnameMNISTDir + "t10k-images-idx3-ubyte";
-    const std::string fnameLabelsTest  = fnameMNISTDir + "t10k-labels-idx1-ubyte";
+    const std::string fnameImagesTest = fnameMNISTDir + "t10k-images-idx3-ubyte";
+    const std::string fnameLabelsTest = fnameMNISTDir + "t10k-labels-idx1-ubyte";
 
-    const Eigen::MatrixXf trainData   = mnist::readMNISTImages(fnameImagesTrain)/255.0;
+    const Eigen::MatrixXf trainData = mnist::readMNISTImages(fnameImagesTrain) / 255.0;
     const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain);
 
-    const Eigen::MatrixXf testData   = mnist::readMNISTImages(fnameImagesTest)/255.0;
+    const Eigen::MatrixXf testData = mnist::readMNISTImages(fnameImagesTest) / 255.0;
     const Eigen::VectorXi testLabelsPure = mnist::readMNISTLabels(fnameLabelsTest);
 
     Eigen::MatrixXf trainLabels = NumGrind::Utils::labelsToMatrix(trainLabelsPure, 10);
@@ -53,49 +53,58 @@ void mnistTest01() {
 
     float bestAcc = 0.0;
 
-    X.setValue(trainData.block(0, 0, batchSize, 28*28));
+    X.setValue(trainData.block(0, 0, batchSize, 28 * 28));
     y.setValue(trainLabels.block(0, 0, batchSize, 10));
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
 //    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
     NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0025, 0.9, vars);
 
-    Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
-    Eigen::MatrixXf trainLabelsSamples(batchSize, trainLabels.cols());
+    Eigen::MatrixXf trainDataSamples(trainData.rows(), trainData.cols());
+    Eigen::MatrixXf trainLabelsSamples(trainData.rows(), trainLabels.cols());
+    std::vector<int> indicesToSample = NumGrind::Utils::range(0, trainData.rows());
 
 //    for(int iterInd = 0; iterInd < 10001; ++iterInd){
-    for(int iterInd = 0; iterInd < 200001; ++iterInd){
-        NumGrind::Utils::rowDataTargetSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
-        X.setValue(trainDataSamples);
-        y.setValue(trainLabelsSamples);
-//        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
-//        y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
-        solver.makeStep(gm.funcFromNode(&err),
-                        gm.gradFromNode(&err));
+    for (int epochInd = 0; epochInd < 10000; ++epochInd) {
+        std::shuffle(indicesToSample.begin(), indicesToSample.end(), generator);
+        for (int i = 0; i < indicesToSample.size(); ++i) {
+            const int index = indicesToSample[i];
+            trainDataSamples.row(i)   = trainData.row(index);
+            trainLabelsSamples.row(i) = trainLabels.row(index);
+        }
+        for (int iterInd = 0; iterInd < trainData.rows() / batchSize + 1; ++iterInd) {
+//            NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
+//            X.setValue(trainDataSamples);
+//            y.setValue(trainLabelsSamples);
+            X.setValue(trainDataSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28 * 28));
+            y.setValue(trainLabelsSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
+            solver.makeStep(gm.funcFromNode(&err),
+                            gm.gradFromNode(&err));
 
-        if(iterInd % 10 == 0)
-            std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
-        if(iterInd%100 == 0){
-            X.setValue(testData);
-            output.node()->forwardPass(solver.vars());
-            auto res = f2.value();
-            const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
-            int nErr = 0;
-            for(int j = 0; j < colwiseMax.rows(); ++j){
-                if(colwiseMax[j] != testLabelsPure[j])
-                    nErr += 1;
+            if (iterInd % 10 == 0)
+                std::cout << "Epoch: " << epochInd << " iter: " << iterInd << " err " << err.node()->value() << std::endl;
+            if (iterInd % 100 == 0) {
+                X.setValue(testData);
+                output.node()->forwardPass(solver.vars());
+                auto res = f2.value();
+                const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
+                int nErr = 0;
+                for (int j = 0; j < colwiseMax.rows(); ++j) {
+                    if (colwiseMax[j] != testLabelsPure[j])
+                        nErr += 1;
+                }
+                const float fErr = (float) nErr / testLabelsPure.rows();
+                const float acc = (1.0 - fErr) * 100;
+                if (acc > bestAcc)
+                    bestAcc = acc;
+                std::cout
+                        << std::endl
+                        << "Test error " << fErr << ", "
+                        << "acc " << (1.0 - fErr) * 100 << "%, "
+                        << "n errors " << (float) nErr << ", "
+                        << "best " << bestAcc << "% "
+                        << std::endl << std::endl;
             }
-            const float fErr = (float)nErr/testLabelsPure.rows();
-            const float acc = (1.0 - fErr) * 100;
-            if(acc > bestAcc)
-                bestAcc = acc;
-            std::cout 
-                      << std::endl 
-                      << "Test error " << fErr << ", "
-                      << "acc " << (1.0 - fErr) * 100 << "%, "
-                      << "n errors " << (float)nErr << ", " 
-                      << "best " << bestAcc << "% "
-                      << std::endl << std::endl;
         }
     }
 }

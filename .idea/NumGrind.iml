@@ -49,6 +49,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/symbolicgraphtests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/compgraphtests.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/utilstests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/gradientchecktests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/testhelpers.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CMakeLists.txt" isTestSource="false" />

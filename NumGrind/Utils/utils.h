@@ -32,9 +32,15 @@ namespace NumGrind {
         Eigen::VectorXi argmaxRowwise(const Eigen::MatrixXf &mat);
 
         template <typename T1, typename T2>
-        void rowDataTargetSampling(const Eigen::Matrix<T1, -1, -1> &sourceData, const Eigen::Matrix<T2, -1, -1> &sourceTargets,
-                                           std::default_random_engine &generator, Eigen::Matrix<T1, -1, -1> &resData,
-                                           Eigen::Matrix<T2, -1, -1> &resTargets);
+        void rowDataTargetRandomSampling(const Eigen::Matrix<T1, -1, -1> &sourceData,
+                                         const Eigen::Matrix<T2, -1, -1> &sourceTargets,
+                                         std::default_random_engine &generator, Eigen::Matrix<T1, -1, -1> &resData,
+                                         Eigen::Matrix<T2, -1, -1> &resTargets);
+
+        std::vector<int> range(const int start, const int end);
+
+        template <typename T1, typename T2>
+        void sampleRowsByIndices(const std::vector<int> &indices, const Eigen::Matrix<T1, -1, -1> &mat, Eigen::Matrix<T2, -1, -1> &res);
     }
 }
 
@@ -89,10 +95,11 @@ inline Eigen::MatrixXf NumGrind::Utils::gaussf(const int rows, const int cols, c
 }
 
 template<typename T1, typename T2>
-inline void NumGrind::Utils::rowDataTargetSampling(const Eigen::Matrix<T1, -1, -1> &sourceData, const Eigen::Matrix<T2, -1, -1> &sourceTargets,
-                                                   std::default_random_engine &generator,
-                                                   Eigen::Matrix<T1, -1, -1> &resData,
-                                                   Eigen::Matrix<T2, -1, -1> &resTargets)
+inline void NumGrind::Utils::rowDataTargetRandomSampling(const Eigen::Matrix<T1, -1, -1> &sourceData,
+                                                         const Eigen::Matrix<T2, -1, -1> &sourceTargets,
+                                                         std::default_random_engine &generator,
+                                                         Eigen::Matrix<T1, -1, -1> &resData,
+                                                         Eigen::Matrix<T2, -1, -1> &resTargets)
 {
     const int nTargetRows = resData.rows();
     const int nDataCols = sourceData.cols();
@@ -107,7 +114,18 @@ inline void NumGrind::Utils::rowDataTargetSampling(const Eigen::Matrix<T1, -1, -
         resData.row(i) = sourceData.row(index);
         resTargets.row(i) = sourceTargets.row(index);
     }
-};
+}
+
+template<typename T1, typename T2>
+inline void ::NumGrind::Utils::sampleRowsByIndices(const std::vector<int> &indices, const Eigen::Matrix<T1, -1, -1> &mat,
+                                            Eigen::Matrix<T2, -1, -1> &res) {
+    const int nRows = indices.size();
+    assert(nRows == res.rows());
+    for(int i = 0; i < nRows; ++i){
+        const int index = indices[i];
+        res.row(i) = mat.row(index);
+    }
+}
 
 
 #endif //NUMGRINDTEST01_UTILS_H

@@ -65,7 +65,8 @@ void mnistTest01() {
 
 //    for(int iterInd = 0; iterInd < 10001; ++iterInd){
     for(int iterInd = 0; iterInd < 200001; ++iterInd){
-        NumGrind::Utils::rowDataTargetSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
+        NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainLabels, generator, trainDataSamples,
+                                                                   trainLabelsSamples);
         X.setValue(trainDataSamples);
         y.setValue(trainLabelsSamples);
 //        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
