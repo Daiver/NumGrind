@@ -68,8 +68,7 @@ void mnistTest01() {
         std::shuffle(shuffledIndices.begin(), shuffledIndices.end(), generator);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainData, trainDataSamples);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainLabels, trainLabelsSamples);
-//        solver.setStep(0.003/(0.05*epochInd + 1));//step decay
-//        solver.setMomentumCoeff(0.9/(0.05*epochInd + 1));
+
         for (int iterInd = 0; iterInd < trainData.rows() / batchSize + 1; ++iterInd) {
 
             X.setValue(trainDataSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, trainDataSamples.cols()));
@@ -83,12 +82,8 @@ void mnistTest01() {
                 X.setValue(testData);
                 output.node()->forwardPass(solver.vars());
                 auto res = f2.value();
-                const auto colwiseMax = NumGrind::Utils::argmaxRowwise(res);
-                int nErr = 0;
-                for (int j = 0; j < colwiseMax.rows(); ++j) {
-                    if (colwiseMax[j] != testLabelsPure[j])
-                        nErr += 1;
-                }
+                const int nErr = (NumGrind::Utils::argmaxRowwise(res).array() != testLabelsPure.array()).count();
+
                 const float fErr = (float) nErr / testLabelsPure.rows();
                 const float acc = (1.0 - fErr) * 100;
                 if (acc > bestAcc)
