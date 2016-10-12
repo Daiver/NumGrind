@@ -58,8 +58,8 @@ Pull-requests are welcomed
         const int index = dist(generator);
         const Eigen::MatrixXf sample = data.row(index);
         const Eigen::MatrixXf label = targets.row(index);
-        X.setValue(data);
-        y.setValue(targets);
+        X.setValue(sample);
+        y.setValue(label);
         solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err), mVars);
     }
     
@@ -73,7 +73,7 @@ Pull-requests are welcomed
 See examples/ for more examples
 
 #Achivements
- - MNIST: 98.26% accuracy
+ - MNIST: 98.29% accuracy
 
 #Dependencies
  - cmake - build tool
