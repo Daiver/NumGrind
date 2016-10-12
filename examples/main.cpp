@@ -42,7 +42,7 @@ void mnistTest01() {
     auto f2 = apply<NumGrind::DeepGrind::sigmoid, NumGrind::DeepGrind::sigmoidDer>(matmult(f1, W2) + b2);
 
     auto output = f2;
-    const int batchSize = 32;
+    const int batchSize = 50;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
@@ -53,8 +53,8 @@ void mnistTest01() {
 
     float bestAcc = 0.0;
 
-    X.setValue(trainData.block(0, 0, batchSize, 28 * 28));
-    y.setValue(trainLabels.block(0, 0, batchSize, 10));
+    X.setValue(trainData.block(0, 0, batchSize, trainData.cols()));
+    y.setValue(trainLabels.block(0, 0, batchSize, trainLabels.cols()));
     NumGrind::Solvers::gradientDescent(settings, 0.0003, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     settings.nMaxIterations = 1;
 //    NumGrind::Solvers::SGDSolver solver(settings, 0.002, vars);
@@ -64,19 +64,16 @@ void mnistTest01() {
     Eigen::MatrixXf trainLabelsSamples(trainData.rows(), trainLabels.cols());
     std::vector<int> shuffledIndices = NumGrind::Utils::range(0, trainData.rows());
 
-//    for(int iterInd = 0; iterInd < 10001; ++iterInd){
     for (int epochInd = 0; epochInd < 10000; ++epochInd) {
         std::shuffle(shuffledIndices.begin(), shuffledIndices.end(), generator);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainData, trainDataSamples);
         NumGrind::Utils::sampleRowsByIndices(shuffledIndices, trainLabels, trainLabelsSamples);
-        solver.setStep(0.003/(0.05*epochInd + 1));//step decay
-        solver.setMomentumCoeff(0.9/(0.05*epochInd + 1));
+//        solver.setStep(0.003/(0.05*epochInd + 1));//step decay
+//        solver.setMomentumCoeff(0.9/(0.05*epochInd + 1));
         for (int iterInd = 0; iterInd < trainData.rows() / batchSize + 1; ++iterInd) {
-//            NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainLabels, generator, trainDataSamples, trainLabelsSamples);
-//            X.setValue(trainDataSamples);
-//            y.setValue(trainLabelsSamples);
-            X.setValue(trainDataSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28 * 28));
-            y.setValue(trainLabelsSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
+
+            X.setValue(trainDataSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, trainDataSamples.cols()));
+            y.setValue(trainLabelsSamples.block((iterInd * batchSize) % (trainData.rows() - batchSize), 0, batchSize, trainLabelsSamples.cols()));
             solver.makeStep(gm.funcFromNode(&err),
                             gm.gradFromNode(&err));
 
