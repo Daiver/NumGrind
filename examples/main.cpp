@@ -12,18 +12,17 @@
 
 void mnistTest01() {
     using namespace NumGrind::SymbolicGraph;
-    
-    const std::string fnameMNISTDir = "/home/daiver/coding/data/mnist/";
+
+    const std::string fnameMNISTDir    = "/home/daiver/coding/data/mnist/";
     const std::string fnameImagesTrain = fnameMNISTDir + "train-images-idx3-ubyte";
     const std::string fnameLabelsTrain = fnameMNISTDir + "train-labels-idx1-ubyte";
-    const std::string fnameImagesTest = fnameMNISTDir + "t10k-images-idx3-ubyte";
-    const std::string fnameLabelsTest = fnameMNISTDir + "t10k-labels-idx1-ubyte";
+    const std::string fnameImagesTest  = fnameMNISTDir + "t10k-images-idx3-ubyte";
+    const std::string fnameLabelsTest  = fnameMNISTDir + "t10k-labels-idx1-ubyte";
 
-    const Eigen::MatrixXf trainData = mnist::readMNISTImages(fnameImagesTrain) / 255.0;
+    const Eigen::MatrixXf trainData       = mnist::readMNISTImages(fnameImagesTrain) / 255.0;
     const Eigen::VectorXi trainLabelsPure = mnist::readMNISTLabels(fnameLabelsTrain);
-
-    const Eigen::MatrixXf testData = mnist::readMNISTImages(fnameImagesTest) / 255.0;
-    const Eigen::VectorXi testLabelsPure = mnist::readMNISTLabels(fnameLabelsTest);
+    const Eigen::MatrixXf testData        = mnist::readMNISTImages(fnameImagesTest) / 255.0;
+    const Eigen::VectorXi testLabelsPure  = mnist::readMNISTLabels(fnameLabelsTest);
 
     Eigen::MatrixXf trainLabels = NumGrind::Utils::labelsToMatrix(trainLabelsPure, 10);
 
@@ -93,7 +92,7 @@ void mnistTest01() {
         }
         X.setValue(trainData);
         output.node()->forwardPass(solver.vars());
-        const int nErr = (NumGrind::Utils::argmaxRowwise(output.value()).array() != testLabelsPure.array()).count();
+        const int nErr = (NumGrind::Utils::argmaxRowwise(output.value()).array() != trainLabelsPure.array()).count();
         const float fErr = (float) nErr / trainLabelsPure.rows();
         const float acc = (1.0 - fErr) * 100;
         std::cout
