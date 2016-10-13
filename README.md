@@ -163,6 +163,7 @@ make
  - Find a way to automaticly include Eigen without adding it inside repository
 
 ##CI
+ - Make travis fall if tests are not passed
  - Add Windows support
 
 ##Solved

@@ -74,7 +74,7 @@ void mnistTest01() {
             solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
 
             if (iterInd % 100 == 0) {
-                std::cout << "Epoch: " << epochInd << " iter: " << iterInd << " err " << err.node()->value() << std::endl;
+                std::cout << "Epoch: " << epochInd << " iter: " << iterInd << std::endl;
                 X.setValue(testData);
                 output.node()->forwardPass(solver.vars());
                 const int nErr = (NumGrind::Utils::argmaxRowwise(output.value()).array() != testLabelsPure.array()).count();

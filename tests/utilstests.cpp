@@ -19,5 +19,5 @@ TEST(NumGrindUtilsSuit, testRowSampling01) {
     ASSERT_FLOAT_EQ(res(1, 0), 40);
     ASSERT_FLOAT_EQ(res(1, 1), -4);
     ASSERT_FLOAT_EQ(res(2, 0), 10);
-    ASSERT_FLOAT_EQ(res(2, 1), -1);
+    ASSERT_FLOAT_EQ(res(2, 1), 1);
 }
