@@ -23,9 +23,9 @@ before_script:
 
 script:
   - cmake --build .
-
-after_script:
   - ./tests/runUnitTests
+
+#after_script:
 
 notifications:
   email: false
