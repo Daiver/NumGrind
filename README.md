@@ -122,7 +122,6 @@ make
 #TODO
 
 ##Common
- - Improve mini batch selection
  - Refactor Utils
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
@@ -185,4 +184,5 @@ make
  - Split examples into several files
  - Add and test basic SGD with momentum
  - Make travis fall if tests are not passed
+ - Improve mini batch selection - Done
 
