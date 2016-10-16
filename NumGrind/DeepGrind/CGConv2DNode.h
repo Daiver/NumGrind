@@ -20,10 +20,14 @@ namespace NumGrind {
 
             virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
+            virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
+
             virtual const Eigen::MatrixXf &value() const override { return mValue; }
 
+            std::pair<int, int> resSizeFromShapes(const int xValShape, const int yValShape);
+
         private:
-            DeepGrind::Conv2DFilterShape filterParams;
+            DeepGrind::Conv2DFilterShape filterShape;
             int xStride;
             int yStride;
             int zeroPadding;
