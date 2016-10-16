@@ -2,18 +2,19 @@
 #define DEEPGRIND_CGCONVOLUTIONNODE_H
 
 #include "Utils.h"
+#include "Conv2DParams.h"
 #include "CompGraph/CGTensorOutput.h"
 
 namespace NumGrind {
     namespace CompGraph{
-        class CGConvolution2DNode : public CGTensorOutput{
+        class CGConv2DNode : public CGTensorOutput{
         public:
             virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
             virtual const Eigen::MatrixXf &value() const override { return mValue; }
 
         private:
-            DeepGrind::Shape3D filterShape;
+            DeepGrind::Conv2DParams filterParams;
             CGTensorOutput *argFilterWeights;
             CGTensorOutput *argValue;
             Eigen::MatrixXf mValue;

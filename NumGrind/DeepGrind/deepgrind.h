@@ -2,7 +2,7 @@
 #define NUMGRIND_DEEPGRIND_H
 
 #include "Utils.h"
-#include "CGConvolution2DNode.h"
+#include "CGConv2DNode.h"
 
 namespace DeepGrind{
 
