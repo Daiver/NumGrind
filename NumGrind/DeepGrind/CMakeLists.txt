@@ -7,7 +7,7 @@ set(NUMGRIND_DEEPGRIND_FILES
         ActivationFunctions.h ActivationFunctions.cpp
         Utils.cpp Utils.h
         CGConv2DNode.cpp CGConv2DNode.h
-        Conv2DParams.cpp Conv2DParams.h)
+        Conv2DFilterShape.cpp Conv2DFilterShape.h)
 
 add_library(DeepGrind ${NUMGRIND_DEEPGRIND_FILES})
 target_link_libraries(DeepGrind NumGrindSymbolicGraph NumGrindCompGraph)

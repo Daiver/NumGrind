@@ -57,15 +57,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConvolution2DNode.cpp" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConvolution2DNode.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.cpp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NumGrind.iml" afterPath="$PROJECT_DIR$/.idea/NumGrind.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/CMakeLists.txt" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/Utils.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/Utils.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/deepgrindconv2dtests.cpp" afterPath="$PROJECT_DIR$/tests/deepgrindconv2dtests.cpp" />
     </list>
     <ignored path="NumGrind.iws" />
@@ -89,8 +87,8 @@
       <file leaf-file-name="CGConv2DNode.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="225">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="42" />
               <folding>
                 <element signature="e#77#95#0" expanded="true" />
               </folding>
@@ -98,20 +96,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Conv2DParams.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp">
+      <file leaf-file-name="Conv2DFilterShape.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
               <folding>
-                <marker date="1476644733008" expanded="true" signature="302:306" ph="{...}" />
+                <marker date="1476645476628" expanded="true" signature="327:331" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Conv2DParams.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.h">
+      <file leaf-file-name="Conv2DFilterShape.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
@@ -130,17 +128,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CGConv2DNode.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CGConv2DNode.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deepgrindconv2dtests.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="deepgrindconv2dtests.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/deepgrindconv2dtests.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -202,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNScalarMult.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGScalarMult.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNScalarSub.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGScalarSub.h" />
@@ -250,9 +247,10 @@
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConvolution2DNode.h" />
-        <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.h" />
         <option value="$PROJECT_DIR$/tests/deepgrindconv2dtests.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h" />
+        <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp" />
       </list>
     </option>
   </component>
@@ -742,7 +740,7 @@
       <workItem from="1474993883519" duration="34556000" />
       <workItem from="1475773978743" duration="10428000" />
       <workItem from="1476071650721" duration="1951000" />
-      <workItem from="1476642506460" duration="2631000" />
+      <workItem from="1476642506460" duration="3177000" />
     </task>
     <servers />
   </component>
@@ -779,7 +777,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131790000" />
+    <option name="totallyTimeSpent" value="132336000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,11 +794,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12664908" sideWeight="0.87906975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12664908" sideWeight="0.12093023" order="2" side_tool="true" content_ui="tabs" />
@@ -1156,12 +1154,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp">
+    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
           <folding>
-            <marker date="1476644733008" expanded="true" signature="302:306" ph="{...}" />
+            <marker date="1476645476628" expanded="true" signature="327:331" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1174,32 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#77#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/deepgrindconv2dtests.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1207,6 +1179,32 @@
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DFilterShape.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="e#77#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

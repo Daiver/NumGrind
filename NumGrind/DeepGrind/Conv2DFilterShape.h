@@ -2,10 +2,10 @@
 #define NUMGRIND_CONV2DPARAMS_H
 
 namespace DeepGrind {
-    class Conv2DParams {
+    class Conv2DFilterShape {
     public:
-        Conv2DParams();
-        Conv2DParams(
+        Conv2DFilterShape();
+        Conv2DFilterShape(
             const int xShape,
             const int yShape,
             const int zShape,

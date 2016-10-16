@@ -6,7 +6,7 @@
 
 TEST(DeepGrindConv2DTests, test01) {
 
-    DeepGrind::Conv2DParams params(2, 3, 10, 6);
+    DeepGrind::Conv2DFilterShape params(2, 3, 10, 6);
     const int nParamsFor1Filter = params.nParams1FilterBiased();
     const int nParams = params.nParamsBiased();
     ASSERT_EQ(nParamsFor1Filter, 61);
