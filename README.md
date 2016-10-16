@@ -115,9 +115,15 @@ make
 ```
 
 #References and usefull links
+##Reverse mode auto-diff
+ - http://h2.jaguarpaw.co.uk/posts/reverse-mode-automatic-differentiation/ - great post by Tom Ellis (?). This post make NumGrind possible
 ##Optimization
 ###Solvers
  - http://sebastianruder.com/optimizing-gradient-descent/index.html#nesterovacceleratedgradient - description of cool SGD algorithms
+
+##Deep Learning
+###Convolution neural networks
+ - https://cs231n.github.io/convolutional-networks/ - nice explanation of basis
 
 #TODO
 

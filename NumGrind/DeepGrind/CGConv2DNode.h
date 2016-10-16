@@ -5,6 +5,7 @@
 #include "Conv2DFilterShape.h"
 #include "CompGraph/CGTensorOutput.h"
 
+//Just because i don't understand Tensors
 namespace NumGrind {
     namespace CompGraph{
         class CGConv2DNode : public CGTensorOutput{

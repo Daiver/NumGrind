@@ -18,6 +18,10 @@ NumGrind::CompGraph::CGConv2DNode::CGConv2DNode(const DeepGrind::Conv2DFilterSha
 void NumGrind::CompGraph::CGConv2DNode::forwardPass(const Eigen::VectorXf &vars) {
     this->argFilterWeights->forwardPass(vars);
     this->argValue->forwardPass(vars);
-
+    auto filter = argFilterWeights->value();
+    auto value = argValue->value();
+    assert(filter.rows() == this->filterParams.nParamsBiased());
+    assert(filter.cols() == 1);
+    
 }
 
