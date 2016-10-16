@@ -35,3 +35,7 @@ TEST(DeepGrindConv2DTests, testConv2DResShape02) {
     ASSERT_EQ(res.rows(), 5);
     ASSERT_EQ(res.cols(), 7);
 }
+
+TEST(DeepGrindConv2DTests, testForwardPass01) {
+
+}
