@@ -4,7 +4,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
 set(NUMGRIND_DEEPGRIND_FILES
         ActivationFunctions.h ActivationFunctions.cpp
-        CGConvolutionNode.cpp CGConvolutionNode.h Utils.cpp Utils.h)
+        CGConvolution2DNode.cpp CGConvolution2DNode.h Utils.cpp Utils.h deepgrind.cpp deepgrind.h)
 
 add_library(DeepGrind ${NUMGRIND_DEEPGRIND_FILES})
 target_link_libraries(DeepGrind NumGrindSymbolicGraph NumGrindCompGraph)

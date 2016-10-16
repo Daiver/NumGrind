@@ -5,7 +5,7 @@
 
 namespace DeepGrind {
 
-    typedef std::tuple<int, int> ConvFilterShape;
+    typedef std::tuple<int, int> Shape3D;
 
 }
 

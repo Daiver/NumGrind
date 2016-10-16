@@ -122,6 +122,7 @@ make
 #TODO
 
 ##Common
+ - Switch from Matrices to Tensors
  - Refactor Utils
  - Add shape checks into graph to make debugging more easy
  - Improve + operator for matrices (numpy like). Change - operator according to +
@@ -154,6 +155,7 @@ make
  - (long term issue) Add GPU/OpenCL support
 
 ##Tests
+ - Split DeepGrind and NumGrind tests
  - Proper gradient check for MLP 
  - Own namespaces/classes for tests?
  - Change tests names
