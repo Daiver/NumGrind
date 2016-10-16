@@ -34,12 +34,39 @@ void NumGrind::CompGraph::CGConv2DNode::forwardPass(const Eigen::VectorXf &vars)
     auto value = argValue->value();
     assert(filter.rows() == this->filterShape.nParamsBiased());
     assert(filter.cols() == 1);
+    assert(filterShape.zShape() == 1);
+    assert(filterShape.nFilters() == 1);
 
     const int xValShape = value.cols();
     const int yValShape = value.rows();
 
     const auto resShape = resSizeFromShapes(xValShape, yValShape);
-    this->mValue = Eigen::MatrixXf::Zero(resShape.second, resShape.first);
+    const int xResShape = resShape.first;
+    const int yResShape = resShape.second;
+    this->mValue = Eigen::MatrixXf::Zero(yResShape, xResShape);
+
+    //TODO: just rewrite it
+    const int xOffset = (zeroPadding == 0) ? (xValShape - xResShape) : 0;
+    const int yOffset = (zeroPadding == 0) ? (yValShape - yResShape) : 0;
+    for(int iRes = 0; iRes < yResShape; ++iRes){
+        for(int jRes = 0; jRes < xResShape; ++jRes){
+            for(int iFilter = 0; iFilter < filterShape.yShape(); iFilter++){
+                for(int jFilter = 0; jFilter < filterShape.xShape(); jFilter++){
+                    const int realFilterWidth  = filterShape.xShape() * xStride;
+                    const int realFilterHeight = filterShape.yShape() * yStride;
+                    int iToTake = iRes - (realFilterHeight / 2) + iFilter + xOffset;
+                    int jToTake = jRes - (realFilterWidth  / 2) + jFilter + yOffset;
+                    iToTake = (iToTake < 0) ? 0 : iToTake;
+                    iToTake = (iToTake >= yResShape) ? (yResShape - 1) : iToTake;
+                    jToTake = (jToTake < 0) ? 0 : jToTake;
+                    jToTake = (jToTake >= xResShape) ? (xResShape - 1) : jToTake;
+                    const float pixelVal  = value(iToTake, jToTake);
+                    const float filterVal = filter(iFilter, jFilter);
+                    mValue(iRes, jRes) += pixelVal * filterVal;
+                }
+            }
+        }
+    }
 }
 
 void NumGrind::CompGraph::CGConv2DNode::backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) {

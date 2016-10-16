@@ -18,6 +18,7 @@ namespace NumGrind {
                     CGTensorOutput *argFilterWeights,
                     CGTensorOutput *argValue);
 
+            //TODO: Should be reimplemented to make computations faster
             virtual void forwardPass(const Eigen::VectorXf &vars) override;
 
             virtual void backwardPass(const Eigen::MatrixXf &sensitivity, Eigen::VectorXf &grad) override;
