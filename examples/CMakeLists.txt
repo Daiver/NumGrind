@@ -16,3 +16,6 @@ add_executable(mnist_example
         mnist_example.cpp
         mnist.cpp mnist.h)
 target_link_libraries(mnist_example numgrind)
+
+add_executable(houseprice_example houseprice_example.cpp)
+target_link_libraries(houseprice_example numgrind)
