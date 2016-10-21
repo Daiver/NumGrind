@@ -7,7 +7,7 @@ NumGrind::Solvers::SGDWithMomentumSolver::SGDWithMomentumSolver(const NumGrind::
         : NumGrind::Solvers::SGDSolver(settings, stepSize, vars), momentumCoeff(momentumCoeff) {
     this->oldGrad.resize(vars.size());
     this->oldGrad.fill(0);
-    assert(false);//Not implemented
+//    assert(false);//Not implemented
 }
 
 void NumGrind::Solvers::SGDWithMomentumSolver::makeStep(std::function<float(const Eigen::VectorXf &)> func,

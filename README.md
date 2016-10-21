@@ -129,6 +129,10 @@ make
 #TODO
 
 ##Common
+ - Make solver usage easier
+ - Add validation tools to make examples less wired
+ - Fix my English =)
+ - Remove absolute paths from examples
  - Switch from Matrices to Tensors
  - Refactor Utils
  - Add shape checks into graph to make debugging more easy

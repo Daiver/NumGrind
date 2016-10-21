@@ -3,6 +3,7 @@
 
 #include "Utils.h"
 #include "CGConv2DNode.h"
+#include "ActivationFunctions.h"
 
 namespace DeepGrind{
 

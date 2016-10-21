@@ -57,7 +57,21 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="" />
+    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/data/house_prices/X_test.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/data/house_prices/X_train.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/data/house_prices/y_test.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/data/house_prices/y_train.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/house_prices/X_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/house_prices/X_train.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/house_prices/y_test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/house_prices/y_train.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" afterPath="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp" afterPath="$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/houseprice_example.cpp" afterPath="$PROJECT_DIR$/examples/houseprice_example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mnist_example.cpp" afterPath="$PROJECT_DIR$/examples/mnist_example.cpp" />
+    </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,26 +90,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CGConv2DNode.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/CGConv2DNode.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumGrind/Utils/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -121,8 +115,50 @@
       <file leaf-file-name="houseprice_example.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/houseprice_example.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="105">
+              <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CwiseBinaryOp.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/CwiseBinaryOp.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SGDWithMomentumSolver.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SGDWithMomentumSolver.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mnist_example.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/mnist_example.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -148,31 +184,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/Utils/utils.h">
+      <file leaf-file-name="deepgrind.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SymbolicTensorVariable.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DenseCoeffsBase.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseCoeffsBase.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5445">
-              <caret line="363" column="0" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -186,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGScalarSum.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/GNScalarVariable.h" />
         <option value="$PROJECT_DIR$/NumGrind/CompGraph/CGScalarVariable.h" />
         <option value="$PROJECT_DIR$/NumGrind/solvers/numericalgradient.h" />
@@ -216,14 +231,12 @@
         <option value="$PROJECT_DIR$/examples/operators_example.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/utils.h" />
         <option value="$PROJECT_DIR$/NumGrind/utils.cpp" />
-        <option value="$PROJECT_DIR$/examples/mnist_example.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/examples/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConvolutionNode.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CGConvolutionNode.h" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/ActivationFunctions.h" />
-        <option value="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/Utils.h" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/Conv2DParams.cpp" />
         <option value="$PROJECT_DIR$/NumGrind/DeepGrind/CMakeLists.txt" />
@@ -236,6 +249,9 @@
         <option value="$PROJECT_DIR$/NumGrind/Utils/eigexport.h" />
         <option value="$PROJECT_DIR$/NumGrind/Utils/eigexport.cpp" />
         <option value="$PROJECT_DIR$/examples/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/examples/mnist_example.cpp" />
+        <option value="$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h" />
+        <option value="$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp" />
         <option value="$PROJECT_DIR$/examples/houseprice_example.cpp" />
       </list>
     </option>
@@ -754,7 +770,7 @@
       <workItem from="1475773978743" duration="10428000" />
       <workItem from="1476071650721" duration="1951000" />
       <workItem from="1476642506460" duration="8197000" />
-      <workItem from="1477024298119" duration="390000" />
+      <workItem from="1477024298119" duration="2342000" />
     </task>
     <servers />
   </component>
@@ -791,7 +807,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137746000" />
+    <option name="totallyTimeSpent" value="139698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -809,10 +825,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12664908" sideWeight="0.87906975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12664908" sideWeight="0.12093023" order="2" side_tool="true" content_ui="tabs" />
@@ -844,28 +860,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicTensorVariable.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/SymbolicGraph/SymbolicScalarVariable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/Matrix.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/DenseStorage.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -979,6 +973,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,20 +993,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/utils.h" />
     <entry file="file://$PROJECT_DIR$/NumGrind/utils.cpp" />
-    <entry file="file://$PROJECT_DIR$/examples/mnist_example.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,14 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1195,11 +1175,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/DeepGrind/deepgrind.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/mnist_example.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumGrind/Solvers/SGDWithMomentumSolver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3rdparty/Eigen/src/Core/CwiseBinaryOp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/houseprice_example.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

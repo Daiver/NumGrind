@@ -69,8 +69,6 @@ void mnistTest01() {
                                                                    trainLabelsSamples);
         X.setValue(trainDataSamples);
         y.setValue(trainLabelsSamples);
-//        X.setValue(trainData.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 28*28));
-//        y.setValue(trainLabels.block((iterInd*batchSize) % (trainData.rows() - batchSize), 0, batchSize, 10));
         solver.makeStep(gm.funcFromNode(&err),
                         gm.gradFromNode(&err));
 
