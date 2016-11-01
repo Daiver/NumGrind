@@ -26,7 +26,9 @@ set(test_SRCS
         compgraphtests.cpp
         symbolicgraphtests.cpp
         gradientchecktests.cpp
-        utilstests.cpp deepgrindconv2dtests.cpp)
+        propergradientchecktests.cpp
+        utilstests.cpp 
+        deepgrindconv2dtests.cpp)
 
 add_executable(runUnitTests gtest.cpp ${test_SRCS})
 target_link_libraries(runUnitTests gtest gmock numgrind)
