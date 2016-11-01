@@ -78,12 +78,114 @@ TEST(NumGrindProperCheckGrad, testLinear02) {
     vars << 5, 0, 0;
     err.node()->forwardPass(vars);
     err.node()->backwardPass(1, grad);
-    //std::cout << grad;
     ASSERT_FLOAT_EQ(grad[0], 36);
     ASSERT_FLOAT_EQ(grad[1], 8 + 10);
     ASSERT_FLOAT_EQ(grad[2], 18);
-    //ASSERT_TRUE((grad1 - grad2).norm() < 0.01);
 }
 
 
+TEST(NumGrindProperCheckGrad, testLinear03) {
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
 
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 1, 1, 0;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+
+    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, 0}));
+    auto b1 = gm.variable(5);
+    auto f = matmult(X, W1) + b1;
+    auto err = sumOfSquares(f - y);
+
+    auto vars = gm.initializeVariables();
+    auto func = gm.funcFromNode(&err);
+    auto grad = gm.initializeGradient(vars);
+    auto grad2 = gm.initializeGradient(vars);
+
+    err.node()->forwardPass(vars);
+    err.node()->backwardPass(1, grad);
+    ASSERT_FLOAT_EQ(grad[0], 40);
+    ASSERT_FLOAT_EQ(grad[1], 22);
+    ASSERT_FLOAT_EQ(grad[2], 8 + 12);
+}
+
+
+TEST(NumGrindProperCheckGrad, testLinear04) {
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 1,
+            1, 0,
+            1, 1;
+    targets << 0, 1, 1, 0;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+
+    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, -3}));
+    auto b1 = gm.variable(5);
+    auto f = matmult(X, W1) + b1;
+    auto err = sumOfSquares(f - y);
+
+    auto vars = gm.initializeVariables();
+    auto func = gm.funcFromNode(&err);
+    auto grad = gm.initializeGradient(vars);
+    auto grad2 = gm.initializeGradient(vars);
+
+    err.node()->forwardPass(vars);
+    err.node()->backwardPass(1, grad);
+    ASSERT_FLOAT_EQ(grad[0], 28);
+    ASSERT_FLOAT_EQ(grad[1], 10 + 6);
+    ASSERT_FLOAT_EQ(grad[2], 2 + 6);
+}
+
+TEST(NumGrindProperCheckGrad, testLinear05) {
+    using namespace NumGrind::SymbolicGraph;
+    NumGrind::GraphManager gm;
+
+    Eigen::MatrixXf data(4, 2);
+    Eigen::VectorXf targets(4);
+    data << 0, 0,
+            0, 2,
+            1, 0,
+            1, 1;
+    targets << 0, 6, 1, 0;
+
+    std::default_random_engine generator;
+    generator.seed(42);
+
+    auto X = gm.constant(data);
+    auto y = gm.constant(targets);
+
+    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, -3}));
+    auto b1 = gm.variable(5);
+    auto f = matmult(X, W1) + b1;
+    auto err = sumOfSquares(f - y);
+
+    auto vars = gm.initializeVariables();
+    auto func = gm.funcFromNode(&err);
+    auto grad = gm.initializeGradient(vars);
+    auto grad2 = gm.initializeGradient(vars);
+
+    err.node()->forwardPass(vars);
+    err.node()->backwardPass(1, grad);
+    ASSERT_FLOAT_EQ(grad[0], 12);
+    ASSERT_FLOAT_EQ(grad[1], 10 + 6);
+    ASSERT_FLOAT_EQ(grad[2], -28 + 6);
+}
