@@ -27,6 +27,7 @@ set(test_SRCS
         symbolicgraphtests.cpp
         gradientchecktests.cpp
         propergradientchecktests.cpp
+        solverstests.cpp
         utilstests.cpp 
         deepgrindconv2dtests.cpp)
 
