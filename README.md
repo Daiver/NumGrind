@@ -130,6 +130,8 @@ make
 #TODO
 
 ##Common
+ - Rewrite normalizer in Eigen style
+ - Make test evaluation easier
  - Make solver usage easier
  - Add validation tools to make examples less wired
  - Fix my English =)

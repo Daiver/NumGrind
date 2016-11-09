@@ -8,7 +8,9 @@ namespace Utils {
 
 class Normalizer {
 public:
-    Normalizer(const Eigen::MatrixXf &data);// { assert(false); /* Not implemented yet */}
+    Normalizer(const Eigen::MatrixXf &data);
+
+    Eigen::MatrixXf transform(const Eigen::MatrixXf &data);
 
 private:
     Eigen::VectorXf mins;
