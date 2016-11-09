@@ -37,14 +37,14 @@ int main()
 
     auto vars = gm.initializeVariables();
     NumGrind::Solvers::SolverSettings settings;
-    settings.verbose = false;
+    //settings.verbose = false;
     settings.nMaxIterations = 10;
     NumGrind::Solvers::gradientDescent(settings, 0.01, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0001, 0.9, vars);
 
     const int batchSize = 64;
 
-    Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
+    /*Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(batchSize, 1);
 
     float bestErr = 1e10;
@@ -70,7 +70,7 @@ int main()
             auto trainErr = err.value()/trainData.rows();
             std::cout << std::endl << "Test error " << fErr << ", " << " Train error " << trainErr << ", best " << bestErr << " " << std::endl << std::endl;
         }
-    }
+    }*/
 
     return 0;
 }
