@@ -24,4 +24,16 @@ TEST(NumGrindUtilsSuit, testRowSampling01) {
 }
 
 
-
+TEST(NumGrindUtilsSuit, testNormalizer01) {
+    Eigen::MatrixXf data(3, 2);
+    data << 1,  8,
+            3, -2,
+            5,  0;
+    NumGrind::Utils::Normalizer normalizer(data);
+    auto res = normalizer.transform(data);
+    Eigen::MatrixXf ans = data;
+    ans << 0.0, 1.0,
+           0.5, 0.0,
+           1.0, 0.2;
+    ASSERT_TRUE((res - ans).norm() < 0.0001);
+}

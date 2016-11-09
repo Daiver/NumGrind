@@ -4,7 +4,6 @@
 
 NumGrind::Utils::Normalizer::Normalizer(const Eigen::MatrixXf &data)
 {
-    assert(false);//Not implemented yet
     const int nSamples  = data.rows();
     const int nFeatures = data.cols();
     this->mins = Eigen::VectorXf::Zero(nFeatures);
