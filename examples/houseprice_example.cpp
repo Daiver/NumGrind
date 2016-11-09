@@ -25,30 +25,33 @@ int main()
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainTargets);
 
-    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 100, 0.0, 0.01, generator));
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 100, 0.0, 0.01, generator));
-    auto w2 = gm.variable(NumGrind::Utils::gaussf(100, 1, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
-    auto f1 = apply<DeepGrind::relu, DeepGrind::reluDer>(matmult(X, w1) + b1);
-    auto f2 = matmult(f1, w2) + b2;
+    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 1, 0.0, 0.01, generator));
+    //auto w1 = gm.variable(Eigen::MatrixXf::Zero(trainData.cols(), 1));
+    //auto b1 = gm.variable(0);
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
+    //auto w2 = gm.variable(NumGrind::Utils::gaussf(100, 1, 0.0, 0.01, generator));
+    //auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
+    auto f1 = (matmult(X, w1) + b1);
+    //auto f1 = apply<DeepGrind::relu, DeepGrind::reluDer>(matmult(X, w1) + b1);
+    //auto f2 = matmult(f1, w2) + b2;
 
-    auto output = f2;
+    auto output = f1;
     auto err = sumOfSquares(output - y);
 
     auto vars = gm.initializeVariables();
     NumGrind::Solvers::SolverSettings settings;
     //settings.verbose = false;
     settings.nMaxIterations = 10;
-    NumGrind::Solvers::gradientDescent(settings, 0.01, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0001, 0.9, vars);
+    //NumGrind::Solvers::gradientDescent(settings, 0.000000001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
+    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.00000001, 0.9, vars);
 
-    const int batchSize = 64;
+    const int batchSize = 32;
 
-    /*Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
+    Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(batchSize, 1);
 
     float bestErr = 1e10;
-    for(int iterInd = 0; iterInd < 2000001; ++iterInd){
+    for(int iterInd = 0; iterInd < 2001; ++iterInd){
         NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
         X.setValue(trainDataSamples);
         y.setValue(trainLabelsSamples);
@@ -70,7 +73,7 @@ int main()
             auto trainErr = err.value()/trainData.rows();
             std::cout << std::endl << "Test error " << fErr << ", " << " Train error " << trainErr << ", best " << bestErr << " " << std::endl << std::endl;
         }
-    }*/
+    }
 
     return 0;
 }
