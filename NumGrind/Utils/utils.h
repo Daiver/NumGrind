@@ -41,7 +41,9 @@ namespace NumGrind {
 
         template <typename T1, typename T2>
         void sampleRowsByIndices(const std::vector<int> &indices, const Eigen::Matrix<T1, -1, -1> &mat, Eigen::Matrix<T2, -1, -1> &res);
+
     }
+
 }
 
 

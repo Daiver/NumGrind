@@ -5,6 +5,7 @@
 #include "Solvers/SGDWithMomentumSolver.h"
 #include "Solvers/GradientDescentSolver.h"
 #include "Utils/eigenimport.h"
+#include "Utils/Normalizer.h"
 
 int main()
 {

@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 #include "numgrind.h"
 #include "Utils/utils.h"
+#include "Utils/Normalizer.h"
 
 TEST(NumGrindUtilsSuit, testRowSampling01) {
     auto indices = {1, 3, 0};
@@ -21,3 +22,6 @@ TEST(NumGrindUtilsSuit, testRowSampling01) {
     ASSERT_FLOAT_EQ(res(2, 0), 10);
     ASSERT_FLOAT_EQ(res(2, 1), -1);
 }
+
+
+
