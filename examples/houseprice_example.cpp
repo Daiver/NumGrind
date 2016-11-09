@@ -26,15 +26,16 @@ int main()
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainTargets);
 
-    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 300, 0.0, 0.01, generator));
+    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 50, 0.0, 0.01, generator));
     //auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 1, 0.0, 0.01, generator));
     //auto w1 = gm.variable(Eigen::MatrixXf::Zero(trainData.cols(), 1));
     //auto b1 = gm.variable(0);
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 300, 0.0, 0.01, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 50, 0.0, 0.01, generator));
     //auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
-    auto w2 = gm.variable(NumGrind::Utils::gaussf(300, 1, 0.0, 0.01, generator));
+    auto w2 = gm.variable(NumGrind::Utils::gaussf(50, 1, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0, 0.01, generator));
     //auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
+    //auto f1 = (matmult(X, w1) + b1);
     //auto f1 = (matmult(X, w1) + b1);
     auto f1 = apply<DeepGrind::relu, DeepGrind::reluDer>(matmult(X, w1) + b1);
     auto f2 = matmult(f1, w2) + b2;
@@ -47,22 +48,24 @@ int main()
     settings.verbose = false;
     settings.nMaxIterations = 10;
     //NumGrind::Solvers::gradientDescent(settings, 0.000000001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
-    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.000000010, 0.9, vars);
+    //NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.000000010, 0.9, vars);
+    NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0000000003, 0.9, vars);
 
-    const int batchSize = 32;
+    //const int batchSize = 32;
+    const int batchSize = 8;
 
     Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(batchSize, 1);
 
     float bestErr = 1e10;
-    for(int iterInd = 0; iterInd < 100001; ++iterInd){
+    for(int iterInd = 0; iterInd < 2000001; ++iterInd){
         NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
         X.setValue(trainDataSamples);
         y.setValue(trainLabelsSamples);
         solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
 
-        if(iterInd % 50 == 0) std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
-        if(iterInd%100 == 0){
+        if(iterInd % 500 == 0) std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
+        if(iterInd%1000 == 0){
             X.setValue(testData);
             y.setValue(testTargets);
             err.node()->forwardPass(solver.vars());
