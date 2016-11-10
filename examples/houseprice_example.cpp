@@ -26,18 +26,14 @@ int main()
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainTargets);
 
-    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 30, 0.0, 0.01, generator));
-    //auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 1, 0.0, 0.01, generator));
-    //auto w1 = gm.variable(Eigen::MatrixXf::Zero(trainData.cols(), 1));
-    //auto b1 = gm.variable(0);
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 30, 0.0, 0.01, generator));
-    //auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
-    auto w2 = gm.variable(NumGrind::Utils::gaussf(30, 1, 0.0, 0.01, generator));
-    auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0, 0.01, generator));
-    //auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
-    //auto f1 = (matmult(X, w1) + b1);
-    //auto f1 = (matmult(X, w1) + b1);
-    auto f1 = apply<DeepGrind::relu, DeepGrind::reluDer>(matmult(X, w1) + b1);
+    const int hiddenLayerSize = 20;
+
+    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), hiddenLayerSize, 0.0, 0.001, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, hiddenLayerSize, 0.0, 0.001, generator));
+    auto w2 = gm.variable(NumGrind::Utils::gaussf(hiddenLayerSize, 1, 0.0, 0.001, generator));
+    auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0, 0.001, generator));
+    auto f1 = apply<DeepGrind::sigmoid, DeepGrind::sigmoidDer>(matmult(X, w1) + b1);
+    //auto f1 = apply<DeepGrind::relu, DeepGrind::reluDer>(matmult(X, w1) + b1);
     auto f2 = matmult(f1, w2) + b2;
 
     auto output = f2;
@@ -50,34 +46,39 @@ int main()
     //NumGrind::Solvers::gradientDescent(settings, 0.000000001, gm.funcFromNode(&err), gm.gradFromNode(&err), vars);
     //NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.000000010, 0.9, vars);
     NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.0000000003, 0.9, vars);
+    //NumGrind::Solvers::SGDWithMomentumSolver solver(settings, 0.000000003, 0.9, vars);
 
-    //const int batchSize = 32;
-    const int batchSize = 8;
+    const int batchSize = 32;
+    //const int batchSize = 8;
 
     Eigen::MatrixXf trainDataSamples(batchSize, trainData.cols());
     Eigen::MatrixXf trainLabelsSamples(batchSize, 1);
 
     float bestErr = 1e10;
-    for(int iterInd = 0; iterInd < 2000001; ++iterInd){
-        NumGrind::Utils::rowDataTargetRandomSampling<float, float>(trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
-        X.setValue(trainDataSamples);
-        y.setValue(trainLabelsSamples);
-        solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
-
-        if(iterInd % 500 == 0) std::cout << "Epoch " << iterInd << " err " << err.node()->value() << std::endl;
-        if(iterInd%1000 == 0){
+    for(int iterInd = 0; iterInd < 80001; ++iterInd){
+        for(int innerIter = 0; innerIter < trainData.rows() / batchSize; ++innerIter){
+            NumGrind::Utils::rowDataTargetRandomSampling<float, float>(
+                trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
+            X.setValue(trainDataSamples);
+            y.setValue(trainLabelsSamples);
+            solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
+        }
+        if(iterInd%100 == 0){
             X.setValue(testData);
             y.setValue(testTargets);
             err.node()->forwardPass(solver.vars());
             auto res = err.value();
             const float fErr = res / testTargets.rows();
-            if(fErr < bestErr)
-                bestErr = fErr;
+            if(fErr < bestErr) bestErr = fErr;
             X.setValue(trainData);
             y.setValue(trainTargets);
             err.node()->forwardPass(solver.vars());
             auto trainErr = err.value()/trainData.rows();
-            std::cout << std::endl << "Test error " << fErr << ", " << " Train error " << trainErr << ", best " << bestErr << " " << std::endl << std::endl;
+            std::cout 
+                << "Epoch: " << iterInd << ", "
+                << "Train error " << trainErr << ", "
+                << "Test error " << fErr << ", " 
+                << "best " << bestErr << " " << std::endl;
         }
     }
 
