@@ -26,13 +26,13 @@ int main()
     auto X = gm.constant(trainData);
     auto y = gm.constant(trainTargets);
 
-    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 50, 0.0, 0.01, generator));
+    auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 30, 0.0, 0.01, generator));
     //auto w1 = gm.variable(NumGrind::Utils::gaussf(trainData.cols(), 1, 0.0, 0.01, generator));
     //auto w1 = gm.variable(Eigen::MatrixXf::Zero(trainData.cols(), 1));
     //auto b1 = gm.variable(0);
-    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 50, 0.0, 0.01, generator));
+    auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 30, 0.0, 0.01, generator));
     //auto b1 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
-    auto w2 = gm.variable(NumGrind::Utils::gaussf(50, 1, 0.0, 0.01, generator));
+    auto w2 = gm.variable(NumGrind::Utils::gaussf(30, 1, 0.0, 0.01, generator));
     auto b2 = gm.variable(NumGrind::Utils::gaussf(0.0, 0.01, generator));
     //auto b2 = gm.variable(NumGrind::Utils::gaussf(1, 1, 0.0, 0.01, generator));
     //auto f1 = (matmult(X, w1) + b1);
