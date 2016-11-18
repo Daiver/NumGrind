@@ -4,7 +4,7 @@ project(Examples)
 include_directories(../NumGrind)
 add_executable(examples
         main.cpp
-        mnist.cpp mnist.h cppoptlib_example.cpp)
+        mnist.cpp mnist.h)
 target_link_libraries(examples numgrind)
 
 add_executable(operators_example

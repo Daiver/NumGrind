@@ -82,9 +82,9 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSum.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixScalarSum.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CompGraphNode.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSub.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGSumOfSquares.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarFunction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGSumOfSquares.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CompGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGVectorVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarConst.cpp" isTestSource="false" />
@@ -92,8 +92,8 @@
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarConst.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixVariable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarSub.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CompGraphNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGScalarOutput.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixSub.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGDotProduct.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGVectorVariable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/NumGrind/CompGraph/CGMatrixReduceSum.h" isTestSource="false" />
