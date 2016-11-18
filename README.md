@@ -74,7 +74,7 @@ See examples/ for more examples
 
 #Achivements
  - MNIST: 98.36% accuracy
- - House prices ~9.7 MSE
+ - House prices ~8.5 MSE
 
 #Dependencies
  - cmake - build tool
