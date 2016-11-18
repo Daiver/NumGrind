@@ -57,7 +57,10 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="" />
+    <list default="true" id="a116fd66-b19b-4597-9778-42094791fe87" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumGrind/Utils/utils.h" afterPath="$PROJECT_DIR$/NumGrind/Utils/utils.h" />
+    </list>
     <ignored path="NumGrind.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,9 +114,11 @@
       <file leaf-file-name="utils.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NumGrind/Utils/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="495">
+              <caret line="88" column="7" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
+              <folding>
+                <element signature="e#63#80#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -399,7 +404,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.houseprice_example">
+  <component name="RunManager" selected="Google Test.runUnitTests">
     <configuration default="false" name="All in gtest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NumGrind" TARGET_NAME="runUnitTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NumGrind" RUN_TARGET_NAME="runUnitTests" TEST_PATTERN="Suite01.*:Suite01/*.*:*/Suite01.*/*:*/Suite01/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
@@ -697,7 +702,7 @@
       <workItem from="1477024298119" duration="4090000" />
       <workItem from="1479450295402" duration="43000" />
       <workItem from="1479450348070" duration="445000" />
-      <workItem from="1479455599940" duration="3655000" />
+      <workItem from="1479455599940" duration="3714000" />
     </task>
     <servers />
   </component>
@@ -734,7 +739,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145589000" />
+    <option name="totallyTimeSpent" value="145648000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -751,7 +756,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13720317" sideWeight="0.87906975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1133,9 +1138,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NumGrind/Utils/utils.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="495">
+          <caret line="88" column="7" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
+          <folding>
+            <element signature="e#63#80#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

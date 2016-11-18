@@ -86,7 +86,7 @@ inline void ::NumGrind::Utils::sampleRowsByIndices(const std::vector<int> &indic
     }
 }
 
-Eigen::VectorXf NumGrind::Utils::evecf(const std::vector<float> &vec) {
+inline Eigen::VectorXf NumGrind::Utils::evecf(const std::vector<float> &vec) {
     Eigen::VectorXf res(vec.size());
     for (int i = 0; i < vec.size(); ++i)
         res[i] = vec[i];
