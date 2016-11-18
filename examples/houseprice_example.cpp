@@ -7,21 +7,20 @@
 #include "Utils/eigenimport.h"
 #include "Utils/Normalizer.h"
 
-int main()
-{
+int main() {
     using namespace NumGrind::SymbolicGraph;
     const std::string dataDir = "/home/daiver/coding/NumGrind/examples/data/house_prices/";
-    auto trainData    = NumGrind::Utils::readMatFromTxt(dataDir + "X_train.txt");
+    auto trainData = NumGrind::Utils::readMatFromTxt(dataDir + "X_train.txt");
     const auto trainTargets = NumGrind::Utils::readMatFromTxt(dataDir + "y_train.txt");
-    auto testData     = NumGrind::Utils::readMatFromTxt(dataDir + "X_test.txt");
-    const auto testTargets  = NumGrind::Utils::readMatFromTxt(dataDir + "y_test.txt");
+    auto testData = NumGrind::Utils::readMatFromTxt(dataDir + "X_test.txt");
+    const auto testTargets = NumGrind::Utils::readMatFromTxt(dataDir + "y_test.txt");
     std::cout << "n Features " << trainData.cols() << std::endl;
     std::cout << "n Train samples " << trainData.rows() << std::endl;
     std::cout << "n Test samples " << testData.rows() << std::endl;
 
     NumGrind::Utils::Normalizer normalizer(trainData);
     trainData = normalizer.transform(trainData);
-    testData  = normalizer.transform(testData);
+    testData = normalizer.transform(testData);
 
     NumGrind::GraphManager gm;
 
@@ -59,30 +58,30 @@ int main()
     Eigen::MatrixXf trainLabelsSamples(batchSize, 1);
 
     float bestErr = 1e10;
-    for(int iterInd = 0; iterInd < 200001; ++iterInd){
-        for(int innerIter = 0; innerIter < trainData.rows() / batchSize; ++innerIter){
+    for (int iterInd = 0; iterInd < 200001; ++iterInd) {
+        for (int innerIter = 0; innerIter < trainData.rows() / batchSize; ++innerIter) {
             NumGrind::Utils::rowDataTargetRandomSampling<float, float>(
-                trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
+                    trainData, trainTargets, generator, trainDataSamples, trainLabelsSamples);
             X.setValue(trainDataSamples);
             y.setValue(trainLabelsSamples);
             solver.makeStep(gm.funcFromNode(&err), gm.gradFromNode(&err));
         }
-        if(iterInd%100 == 0){
+        if (iterInd % 100 == 0) {
             X.setValue(testData);
             y.setValue(testTargets);
             err.node()->forwardPass(solver.vars());
             auto res = err.value();
             const float fErr = res / testTargets.rows();
-            if(fErr < bestErr) bestErr = fErr;
+            if (fErr < bestErr) bestErr = fErr;
             X.setValue(trainData);
             y.setValue(trainTargets);
             err.node()->forwardPass(solver.vars());
-            auto trainErr = err.value()/trainData.rows();
-            std::cout 
-                << "Epoch: " << iterInd << ", "
-                << "Train error " << trainErr << ", "
-                << "Test error " << fErr << ", " 
-                << "best " << bestErr << " " << std::endl;
+            auto trainErr = err.value() / trainData.rows();
+            std::cout
+                    << "Epoch: " << iterInd << ", "
+                    << "Train error " << trainErr << ", "
+                    << "Test error " << fErr << ", "
+                    << "best " << bestErr << " " << std::endl;
         }
     }
 
