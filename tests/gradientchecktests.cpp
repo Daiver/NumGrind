@@ -12,7 +12,7 @@ using namespace NumGrind;
 
 TEST(NumGrindCheckGrad, testNumericalGradient01) {
     auto f = [](const Eigen::VectorXf &vars) { return vars.dot(vars); };
-    const Eigen::VectorXf vars = Utils::vec2EVecf({1, 2, 3});
+    const Eigen::VectorXf vars = Utils::evecf({1, 2, 3});
     Eigen::VectorXf grad(vars.size());
     Solvers::numericalGradient(f, vars, 0.00001, grad);
 
@@ -52,7 +52,7 @@ TEST(NumGrindCheckGrad, testSigmoid01) {
 
     const float val = 0.02;
 
-    const Eigen::VectorXf vars = Utils::vec2EVecf({val});
+    const Eigen::VectorXf vars = Utils::evecf({val});
     Eigen::VectorXf grad(vars.size());
     Solvers::numericalGradient(f, vars, 0.00001, grad);
     const float realDer = testhelpers::sigmoidDer(val);

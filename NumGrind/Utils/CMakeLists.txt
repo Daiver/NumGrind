@@ -6,7 +6,10 @@ set(NUMGRIND_UTILS_FILES
         utils.h utils.cpp
         eigenimport.h
         eigenimport.cpp
+        randomutils.h
+        randomutils.cpp
         Normalizer.h
-        Normalizer.cpp)
+        Normalizer.cpp
+        )
 
 add_library(Utils ${NUMGRIND_UTILS_FILES})

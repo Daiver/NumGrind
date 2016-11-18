@@ -102,7 +102,7 @@ TEST(NumGrindProperCheckGrad, testLinear03) {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, 0}));
+    auto W1 = gm.variable(NumGrind::Utils::evecf({1, 0}));
     auto b1 = gm.variable(5);
     auto f = matmult(X, W1) + b1;
     auto err = sumOfSquares(f - y);
@@ -138,7 +138,7 @@ TEST(NumGrindProperCheckGrad, testLinear04) {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, -3}));
+    auto W1 = gm.variable(NumGrind::Utils::evecf({1, -3}));
     auto b1 = gm.variable(5);
     auto f = matmult(X, W1) + b1;
     auto err = sumOfSquares(f - y);
@@ -173,7 +173,7 @@ TEST(NumGrindProperCheckGrad, testLinear05) {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({1, -3}));
+    auto W1 = gm.variable(NumGrind::Utils::evecf({1, -3}));
     auto b1 = gm.variable(5);
     auto f = matmult(X, W1) + b1;
     auto err = sumOfSquares(f - y);

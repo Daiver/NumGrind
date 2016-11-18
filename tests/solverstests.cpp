@@ -24,7 +24,7 @@ TEST(NumGrindSolvers, testLinear01) {
     auto X = gm.constant(data);
     auto y = gm.constant(targets);
 
-    auto W1 = gm.variable(NumGrind::Utils::vec2EVecf({0, 0}));
+    auto W1 = gm.variable(NumGrind::Utils::evecf({0, 0}));
     auto b1 = gm.variable(0);
     auto f = matmult(X, W1) + b1;
     auto err = sumOfSquares(f - y);
