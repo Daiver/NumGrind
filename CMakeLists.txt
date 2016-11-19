@@ -17,6 +17,7 @@ include_directories(3rdparty/CppNumericalSolvers/include/)
 
 #include_directories("./3rdparty")
 add_subdirectory(NumGrind)
+add_subdirectory(CppOptLibTools)
 add_subdirectory(examples)
 add_subdirectory(tests)
 

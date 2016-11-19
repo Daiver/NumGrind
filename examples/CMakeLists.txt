@@ -1,7 +1,8 @@
 project(Examples)
 
-#add_subdirectory(../NumGrind)
 include_directories(../NumGrind)
+include_directories(..)
+
 add_executable(examples
         main.cpp
         mnist.cpp mnist.h)

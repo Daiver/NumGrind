@@ -77,8 +77,11 @@ See examples/ for more examples
  - House prices ~8.5 MSE
 
 #Dependencies
+##NumGrind
  - cmake - build tool
  - Eigen3 - basic linear algebra
+ - (Optionaly) CppNumericalSolvers (CppOptLib) - as baseline for optimization
+##Testing
  - Download Project - download google test in compile time
  - Google Test - for testing
 
@@ -100,7 +103,7 @@ Just run it
 #In case of non-Ubuntu system just replace this by your package manager commands
 sudo apt-get install cmake libeigen3-dev
 
-git clone https://github.com/Daiver/NumGrind
+git clone --recursive https://github.com/Daiver/NumGrind
 
 cd NumGrind
 
@@ -122,6 +125,7 @@ make
 ##Optimization
 ###Solvers
  - http://sebastianruder.com/optimizing-gradient-descent/index.html#nesterovacceleratedgradient - description of cool SGD algorithms
+ - https://github.com/PatWie/CppNumericalSolvers - C++/Eigen implementation of traditional algos like BFGS
 
 ##Deep Learning
 ###Convolution neural networks
@@ -130,6 +134,7 @@ make
 #TODO
 
 ##Common
+ - Make compilation with CppOptLib optional
  - Rewrite normalizer in Eigen style
  - Make test evaluation easier
  - Make solver usage easier
@@ -175,9 +180,9 @@ make
  - Change tests names
 
 ##3rdparty
- - Find a way to automaticly include Eigen without adding it inside repository
+ - Remove Download project and use gitmodule
 
-##CI
+##Continious Integration
  - Add Windows support
 
 ##Solved
@@ -201,4 +206,5 @@ make
  - Add and test basic SGD with momentum
  - Make travis fall if tests are not passed
  - Improve mini batch selection - Done
+ - Find a way to automaticly include Eigen without adding it inside repository
 

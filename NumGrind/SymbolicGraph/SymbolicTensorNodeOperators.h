@@ -26,7 +26,7 @@ namespace NumGrind {
 
         SymbolicScalarNode sumOfSquares(SymbolicTensorNode a);
 
-        template<float Func(float), float Der(float)>
+        template<float Func(const float), float Der(const float)>
         SymbolicTensorNode apply(SymbolicTensorNode a);
 
         SymbolicTensorNode operator+(SymbolicTensorNode a, SymbolicTensorNode b);
@@ -57,7 +57,7 @@ namespace NumGrind {
 
 
 //IMPLEMENTATIONS
-template <float Func(float), float Der(float)>
+template <float Func(const float), float Der(const float)>
 NumGrind::SymbolicGraph::SymbolicTensorNode NumGrind::SymbolicGraph::apply(NumGrind::SymbolicGraph::SymbolicTensorNode a)
 {
     NumGrind::SymbolicGraph::SymbolicGraphManagerAbstract *m = a.manager();
